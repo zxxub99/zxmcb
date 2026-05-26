@@ -18,6 +18,11 @@ import Verification from './pages/Verification'
 import PointsRecord from './pages/PointsRecord'
 import UserDetail from './pages/UserDetail'
 import Notifications from './pages/Notifications'
+import Dashboard from './pages/Dashboard'
+import Settings from './pages/Settings'
+import Search from './pages/Search'
+import Favorites from './pages/Favorites'
+import Rating from './pages/Rating'
 
 function App() {
   return (
@@ -41,6 +46,11 @@ function App() {
           <Route path="/points" element={<PointsRecord />} />
           <Route path="/user/:userId" element={<UserDetail />} />
           <Route path="/notifications" element={<Notifications />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/settings" element={<Settings />} />
+          <Route path="/search" element={<Search />} />
+          <Route path="/favorites" element={<Favorites />} />
+          <Route path="/rating/:id/:type" element={<Rating />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>

@@ -57,12 +57,14 @@ export default function MyPage() {
   }
 
   const menuItems = [
+    { key: 'dashboard', title: '数据看板', icon: '📊' },
     { key: 'publish', title: '我的发布', icon: '📝' },
     { key: 'favorite', title: '我的收藏', icon: '❤️' },
     { key: 'transaction', title: '交易记录', icon: '💰' },
     { key: 'help', title: '互助记录', icon: '🤝' },
     { key: 'points', title: '积分中心', icon: '💎' },
     { key: 'evaluation', title: '评价中心', icon: '⭐' },
+    { key: 'search', title: '搜索', icon: '🔍' },
     { key: 'settings', title: '设置', icon: '⚙️' },
   ]
 
@@ -126,6 +128,10 @@ export default function MyPage() {
             <Grid.Item key={item.key}>
               <div className={styles.menuItem} onClick={() => {
                 if (item.key === 'points') navigate('/points')
+                else if (item.key === 'dashboard') navigate('/dashboard')
+                else if (item.key === 'favorite') navigate('/favorites')
+                else if (item.key === 'search') navigate('/search')
+                else if (item.key === 'settings') navigate('/settings')
                 else Toast.show('功能开发中')
               }}>
                 <span className={styles.menuIcon}>{item.icon}</span>

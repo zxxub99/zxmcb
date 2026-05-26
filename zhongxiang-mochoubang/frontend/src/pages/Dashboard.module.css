@@ -1,0 +1,255 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding-bottom: 60px;
+}
+
+.logo {
+  font-size: 18px;
+  font-weight: bold;
+  color: #1677ff;
+}
+
+.settingsIcon {
+  font-size: 22px;
+  color: #666;
+}
+
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60vh;
+}
+
+.content {
+  padding: 12px;
+}
+
+.levelCard {
+  margin-bottom: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border: none;
+}
+
+.levelCard :global(.adm-card-body) {
+  padding: 16px;
+  color: white;
+}
+
+.levelHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.levelInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.levelBadge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.levelTitle {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.levelPoints {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.levelProgress {
+  margin-top: 8px;
+}
+
+.levelProgress :global(.adm-progress-bar) {
+  height: 8px;
+  border-radius: 4px;
+}
+
+.levelText {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 6px;
+}
+
+.statsGrid {
+  margin-bottom: 12px;
+}
+
+.statsGrid :global(.adm-grid-item) {
+  padding: 6px;
+}
+
+.statCard {
+  text-align: center;
+  padding: 8px;
+}
+
+.statCard :global(.adm-card-body) {
+  padding: 12px;
+}
+
+.statIcon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-size: 20px;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 4px;
+}
+
+.statTitle {
+  font-size: 12px;
+  color: #999;
+}
+
+.activityCard {
+  margin-bottom: 12px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  margin-bottom: 12px;
+}
+
+.activityChart {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+  height: 100px;
+  padding: 0 8px;
+}
+
+.dayColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.barsContainer {
+  display: flex;
+  gap: 3px;
+  align-items: flex-end;
+  height: 80px;
+}
+
+.bar {
+  width: 8px;
+  min-height: 4px;
+  border-radius: 2px;
+  transition: height 0.3s ease;
+  cursor: pointer;
+}
+
+.bar:hover {
+  opacity: 0.8;
+}
+
+.dayLabel {
+  font-size: 11px;
+  color: #999;
+  margin-top: 6px;
+}
+
+.chartLegend {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #666;
+}
+
+.legendDot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.activityList {
+  margin-bottom: 12px;
+}
+
+.activityList :global(.adm-card-body) {
+  padding: 0;
+}
+
+.activityItem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.activityTitle {
+  font-size: 14px;
+  color: #333;
+}
+
+.activityTime {
+  font-size: 12px;
+  color: #999;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.infoCard {
+  margin-bottom: 12px;
+}
+
+.infoList {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 13px;
+  color: #666;
+}
+
+.infoIcon {
+  font-size: 18px;
+  color: #1677ff;
+}
+
+.tabBar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
