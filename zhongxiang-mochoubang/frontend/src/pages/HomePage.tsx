@@ -205,13 +205,17 @@ export default function HomePage() {
       <div className={styles.bottomSpace}></div>
 
       {/* 底部导航 */}
-      <TabBar activeKey={activeTab} onChange={(key) => {
-        setActiveTab(key)
-        if (key === 'nearby') navigate('/nearby')
-        if (key === 'square') navigate('/square')
-        if (key === 'messages') navigate('/messages')
-        if (key === 'my') navigate('/my')
-      }}>
+      <TabBar 
+        activeKey={activeTab} 
+        onChange={(key) => {
+          setActiveTab(key)
+          if (key === 'nearby') navigate('/nearby')
+          if (key === 'square') navigate('/square')
+          if (key === 'messages') navigate('/messages')
+          if (key === 'my') navigate('/my')
+        }}
+        style={{ paddingBottom: 'env(safe-area-inset-bottom)' }}
+      >
         {tabs.map(tab => (
           <TabBar.Item 
             key={tab.key} 

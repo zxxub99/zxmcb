@@ -348,3 +348,71 @@
 .bottomSpace {
   height: 20px;
 }
+
+/* 移动端适配 */
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 10px 12px;
+    padding-top: 16px;
+  }
+  
+  .bannerImage {
+    height: 130px;
+  }
+  
+  .entryIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .entryTitle {
+    font-size: 11px;
+  }
+  
+  .itemGrid {
+    gap: 8px;
+  }
+  
+  .itemImage {
+    height: 80px;
+  }
+  
+  .itemInfo {
+    padding: 6px;
+  }
+  
+  .itemTitle {
+    font-size: 11px;
+  }
+  
+  .itemPrice {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .bannerImage {
+    height: 180px;
+  }
+  
+  .itemGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .itemImage {
+    height: 120px;
+  }
+}
+
+/* 安全区域适配 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .container {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+}
