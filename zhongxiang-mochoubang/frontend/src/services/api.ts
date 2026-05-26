@@ -120,6 +120,10 @@ export const api = {
   sendMessage: (toUserId: number, content: string, messageType = 'text') => {
     return apiClient.post('/messages/', { to_user_id: toUserId, content, message_type: messageType })
   },
+
+  markAsRead: (messageIds: number[]) => {
+    return apiClient.post('/messages/read', { message_ids: messageIds })
+  },
 }
 
 export default apiClient
