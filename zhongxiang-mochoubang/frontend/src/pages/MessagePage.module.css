@@ -24,8 +24,88 @@
   cursor: pointer;
 }
 
+/* 聊天机器人入口 */
+.botSection {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.botSection:active {
+  opacity: 0.9;
+}
+
+.botAvatar {
+  position: relative;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  border-radius: 50%;
+}
+
+.botEmoji {
+  font-size: 28px;
+}
+
+.botOnline {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 14px;
+  height: 14px;
+  background: #52c41a;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.botInfo {
+  flex: 1;
+}
+
+.botName {
+  font-size: 17px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.botTag {
+  font-size: 11px;
+  background: rgba(255, 255, 255, 0.3);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: normal;
+}
+
+.botIntro {
+  font-size: 13px;
+  opacity: 0.9;
+}
+
+.botArrow {
+  font-size: 24px;
+  opacity: 0.7;
+}
+
+.listTitle {
+  padding: 12px 16px 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  background: var(--bg-color);
+}
+
 .list {
-  padding: 12px;
+  padding: 0 12px 12px;
 }
 
 .convItem {
@@ -90,6 +170,7 @@
 
 .loading, .empty {
   text-align: center;
-  padding: 40px;
+  padding: 40px 20px;
   color: var(--text-secondary);
+  font-size: 14px;
 }
