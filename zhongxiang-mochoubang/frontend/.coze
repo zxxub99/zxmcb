@@ -3,6 +3,7 @@ sub_id = "a1b2c3d4"
 name = "zhongxiang-mochoubang-frontend"
 requires = ["nodejs-24"]
 project_type = "web"
+entrypoint = "."
 
 [preview]
 preview_enable = "enabled"
