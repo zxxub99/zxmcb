@@ -86,6 +86,27 @@ zhongxiang-mochoubang/
 - 聊天记录、交易记录全程留痕
 - 严格敏感词过滤
 
+## 预览链路
+
+### 预览配置
+- **端口**: 5000 (必须)
+- **绑定地址**: 0.0.0.0 (IPv4全接口)
+- **技术栈**: React + Vite
+
+### 预览命令
+```bash
+cd frontend && pnpm exec vite --host 0.0.0.0 --port 5000
+```
+
+### .coze配置
+- 根`.coze`: `/workspace/projects/.coze`
+- 子项目`.coze`: `/workspace/projects/zhongxiang-mochoubang/.coze`
+- 预览脚本: `zhongxiang-mochoubang/frontend/scripts/coze-preview-run.sh`
+
+### 常见问题
+- 端口被占用：使用 `fuser -k 5000/tcp` 清理
+- 预览打不开：确认通过Coze平台预览功能访问
+
 ## 常见问题
 
 ### 中老年用户体验
