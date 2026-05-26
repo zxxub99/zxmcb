@@ -1,0 +1,40 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  padding: 40px 24px;
+}
+
+.header {
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.header p {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.form {
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.footer {
+  margin-top: 24px;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+}
+
+.footer span {
+  color: #1890ff;
+}
