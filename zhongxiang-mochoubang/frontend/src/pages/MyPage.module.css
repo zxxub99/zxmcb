@@ -85,3 +85,22 @@
   font-size: 14px;
   color: var(--text-color);
 }
+
+.loading, .empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.loginBtn {
+  display: block;
+  width: 200px;
+  margin: 16px auto;
+  padding: 12px;
+  background: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}

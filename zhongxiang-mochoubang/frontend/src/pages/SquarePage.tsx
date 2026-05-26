@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Card, Tabs, Empty } from 'antd-mobile'
+import { Tabs } from 'antd-mobile'
 import { api } from '../services/api'
 import styles from './SquarePage.module.css'
 
@@ -15,6 +15,7 @@ interface Post {
 export default function SquarePage() {
   const [idleItems, setIdleItems] = useState<Post[]>([])
   const [helpRequests, setHelpRequests] = useState<Post[]>([])
+  const [loading, setLoading] = useState(true)
   const [activeTab, setActiveTab] = useState('idle')
 
   useEffect(() => {
@@ -23,14 +24,16 @@ export default function SquarePage() {
 
   const loadData = async () => {
     try {
-      const [idleData, helpData] = await Promise.all([
+      const [idleData, helpData]: [any, any] = await Promise.all([
         api.getIdleItems(),
         api.getHelpRequests(),
       ])
-      setIdleItems(idleData)
-      setHelpRequests(helpData)
+      setIdleItems(idleData || [])
+      setHelpRequests(helpData || [])
     } catch (error) {
       console.error('加载数据失败', error)
+    } finally {
+      setLoading(false)
     }
   }
 
@@ -56,42 +59,46 @@ export default function SquarePage() {
         <span className={styles.subtitle}>发现身边的闲置好物和互助需求</span>
       </div>
 
-      <Tabs activeKey={activeTab} onChange={setActiveTab as any}>
+      <Tabs activeKey={activeTab} onChange={(key) => setActiveTab(key)}>
         <Tabs.Tab title="闲置好物" key="idle">
           <div className={styles.list}>
-            {idleItems.length > 0 ? (
+            {loading ? (
+              <div className={styles.loading}>加载中...</div>
+            ) : idleItems.length > 0 ? (
               idleItems.map(item => (
-                <Card key={item.id} className={styles.card}>
-                  <Card.Header
-                    title={item.title}
-                    extra={<span className={styles.tag}>{getCategoryName(item.category)}</span>}
-                  />
-                  <Card.Body>
+                <div key={item.id} className={styles.card}>
+                  <div className={styles.cardHeader}>
+                    <span className={styles.title}>{item.title}</span>
+                    <span className={styles.tag}>{getCategoryName(item.category)}</span>
+                  </div>
+                  <div className={styles.cardBody}>
                     <p>{item.description || '暂无描述'}</p>
-                  </Card.Body>
-                </Card>
+                  </div>
+                </div>
               ))
             ) : (
-              <Empty description="暂无闲置物品" />
+              <div className={styles.empty}>暂无闲置物品</div>
             )}
           </div>
         </Tabs.Tab>
         <Tabs.Tab title="互助需求" key="help">
           <div className={styles.list}>
-            {helpRequests.length > 0 ? (
+            {loading ? (
+              <div className={styles.loading}>加载中...</div>
+            ) : helpRequests.length > 0 ? (
               helpRequests.map(req => (
-                <Card key={req.id} className={styles.card}>
-                  <Card.Header
-                    title={req.title}
-                    extra={<span className={styles.tag}>{getCategoryName(req.category)}</span>}
-                  />
-                  <Card.Body>
+                <div key={req.id} className={styles.card}>
+                  <div className={styles.cardHeader}>
+                    <span className={styles.title}>{req.title}</span>
+                    <span className={styles.tag}>{getCategoryName(req.category)}</span>
+                  </div>
+                  <div className={styles.cardBody}>
                     <p>{req.description || '暂无描述'}</p>
-                  </Card.Body>
-                </Card>
+                  </div>
+                </div>
               ))
             ) : (
-              <Empty description="暂无互助需求" />
+              <div className={styles.empty}>暂无互助需求</div>
             )}
           </div>
         </Tabs.Tab>

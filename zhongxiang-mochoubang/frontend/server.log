@@ -1,8 +1,6 @@
-Port 5000 is in use, trying another one...
-Port 5001 is in use, trying another one...
 
-  VITE v5.4.21  ready in 133 ms
+  VITE v5.4.21  ready in 131 ms
 
-  ➜  Local:   http://localhost:5002/
-  ➜  Network: http://9.96.251.74:5002/
-  ➜  Network: http://169.254.102.166:5002/
+  ➜  Local:   http://localhost:5000/
+  ➜  Network: http://9.96.251.74:5000/
+  ➜  Network: http://169.254.102.166:5000/

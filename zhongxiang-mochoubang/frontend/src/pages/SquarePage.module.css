@@ -25,7 +25,24 @@
 }
 
 .card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
   margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  flex: 1;
 }
 
 .tag {
@@ -34,4 +51,15 @@
   padding: 2px 8px;
   border-radius: 4px;
   font-size: 12px;
+}
+
+.cardBody {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
 }

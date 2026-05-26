@@ -28,6 +28,17 @@
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
 }
 
+.inputGroup {
+  margin-bottom: 20px;
+}
+
+.label {
+  display: block;
+  font-size: 14px;
+  color: var(--text-color);
+  margin-bottom: 8px;
+}
+
 .footer {
   margin-top: 24px;
   text-align: center;

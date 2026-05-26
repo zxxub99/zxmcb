@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { List, Avatar, Tag, Empty } from 'antd-mobile'
+import { Avatar, Tag } from 'antd-mobile'
 import { api } from '../services/api'
 import styles from './NearbyPage.module.css'
 
@@ -23,8 +23,8 @@ export default function NearbyPage() {
 
   const loadUsers = async () => {
     try {
-      const data = await api.getNearbyUsers()
-      setUsers(data)
+      const data: any = await api.getNearbyUsers()
+      setUsers(data || [])
     } catch (error) {
       console.error('加载附近用户失败', error)
     } finally {
@@ -58,29 +58,27 @@ export default function NearbyPage() {
         <span className={styles.subtitle}>发现身边的钟祥邻居</span>
       </div>
 
-      <List>
-        {users.length > 0 ? (
+      <div className={styles.list}>
+        {loading ? (
+          <div className={styles.loading}>加载中...</div>
+        ) : users.length > 0 ? (
           users.map(user => (
-            <List.Item
-              key={user.id}
-              prefix={
-                <Avatar src={user.avatar || 'https://via.placeholder.com/48'} style={{ borderRadius: '50%' }} />
-              }
-              description={
-                <div className={styles.userInfo}>
+            <div key={user.id} className={styles.userItem}>
+              <Avatar src={user.avatar || 'https://via.placeholder.com/48'} />
+              <div className={styles.userInfo}>
+                <div className={styles.userName}>{user.nickname}</div>
+                <div className={styles.userTags}>
                   <Tag color={user.gender === 'male' ? 'blue' : 'pink'}>{getGenderText(user.gender)}</Tag>
                   <Tag color="green">{getStarText(user.star)}</Tag>
                   {user.town && <span className={styles.town}>{user.town}</span>}
                 </div>
-              }
-            >
-              {user.nickname}
-            </List.Item>
+              </div>
+            </div>
           ))
         ) : (
-          <Empty description="附近暂无用户" />
+          <div className={styles.empty}>附近暂无用户</div>
         )}
-      </List>
+      </div>
     </div>
   )
 }

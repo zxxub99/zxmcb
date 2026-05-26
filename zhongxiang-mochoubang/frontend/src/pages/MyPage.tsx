@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { List, Card, Tag, Button, Grid, Empty } from 'antd-mobile'
+import { Tag, Grid } from 'antd-mobile'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../services/api'
 import styles from './MyPage.module.css'
@@ -27,7 +27,7 @@ export default function MyPage() {
 
   const loadUserInfo = async () => {
     try {
-      const data = await api.getUserInfo()
+      const data: any = await api.getUserInfo()
       setUserInfo(data)
     } catch (error) {
       console.error('加载用户信息失败', error)
@@ -65,13 +65,21 @@ export default function MyPage() {
     { key: 'settings', title: '设置', icon: '⚙️' },
   ]
 
+  if (loading) {
+    return (
+      <div className={styles.container}>
+        <div className={styles.loading}>加载中...</div>
+      </div>
+    )
+  }
+
   if (!userInfo) {
     return (
       <div className={styles.container}>
-        <Empty description="请先登录" />
-        <Button block color="primary" onClick={() => navigate('/login')} style={{ marginTop: 16 }}>
+        <div className={styles.empty}>请先登录</div>
+        <button className={styles.loginBtn} onClick={() => navigate('/login')}>
           去登录
-        </Button>
+        </button>
       </div>
     )
   }
@@ -109,7 +117,7 @@ export default function MyPage() {
         <Grid columns={3} gap={8}>
           {menuItems.map(item => (
             <Grid.Item key={item.key}>
-              <div className={styles.menuItem} onClick={() => console.log(item.key)}>
+              <div className={styles.menuItem}>
                 <span className={styles.menuIcon}>{item.icon}</span>
                 <span className={styles.menuTitle}>{item.title}</span>
               </div>

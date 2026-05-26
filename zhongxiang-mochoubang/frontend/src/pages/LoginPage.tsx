@@ -1,24 +1,31 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Form, Input, Button, Toast } from 'antd-mobile'
+import { Button, Input, Toast } from 'antd-mobile'
 import { api } from '../services/api'
 import styles from './LoginPage.module.css'
 
 export default function LoginPage() {
   const navigate = useNavigate()
   const [loading, setLoading] = useState(false)
+  const [phone, setPhone] = useState('')
+  const [password, setPassword] = useState('')
 
-  const onFinish = async (values: { phone: string; password: string }) => {
+  const handleLogin = async () => {
+    if (!phone || !password) {
+      Toast.show('请输入手机号和密码')
+      return
+    }
+    
     setLoading(true)
     try {
-      const response = await api.login(values.phone, values.password)
+      const response: any = await api.login(phone, password)
       if (response.access_token) {
         localStorage.setItem('token', response.access_token)
-        Toast.success('登录成功')
-        navigate('/')
+        Toast.show({ content: '登录成功', duration: 1500 })
+        setTimeout(() => navigate('/'), 1000)
       }
     } catch (error: any) {
-      Toast.fail(error.detail || '登录失败')
+      Toast.show({ content: error.message || '登录失败', duration: 2000 })
     } finally {
       setLoading(false)
     }
@@ -32,17 +39,28 @@ export default function LoginPage() {
       </div>
 
       <div className={styles.form}>
-        <Form onFinish={onFinish}>
-          <Form.Item name="phone" rules={[{ required: true, message: '请输入手机号' }]}>
-            <Input placeholder="请输入手机号" type="tel" maxLength={11} />
-          </Form.Item>
-          <Form.Item name="password" rules={[{ required: true, message: '请输入密码' }]}>
-            <Input placeholder="请输入密码" type="password" />
-          </Form.Item>
-          <Button block color="primary" size="large" type="submit" loading={loading}>
-            登录
-          </Button>
-        </Form>
+        <div className={styles.inputGroup}>
+          <span className={styles.label}>手机号</span>
+          <Input 
+            placeholder="请输入手机号" 
+            type="tel" 
+            maxLength={11}
+            value={phone}
+            onChange={(val) => setPhone(val)}
+          />
+        </div>
+        <div className={styles.inputGroup}>
+          <span className={styles.label}>密码</span>
+          <Input 
+            placeholder="请输入密码" 
+            type="password"
+            value={password}
+            onChange={(val) => setPassword(val)}
+          />
+        </div>
+        <Button block color="primary" size="large" loading={loading} onClick={handleLogin}>
+          登录
+        </Button>
 
         <div className={styles.footer}>
           <span onClick={() => navigate('/register')}>还没有账号？立即注册</span>

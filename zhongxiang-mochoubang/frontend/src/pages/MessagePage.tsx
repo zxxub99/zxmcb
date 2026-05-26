@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { List, Avatar, Empty } from 'antd-mobile'
+import { Avatar } from 'antd-mobile'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../services/api'
 import styles from './MessagePage.module.css'
@@ -24,8 +24,8 @@ export default function MessagePage() {
 
   const loadConversations = async () => {
     try {
-      const data = await api.getConversations()
-      setConversations(data)
+      const data: any = await api.getConversations()
+      setConversations(data || [])
     } catch (error) {
       console.error('加载会话失败', error)
     } finally {
@@ -50,32 +50,35 @@ export default function MessagePage() {
         <h2>消息中心</h2>
       </div>
 
-      <List>
-        {conversations.length > 0 ? (
+      <div className={styles.list}>
+        {loading ? (
+          <div className={styles.loading}>加载中...</div>
+        ) : conversations.length > 0 ? (
           conversations.map(conv => (
-            <List.Item
-              key={conv.user_id}
+            <div 
+              key={conv.user_id} 
+              className={styles.convItem}
               onClick={() => navigate(`/chat/${conv.user_id}`)}
-              prefix={
-                <div className={styles.avatarWrapper}>
-                  <Avatar src={conv.avatar || 'https://via.placeholder.com/48'} />
-                  {conv.unread_count > 0 && (
-                    <span className={styles.badge}>{conv.unread_count}</span>
-                  )}
-                </div>
-              }
-              description={conv.last_message || '暂无消息'}
             >
-              <div className={styles.convItem}>
-                <span className={styles.nickname}>{conv.nickname}</span>
-                <span className={styles.time}>{formatTime(conv.last_time)}</span>
+              <div className={styles.avatarWrapper}>
+                <Avatar src={conv.avatar || 'https://via.placeholder.com/48'} />
+                {conv.unread_count > 0 && (
+                  <span className={styles.badge}>{conv.unread_count}</span>
+                )}
               </div>
-            </List.Item>
+              <div className={styles.convInfo}>
+                <div className={styles.convHeader}>
+                  <span className={styles.nickname}>{conv.nickname}</span>
+                  <span className={styles.time}>{formatTime(conv.last_time)}</span>
+                </div>
+                <div className={styles.lastMessage}>{conv.last_message || '暂无消息'}</div>
+              </div>
+            </div>
           ))
         ) : (
-          <Empty description="暂无消息" />
+          <div className={styles.empty}>暂无消息</div>
         )}
-      </List>
+      </div>
     </div>
   )
 }
