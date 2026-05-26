@@ -10,8 +10,8 @@ build = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-build.sh"]
 run = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-run.sh"]
 
 [deploy]
-build = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-deploy-build.sh"]
-run = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-deploy-run.sh"]
+build = ["bash", "-c", "cd zhongxiang-mochoubang/frontend && pnpm run build"]
+run = ["bash", "-c", "cd zhongxiang-mochoubang/frontend && pnpm run start"]
 
 [subprojects]
 path = ["zhongxiang-mochoubang"]
