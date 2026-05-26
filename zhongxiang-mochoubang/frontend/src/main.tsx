@@ -16,8 +16,8 @@ const initMockData = () => {
   const interests = ['旅游', '美食', '运动', '音乐', '阅读', '摄影', '游戏', '养宠物', '健身', '园艺']
 
   for (let i = 1; i <= 100; i++) {
-    const gender = genders[i % 2]
-    const userInterests = []
+    const gender = genders[i % 2] as 'male' | 'female'
+    const userInterests: string[] = []
     for (let j = 0; j < 3; j++) {
       const interest = interests[(i + j) % interests.length]
       if (!userInterests.includes(interest)) userInterests.push(interest)
