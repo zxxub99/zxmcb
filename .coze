@@ -1,5 +1,5 @@
 [project]
-requires = ["nodejs-24", "python-3.11"]
+requires = ["nodejs-24"]
 project_type = "web"
 
 [preview]
@@ -10,8 +10,9 @@ build = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-build.sh"]
 run = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-run.sh"]
 
 [deploy]
-build = ["bash", "-c", "cd zhongxiang-mochoubang/frontend && pnpm run build"]
-run = ["bash", "-c", "cd zhongxiang-mochoubang/frontend && pnpm run start"]
+profile = { kind = "service", flavor = "web" }
+build = ["bash", "zhongxiang-mochoubang/frontend/scripts/build.sh"]
+run = ["bash", "zhongxiang-mochoubang/frontend/scripts/run.sh"]
 
 [subprojects]
 path = ["zhongxiang-mochoubang"]
