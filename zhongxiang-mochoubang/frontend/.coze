@@ -9,7 +9,8 @@ entrypoint = "."
 preview_enable = "enabled"
 
 [deploy]
-profile = { kind = "service", flavor = "web" }
+profile.kind = "service"
+profile.flavor = "web"
 build = ["bash", "scripts/coze-deploy-build.sh"]
 run = ["bash", "scripts/coze-deploy-run.sh"]
 
