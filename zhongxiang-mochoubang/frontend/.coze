@@ -1,18 +1,17 @@
 [project]
+sub_id = "a1b2c3d4"
+name = "zhongxiang-mochoubang-frontend"
 requires = ["nodejs-24"]
 project_type = "web"
 
 [preview]
 preview_enable = "enabled"
 
-[dev]
-build = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-build.sh"]
-run = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-run.sh"]
-
 [deploy]
 profile = { kind = "service", flavor = "web" }
 build = ["bash", "scripts/build.sh"]
 run = ["bash", "scripts/run.sh"]
 
-[subprojects]
-path = ["zhongxiang-mochoubang"]
+[dev]
+build = ["bash", "scripts/coze-preview-build.sh"]
+run = ["bash", "scripts/coze-preview-run.sh"]
