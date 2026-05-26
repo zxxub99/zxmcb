@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Radio, Toast } from 'antd-mobile'
-import { api } from '../services/api'
 import styles from './RegisterPage.module.css'
 
 export default function RegisterPage() {
@@ -20,7 +19,33 @@ export default function RegisterPage() {
     
     setLoading(true)
     try {
-      await api.register(phone, password, nickname, gender)
+      // 本地存储模拟注册
+      const users = JSON.parse(localStorage.getItem('users') || '[]')
+      const existingUser = users.find((u: any) => u.phone === phone)
+      if (existingUser) {
+        Toast.show({ content: '该手机号已注册', duration: 2000 })
+        setLoading(false)
+        return
+      }
+      
+      const newUser = {
+        id: Date.now(),
+        phone,
+        password, // 实际应加密存储
+        nickname,
+        gender,
+        avatar: '',
+        bio: '',
+        interests: [],
+        points: 100,
+        starLevel: 1,
+        isVerified: false,
+        createdAt: new Date().toISOString()
+      }
+      
+      users.push(newUser)
+      localStorage.setItem('users', JSON.stringify(users))
+      
       Toast.show({ content: '注册成功，请登录', duration: 1500 })
       setTimeout(() => navigate('/login'), 1000)
     } catch (error: any) {

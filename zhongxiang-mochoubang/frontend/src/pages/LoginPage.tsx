@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { Button, Input, Toast } from 'antd-mobile'
-import { api } from '../services/api'
 import styles from './LoginPage.module.css'
 
 export default function LoginPage() {
@@ -18,11 +17,17 @@ export default function LoginPage() {
     
     setLoading(true)
     try {
-      const response: any = await api.login(phone, password)
-      if (response.access_token) {
-        localStorage.setItem('token', response.access_token)
+      // 本地存储模拟登录
+      const users = JSON.parse(localStorage.getItem('users') || '[]')
+      const user = users.find((u: any) => u.phone === phone && u.password === password)
+      
+      if (user) {
+        localStorage.setItem('currentUser', JSON.stringify(user))
+        localStorage.setItem('token', 'mock-token-' + user.id)
         Toast.show({ content: '登录成功', duration: 1500 })
         setTimeout(() => navigate('/'), 1000)
+      } else {
+        Toast.show({ content: '手机号或密码错误', duration: 2000 })
       }
     } catch (error: any) {
       Toast.show({ content: error.message || '登录失败', duration: 2000 })
