@@ -73,3 +73,45 @@
   padding: 40px;
   color: var(--text-secondary);
 }
+
+/* 移动端适配 */
+@media (max-width: 375px) {
+  .header {
+    padding: 12px;
+  }
+  
+  .header h2 {
+    font-size: 18px;
+  }
+  
+  .publishBtn {
+    margin: 10px 12px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .list {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .title {
+    font-size: 15px;
+  }
+  
+  .cardBody {
+    font-size: 13px;
+  }
+}
+
+/* 安全区域适配 */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .list {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}

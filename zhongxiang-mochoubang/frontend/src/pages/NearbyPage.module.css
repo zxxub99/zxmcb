@@ -201,3 +201,75 @@
   font-size: 13px;
   color: #999;
 }
+
+/* 移动端适配 */
+@media (max-width: 375px) {
+  .header {
+    padding: 16px 12px;
+  }
+  
+  .header h2 {
+    font-size: 20px;
+  }
+  
+  .sortBar {
+    padding: 10px 12px;
+    gap: 10px;
+  }
+  
+  .sortLabel {
+    font-size: 13px;
+  }
+  
+  .list {
+    padding: 10px;
+  }
+  
+  .userItem {
+    padding: 12px;
+    margin-bottom: 8px;
+    border-radius: 10px;
+  }
+  
+  .avatar {
+    width: 48px !important;
+    height: 48px !important;
+  }
+  
+  .userName {
+    font-size: 15px;
+  }
+  
+  .userTags {
+    gap: 4px;
+  }
+  
+  .interestTag {
+    font-size: 10px;
+    padding: 2px 5px;
+  }
+  
+  .matchScore {
+    padding: 5px 8px;
+  }
+  
+  .scoreValue {
+    font-size: 16px;
+  }
+  
+  .distance {
+    font-size: 14px;
+  }
+  
+  .footer {
+    padding: 12px;
+    font-size: 12px;
+  }
+}
+
+/* 安全区域适配 */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .list {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom) + 80px);
+  }
+}

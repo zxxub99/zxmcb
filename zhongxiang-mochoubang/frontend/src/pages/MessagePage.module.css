@@ -174,3 +174,64 @@
   color: var(--text-secondary);
   font-size: 14px;
 }
+
+/* 移动端适配 */
+@media (max-width: 375px) {
+  .header {
+    padding: 12px;
+  }
+  
+  .header h2 {
+    font-size: 18px;
+  }
+  
+  .botSection {
+    padding: 12px;
+    gap: 10px;
+  }
+  
+  .botAvatar {
+    width: 44px;
+    height: 44px;
+  }
+  
+  .botEmoji {
+    font-size: 24px;
+  }
+  
+  .botName {
+    font-size: 15px;
+  }
+  
+  .botIntro {
+    font-size: 12px;
+  }
+  
+  .listTitle {
+    padding: 10px 12px 6px;
+  }
+  
+  .list {
+    padding: 0 10px 10px;
+  }
+  
+  .convItem {
+    padding: 10px;
+    margin-bottom: 6px;
+  }
+  
+  .nickname {
+    font-size: 15px;
+  }
+  
+  .lastMessage {
+    font-size: 13px;
+  }
+}
+
+/* 安全区域适配 */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .list {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}
