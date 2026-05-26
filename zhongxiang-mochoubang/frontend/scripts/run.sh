@@ -5,7 +5,5 @@ SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_DIR"
 
-PORT="${DEPLOY_RUN_PORT:-5000}"
-
-echo "Starting static file server on port $PORT..."
-exec npx serve dist -l "$PORT"
+echo "Starting Vite preview server on port 5000..."
+exec pnpm exec vite preview --host 0.0.0.0 --port 5000
