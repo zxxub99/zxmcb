@@ -12,8 +12,8 @@ run = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-preview-run.sh"]
 
 [deploy]
 profile = { kind = "service", flavor = "web" }
-build = ["pnpm", "run", "build"]
-run = ["pnpm", "run", "start"]
+build = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-deploy-build.sh"]
+run = ["bash", "zhongxiang-mochoubang/frontend/scripts/coze-deploy-run.sh"]
 
 [subprojects]
 path = ["zhongxiang-mochoubang"]
