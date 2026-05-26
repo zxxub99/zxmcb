@@ -1,7 +1,9 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import { Button, Input, TextArea, Toast, Picker, Switch } from 'antd-mobile'
+import { Button, Input, TextArea, Toast, Picker, Switch, ActionSheet } from 'antd-mobile'
+import { StarOutline } from 'antd-mobile-icons'
 import { api } from '../services/api'
+import { polishText } from '../services/aiPolish'
 import styles from './PublishHelpRequest.module.css'
 
 const categories = [
@@ -19,6 +21,71 @@ export default function PublishHelpRequest() {
   const [category, setCategory] = useState<string>('')
   const [urgent, setUrgent] = useState(false)
   const [showCategoryPicker, setShowCategoryPicker] = useState(false)
+  const [polishingTitle, setPolishingTitle] = useState(false)
+  const [polishingDesc, setPolishingDesc] = useState(false)
+
+  // AI润色标题
+  const handlePolishTitle = async () => {
+    if (!title.trim()) {
+      Toast.show({ content: '请先输入求助标题', duration: 2000 })
+      return
+    }
+    setPolishingTitle(true)
+    try {
+      Toast.show({ content: '正在润色...', duration: 1000 })
+      const polished = await polishText(title, 'title')
+      setTitle(polished)
+      Toast.show({ content: '润色完成', duration: 1500 })
+    } catch (error: any) {
+      Toast.show({ content: error.message || '润色失败，请重试', duration: 2000 })
+    } finally {
+      setPolishingTitle(false)
+    }
+  }
+
+  // AI润色描述
+  const handlePolishDescription = async () => {
+    if (!description.trim()) {
+      Toast.show({ content: '请先输入详细描述', duration: 2000 })
+      return
+    }
+    setPolishingDesc(true)
+    try {
+      Toast.show({ content: '正在润色...', duration: 1000 })
+      const polished = await polishText(description, 'description')
+      setDescription(polished)
+      Toast.show({ content: '润色完成', duration: 1500 })
+    } catch (error: any) {
+      Toast.show({ content: error.message || '润色失败，请重试', duration: 2000 })
+    } finally {
+      setPolishingDesc(false)
+    }
+  }
+
+  // 显示润色选项
+  const showPolishOptions = (type: 'title' | 'description') => {
+    ActionSheet.show({
+      actions: [
+        {
+          key: 'polish',
+          text: '✨ AI智能润色',
+        },
+        {
+          key: 'keep',
+          text: '保持原样',
+        },
+      ],
+      onAction: (action) => {
+        if (action.key === 'polish') {
+          if (type === 'title') {
+            handlePolishTitle()
+          } else {
+            handlePolishDescription()
+          }
+        }
+      },
+    })
+  }
 
   const handlePublish = async () => {
     if (!title.trim()) {
@@ -59,12 +126,24 @@ export default function PublishHelpRequest() {
         {/* 求助标题 */}
         <div className={styles.field}>
           <label className={styles.label}>求助标题 *</label>
-          <Input
-            placeholder="简述您需要的帮助"
-            value={title}
-            onChange={setTitle}
-            maxLength={50}
-          />
+          <div className={styles.inputWithAction}>
+            <Input
+              placeholder="简述您需要的帮助"
+              value={title}
+              onChange={setTitle}
+              maxLength={50}
+              className={styles.inputFlex}
+            />
+            <Button
+              size="small"
+              color="primary"
+              loading={polishingTitle}
+              onClick={() => showPolishOptions('title')}
+              className={styles.polishBtn}
+            >
+              <StarOutline /> 润色
+            </Button>
+          </div>
         </div>
 
         {/* 求助类型 */}
@@ -94,14 +173,26 @@ export default function PublishHelpRequest() {
         {/* 详细描述 */}
         <div className={styles.field}>
           <label className={styles.label}>详细描述 *</label>
-          <TextArea
-            placeholder="详细说明您的需求，例如：具体问题、地点、时间要求等"
-            value={description}
-            onChange={setDescription}
-            rows={5}
-            maxLength={500}
-            showCount
-          />
+          <div className={styles.inputWithAction}>
+            <TextArea
+              placeholder="详细说明您的需求，例如：具体问题、地点、时间要求等"
+              value={description}
+              onChange={setDescription}
+              rows={5}
+              maxLength={500}
+              showCount
+              className={styles.textAreaFlex}
+            />
+            <Button
+              size="small"
+              color="primary"
+              loading={polishingDesc}
+              onClick={() => showPolishOptions('description')}
+              className={styles.polishBtnDesc}
+            >
+              <StarOutline /> 润色
+            </Button>
+          </div>
         </div>
 
         {/* 是否紧急 */}
