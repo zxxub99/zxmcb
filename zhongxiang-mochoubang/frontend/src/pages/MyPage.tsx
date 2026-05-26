@@ -109,6 +109,9 @@ export default function MyPage() {
             <span className={styles.statValue}>{userInfo.points}</span>
             <span className={styles.statLabel}>积分</span>
           </div>
+          <div className={styles.editBtn} onClick={() => navigate('/edit-profile')}>
+            编辑资料
+          </div>
         </div>
       </div>
 

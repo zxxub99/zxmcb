@@ -42,9 +42,18 @@
 
 .stats {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
   padding-top: 16px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.editBtn {
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
 }
 
 .statItem {

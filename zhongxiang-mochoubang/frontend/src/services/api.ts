@@ -65,7 +65,7 @@ export const api = {
     return apiClient.get(`/users/${userId}`)
   },
 
-  updateProfile: (data: { nickname?: string; avatar?: string; bio?: string }) => {
+  updateProfile: (data: { nickname?: string; avatar?: string; bio?: string; interests?: string[] }) => {
     return apiClient.put('/users/profile', null, { params: data })
   },
 

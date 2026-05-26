@@ -8,6 +8,12 @@ import NearbyPage from './pages/NearbyPage'
 import SquarePage from './pages/SquarePage'
 import MessagePage from './pages/MessagePage'
 import MyPage from './pages/MyPage'
+import IdleItemDetail from './pages/IdleItemDetail'
+import PublishIdleItem from './pages/PublishIdleItem'
+import HelpRequestDetail from './pages/HelpRequestDetail'
+import PublishHelpRequest from './pages/PublishHelpRequest'
+import ChatPage from './pages/ChatPage'
+import EditProfile from './pages/EditProfile'
 
 function App() {
   return (
@@ -21,6 +27,12 @@ function App() {
           <Route path="/square" element={<SquarePage />} />
           <Route path="/messages" element={<MessagePage />} />
           <Route path="/my" element={<MyPage />} />
+          <Route path="/idle/:id" element={<IdleItemDetail />} />
+          <Route path="/publish-idle" element={<PublishIdleItem />} />
+          <Route path="/help/:id" element={<HelpRequestDetail />} />
+          <Route path="/publish-help" element={<PublishHelpRequest />} />
+          <Route path="/chat/:userId" element={<ChatPage />} />
+          <Route path="/edit-profile" element={<EditProfile />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>

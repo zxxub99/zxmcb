@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Tabs } from 'antd-mobile'
+import { useNavigate } from 'react-router-dom'
 import { api } from '../services/api'
 import styles from './SquarePage.module.css'
 
@@ -13,6 +14,7 @@ interface Post {
 }
 
 export default function SquarePage() {
+  const navigate = useNavigate()
   const [idleItems, setIdleItems] = useState<Post[]>([])
   const [helpRequests, setHelpRequests] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
@@ -61,6 +63,12 @@ export default function SquarePage() {
 
       <Tabs activeKey={activeTab} onChange={(key) => setActiveTab(key)}>
         <Tabs.Tab title="闲置好物" key="idle">
+          <div 
+            className={styles.publishBtn}
+            onClick={() => navigate('/publish-idle')}
+          >
+            + 发布闲置
+          </div>
           <div className={styles.list}>
             {loading ? (
               <div className={styles.loading}>加载中...</div>
@@ -82,6 +90,12 @@ export default function SquarePage() {
           </div>
         </Tabs.Tab>
         <Tabs.Tab title="互助需求" key="help">
+          <div 
+            className={styles.publishBtn}
+            onClick={() => navigate('/publish-help')}
+          >
+            + 发布求助
+          </div>
           <div className={styles.list}>
             {loading ? (
               <div className={styles.loading}>加载中...</div>
