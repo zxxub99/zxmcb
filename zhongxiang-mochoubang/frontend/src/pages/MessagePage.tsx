@@ -48,6 +48,9 @@ export default function MessagePage() {
     <div className={styles.container}>
       <div className={styles.header}>
         <h2>消息中心</h2>
+        <span className={styles.notifBtn} onClick={() => navigate('/notifications')}>
+          🔔 通知
+        </span>
       </div>
 
       <div className={styles.list}>

@@ -14,6 +14,10 @@ import HelpRequestDetail from './pages/HelpRequestDetail'
 import PublishHelpRequest from './pages/PublishHelpRequest'
 import ChatPage from './pages/ChatPage'
 import EditProfile from './pages/EditProfile'
+import Verification from './pages/Verification'
+import PointsRecord from './pages/PointsRecord'
+import UserDetail from './pages/UserDetail'
+import Notifications from './pages/Notifications'
 
 function App() {
   return (
@@ -33,6 +37,10 @@ function App() {
           <Route path="/publish-help" element={<PublishHelpRequest />} />
           <Route path="/chat/:userId" element={<ChatPage />} />
           <Route path="/edit-profile" element={<EditProfile />} />
+          <Route path="/verification" element={<Verification />} />
+          <Route path="/points" element={<PointsRecord />} />
+          <Route path="/user/:userId" element={<UserDetail />} />
+          <Route path="/notifications" element={<Notifications />} />
         </Routes>
       </BrowserRouter>
     </ConfigProvider>

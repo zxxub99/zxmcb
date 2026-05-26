@@ -1,0 +1,193 @@
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 100px;
+}
+
+.loading, .error {
+  text-align: center;
+  padding: 60px 20px;
+  color: #999;
+}
+
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 16px;
+}
+
+.avatarSection {
+  position: relative;
+}
+
+.avatar {
+  width: 80px !important;
+  height: 80px !important;
+  border-radius: 50% !important;
+  border: 3px solid white !important;
+}
+
+.onlineBadge {
+  position: absolute;
+  bottom: 2px;
+  right: 2px;
+  background: #52c41a;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 10px;
+}
+
+.basicInfo {
+  flex: 1;
+}
+
+.nickname {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.location {
+  font-size: 13px;
+  opacity: 0.9;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.distanceInfo {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.distance {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+
+.distanceUnit {
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.creditCard {
+  margin: 12px;
+  border-radius: 12px;
+}
+
+.creditHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.creditTitle {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+}
+
+.levelBadge {
+  font-size: 13px;
+  color: #faad14;
+}
+
+.creditScore {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.scoreValue {
+  font-size: 48px;
+  font-weight: bold;
+  color: #1677ff;
+  line-height: 1;
+}
+
+.scoreLabel {
+  font-size: 13px;
+  color: #999;
+  margin-top: 4px;
+}
+
+.creditStats {
+  display: flex;
+  justify-content: space-around;
+}
+
+.creditStat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: bold;
+  color: #333;
+}
+
+.statLabel {
+  font-size: 12px;
+  color: #999;
+  margin-top: 2px;
+}
+
+.bioCard, .interestsCard {
+  margin: 12px;
+  border-radius: 12px;
+}
+
+.cardHeader {
+  font-size: 15px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.bio {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
+
+.interests {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.interestTag {
+  padding: 4px 12px;
+  font-size: 14px;
+}
+
+.actions {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 16px;
+  background: white;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.05);
+}

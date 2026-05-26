@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { Tag, Grid } from 'antd-mobile'
+import { Tag, Grid, Toast } from 'antd-mobile'
 import { useNavigate } from 'react-router-dom'
 import { api } from '../services/api'
 import styles from './MyPage.module.css'
@@ -61,6 +61,7 @@ export default function MyPage() {
     { key: 'favorite', title: '我的收藏', icon: '❤️' },
     { key: 'transaction', title: '交易记录', icon: '💰' },
     { key: 'help', title: '互助记录', icon: '🤝' },
+    { key: 'points', title: '积分中心', icon: '💎' },
     { key: 'evaluation', title: '评价中心', icon: '⭐' },
     { key: 'settings', title: '设置', icon: '⚙️' },
   ]
@@ -101,6 +102,9 @@ export default function MyPage() {
               <Tag color="blue">{getLevelText(userInfo.level)}</Tag>
               <Tag color="green">{getStarText(userInfo.star)}</Tag>
               {userInfo.is_verified && <Tag color="primary">已实名</Tag>}
+              {!userInfo.is_verified && (
+                <Tag color="warning" onClick={() => navigate('/verification')}>去实名</Tag>
+              )}
             </div>
           </div>
         </div>
@@ -120,7 +124,10 @@ export default function MyPage() {
         <Grid columns={3} gap={8}>
           {menuItems.map(item => (
             <Grid.Item key={item.key}>
-              <div className={styles.menuItem}>
+              <div className={styles.menuItem} onClick={() => {
+                if (item.key === 'points') navigate('/points')
+                else Toast.show('功能开发中')
+              }}>
                 <span className={styles.menuIcon}>{item.icon}</span>
                 <span className={styles.menuTitle}>{item.title}</span>
               </div>

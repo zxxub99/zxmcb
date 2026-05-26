@@ -1,6 +1,11 @@
-from fastapi import APIRouter, Depends, HTTPException
+"""
+互助请求相关API
+"""
+from fastapi import APIRouter, Depends, HTTPException, Query
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
+from typing import Optional
+from datetime import datetime
 from app.core import get_db
 from app.models import HelpRequest, User
 from app.api.auth import get_current_user
@@ -10,39 +15,108 @@ router = APIRouter()
 
 class HelpRequestCreate(BaseModel):
     title: str
-    description: str = ""
-    category: str  # 维修/咨询/劳办/技术
-    urgent: bool = False
-
-
-class HelpRequestResponse(BaseModel):
-    id: int
-    user_id: int
-    title: str
     description: str
-    category: str
-    urgent: bool
-    status: str
-    helper_id: int | None
-    created_at: str
+    help_type: str  # repair, consult, errand, technical
+    urgent: bool = False
+    reward: int = 0
+    location: Optional[str] = None
 
-    class Config:
-        from_attributes = True
+
+class HelpRequestUpdate(BaseModel):
+    title: Optional[str] = None
+    description: Optional[str] = None
+    urgent: Optional[bool] = None
+    reward: Optional[int] = None
+    status: Optional[str] = None
+
+
+class HelpResponseCreate(BaseModel):
+    message: str
 
 
 @router.get("/")
-def list_help_requests(
-    category: str | None = None,
-    status: str = "open",
+def get_help_requests(
+    help_type: Optional[str] = None,
+    urgent_only: bool = False,
+    sort: str = "latest",  # latest, reward, urgent
+    page: int = 1,
+    page_size: int = 20,
     db: Session = Depends(get_db),
 ):
     """获取互助请求列表"""
-    query = db.query(HelpRequest).filter(HelpRequest.status == status)
-    if category:
-        query = query.filter(HelpRequest.category == category)
+    query = db.query(HelpRequest).filter(HelpRequest.status == "open")
     
-    requests = query.order_by(HelpRequest.created_at.desc()).limit(50).all()
-    return [HelpRequestResponse.model_validate(req) for req in requests]
+    if help_type:
+        query = query.filter(HelpRequest.help_type == help_type)
+    
+    if urgent_only:
+        query = query.filter(HelpRequest.urgent == True)
+    
+    if sort == "latest":
+        query = query.order_by(HelpRequest.created_at.desc())
+    elif sort == "reward":
+        query = query.order_by(HelpRequest.reward.desc())
+    elif sort == "urgent":
+        query = query.order_by(HelpRequest.urgent.desc())
+    
+    total = query.count()
+    requests = query.offset((page - 1) * page_size).limit(page_size).all()
+    
+    return {
+        "total": total,
+        "page": page,
+        "page_size": page_size,
+        "items": [
+            {
+                "id": req.id,
+                "title": req.title,
+                "help_type": req.help_type,
+                "urgent": req.urgent,
+                "reward": req.reward,
+                "location": req.location,
+                "created_at": req.created_at.isoformat(),
+                "publisher": {
+                    "id": req.publisher.id,
+                    "nickname": req.publisher.nickname,
+                    "avatar": req.publisher.avatar,
+                    "star": req.publisher.star.value,
+                }
+            }
+            for req in requests
+        ]
+    }
+
+
+@router.get("/{request_id}")
+def get_help_request_detail(request_id: int, db: Session = Depends(get_db)):
+    """获取互助请求详情"""
+    req = db.query(HelpRequest).filter(HelpRequest.id == request_id).first()
+    if not req:
+        raise HTTPException(status_code=404, detail="请求不存在")
+    
+    # 增加浏览次数
+    req.view_count += 1
+    db.commit()
+    
+    return {
+        "id": req.id,
+        "title": req.title,
+        "description": req.description,
+        "help_type": req.help_type,
+        "urgent": req.urgent,
+        "reward": req.reward,
+        "location": req.location,
+        "view_count": req.view_count,
+        "status": req.status,
+        "created_at": req.created_at.isoformat(),
+        "publisher": {
+            "id": req.publisher.id,
+            "nickname": req.publisher.nickname,
+            "avatar": req.publisher.avatar,
+            "star": req.publisher.star.value,
+            "town": req.publisher.town,
+        }
+    }
 
 
 @router.post("/")
@@ -53,61 +127,91 @@ def create_help_request(
 ):
     """发布互助请求"""
     new_request = HelpRequest(
-        user_id=current_user.id,
         title=request_data.title,
         description=request_data.description,
-        category=request_data.category,
+        help_type=request_data.help_type,
         urgent=request_data.urgent,
+        reward=request_data.reward,
+        location=request_data.location,
+        publisher_id=current_user.id,
+        status="open"
     )
     db.add(new_request)
+    
+    # 增加用户积分
+    current_user.points += 5
+    
     db.commit()
     db.refresh(new_request)
-    return {"message": "发布成功", "request_id": new_request.id}
+    
+    return {"id": new_request.id, "message": "发布成功"}
 
 
-@router.get("/{request_id}")
-def get_help_request(request_id: int, db: Session = Depends(get_db)):
-    """获取互助请求详情"""
-    request = db.query(HelpRequest).filter(HelpRequest.id == request_id).first()
-    if not request:
-        raise HTTPException(status_code=404, detail="请求不存在")
-    return HelpRequestResponse.model_validate(request)
-
-
-@router.post("/{request_id}/accept")
-def accept_help_request(
+@router.post("/{request_id}/respond")
+def respond_to_help_request(
     request_id: int,
+    response: HelpResponseCreate,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
-    """接受互助请求（接单）"""
-    request = db.query(HelpRequest).filter(HelpRequest.id == request_id, HelpRequest.status == "open").first()
-    if not request:
-        raise HTTPException(status_code=404, detail="请求不存在或已被接单")
+    """响应互助请求"""
+    req = db.query(HelpRequest).filter(HelpRequest.id == request_id).first()
+    if not req:
+        raise HTTPException(status_code=404, detail="请求不存在")
     
-    if request.user_id == current_user.id:
-        raise HTTPException(status_code=400, detail="不能接自己的请求")
+    if req.publisher_id == current_user.id:
+        raise HTTPException(status_code=400, detail="不能响应自己的请求")
     
-    request.helper_id = current_user.id
-    request.status = "accepted"
-    db.commit()
-    return {"message": "接单成功"}
+    if req.status != "open":
+        raise HTTPException(status_code=400, detail="该请求已关闭")
+    
+    # TODO: 创建响应记录
+    # 这里简化处理，实际应创建HelpResponse记录
+    
+    return {
+        "message": "响应成功",
+        "helper_id": current_user.id,
+        "helper_nickname": current_user.nickname
+    }
 
 
-@router.post("/{request_id}/complete")
+@router.put("/{request_id}/complete")
 def complete_help_request(
     request_id: int,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db),
 ):
     """完成互助请求"""
-    request = db.query(HelpRequest).filter(
-        HelpRequest.id == request_id,
-        HelpRequest.helper_id == current_user.id
-    ).first()
-    if not request:
-        raise HTTPException(status_code=404, detail="请求不存在或无权操作")
+    req = db.query(HelpRequest).filter(HelpRequest.id == request_id).first()
+    if not req:
+        raise HTTPException(status_code=404, detail="请求不存在")
     
-    request.status = "completed"
+    if req.publisher_id != current_user.id:
+        raise HTTPException(status_code=403, detail="只有发布者可以标记完成")
+    
+    req.status = "completed"
+    
+    # TODO: 奖励帮助者积分
+    # TODO: 双方互评
+    
     db.commit()
-    return {"message": "请求已完成"}
+    return {"message": "已标记完成"}
+
+
+@router.delete("/{request_id}")
+def delete_help_request(
+    request_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db),
+):
+    """删除互助请求"""
+    req = db.query(HelpRequest).filter(HelpRequest.id == request_id).first()
+    if not req:
+        raise HTTPException(status_code=404, detail="请求不存在")
+    
+    if req.publisher_id != current_user.id:
+        raise HTTPException(status_code=403, detail="无权删除")
+    
+    req.status = "deleted"
+    db.commit()
+    return {"message": "删除成功"}
