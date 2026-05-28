@@ -52,3 +52,36 @@ uv run uvicorn app.main:app --reload
 ## 开发指南
 
 详见 [AGENTS.md](AGENTS.md)
+
+---
+
+## 部署指南
+
+### Cloudflare Pages 部署（推荐）
+
+#### 方式一：手动部署
+
+1. 登录 [Cloudflare Pages](https://pages.cloudflare.com)
+2. 创建项目，选择 `zxmcb` 仓库
+3. 配置构建：
+   - Build command: `cd frontend && npm install && npm run build`
+   - Build output directory: `frontend/dist`
+4. 部署完成，访问 `https://zxmcb.pages.dev`
+
+#### 方式二：自动部署（CI/CD）
+
+1. 获取 Cloudflare API Token
+   - 登录 Cloudflare Dashboard
+   - 进入 Profile → API Tokens
+   - 创建 Custom Token，权限选择 "Account:Cloudflare Pages:Edit"
+
+2. 在 GitHub 仓库 Settings → Secrets 中添加：
+   - `CLOUDFLARE_API_TOKEN`: 您的API Token
+   - `CLOUDFLARE_ACCOUNT_ID`: 您的Account ID
+
+3. 每次推送到 main 分支将自动部署
+
+#### 绑定自定义域名
+
+1. 在 Cloudflare Pages 项目设置中添加自定义域名
+2. 在域名服务商添加 DNS CNAME 记录指向 `zxmcb.pages.dev`
