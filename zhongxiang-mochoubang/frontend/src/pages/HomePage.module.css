@@ -1,0 +1,418 @@
+/* 首页样式 */
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+  padding-bottom: 60px;
+}
+
+/* 顶部区域 */
+.header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 12px 16px;
+  padding-top: 20px;
+}
+
+.locationBar {
+  display: flex;
+  align-items: center;
+  color: #fff;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.locationIcon {
+  margin-right: 4px;
+}
+
+.locationText {
+  font-weight: 500;
+}
+
+.locationArrow {
+  margin-left: 4px;
+  font-size: 10px;
+}
+
+/* 搜索栏 */
+.searchSection {
+  padding: 0 16px 12px;
+  margin-top: -8px;
+}
+
+.searchBar {
+  background: #fff;
+  border-radius: 20px;
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.searchPlaceholder {
+  color: #999;
+  font-size: 14px;
+}
+
+/* Banner */
+.bannerSection {
+  margin: 0 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.bannerScroll {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.bannerScroll::-webkit-scrollbar {
+  display: none;
+}
+
+.bannerItem {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+}
+
+.bannerImage {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+}
+
+.bannerOverlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(transparent, rgba(0,0,0,0.7));
+  padding: 20px 12px 12px;
+}
+
+.bannerTitle {
+  color: #fff;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* 快捷入口 */
+.quickEntry {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  margin: 0 16px;
+  background: #fff;
+  border-radius: 12px;
+  margin-top: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+}
+
+.entryItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 70px;
+}
+
+.entryIcon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.entryTitle {
+  font-size: 12px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.entryDesc {
+  font-size: 10px;
+  color: #999;
+}
+
+/* 内容区块 */
+.section {
+  padding: 16px;
+}
+
+.sectionHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.sectionTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  display: flex;
+  align-items: center;
+  margin: 0;
+}
+
+.titleIcon {
+  margin-right: 6px;
+}
+
+.moreLink {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 物品网格 */
+.itemGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.itemCard {
+  background: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+.itemImage {
+  width: 100%;
+  height: 90px;
+  object-fit: cover;
+}
+
+.itemInfo {
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.itemTitle {
+  font-size: 12px;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin-bottom: 4px;
+}
+
+.itemPrice {
+  font-size: 14px;
+  color: #ff4d4f;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.itemDistance {
+  font-size: 10px;
+  color: #999;
+}
+
+/* 紧急标签 */
+.urgentBadge {
+  background: #ff4d4f;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-weight: 500;
+}
+
+/* 互助列表 */
+.helpList {
+  background: #fff;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.helpItem {
+  padding: 12px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.helpItem:last-child {
+  border-bottom: none;
+}
+
+.helpHeader {
+  display: flex;
+  align-items: center;
+  margin-bottom: 6px;
+}
+
+.helpTitle {
+  font-size: 14px;
+  color: #333;
+  margin-left: 8px;
+  font-weight: 500;
+}
+
+.helpMeta {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  color: #666;
+  gap: 12px;
+}
+
+.helpType {
+  background: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.helpTime {
+  color: #999;
+}
+
+.helpReward {
+  color: #ff4d4f;
+  font-weight: 500;
+}
+
+/* 用户列表 */
+.userList {
+  background: #fff;
+  border-radius: 12px;
+  padding: 4px 0;
+}
+
+.userCard {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.userCard:last-child {
+  border-bottom: none;
+}
+
+.userAvatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  margin-right: 12px;
+}
+
+.userInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.userName {
+  font-size: 14px;
+  color: #333;
+  font-weight: 500;
+  margin-bottom: 4px;
+}
+
+.userTags {
+  display: flex;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 10px;
+  background: #f0f0f0;
+  color: #666;
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.userDistance {
+  font-size: 12px;
+  color: #999;
+}
+
+/* 底部间距 */
+.bottomSpace {
+  height: 20px;
+}
+
+/* 移动端适配 */
+@media screen and (max-width: 375px) {
+  .header {
+    padding: 10px 12px;
+    padding-top: 16px;
+  }
+  
+  .bannerImage {
+    height: 130px;
+  }
+  
+  .entryIcon {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+  
+  .entryTitle {
+    font-size: 11px;
+  }
+  
+  .itemGrid {
+    gap: 8px;
+  }
+  
+  .itemImage {
+    height: 80px;
+  }
+  
+  .itemInfo {
+    padding: 6px;
+  }
+  
+  .itemTitle {
+    font-size: 11px;
+  }
+  
+  .itemPrice {
+    font-size: 13px;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    max-width: 750px;
+    margin: 0 auto;
+  }
+  
+  .bannerImage {
+    height: 180px;
+  }
+  
+  .itemGrid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  
+  .itemImage {
+    height: 120px;
+  }
+}
+
+/* 安全区域适配 */
+@supports (padding-bottom: env(safe-area-inset-bottom)) {
+  .container {
+    padding-bottom: calc(70px + env(safe-area-inset-bottom));
+  }
+}
