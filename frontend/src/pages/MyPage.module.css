@@ -1,0 +1,178 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-color);
+  padding-bottom: 20px;
+}
+
+.profileCard {
+  background: linear-gradient(135deg, #1890ff 0%, #096dd9 100%);
+  color: white;
+  padding: 24px 16px;
+}
+
+.avatarSection {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 20px;
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+}
+
+.userInfo h3 {
+  font-size: 20px;
+  margin-bottom: 4px;
+}
+
+.userInfo p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-bottom: 8px;
+}
+
+.tags {
+  display: flex;
+  gap: 8px;
+}
+
+.stats {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.editBtn {
+  padding: 6px 16px;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.statItem {
+  text-align: center;
+  flex: 1;
+}
+
+.statValue {
+  font-size: 24px;
+  font-weight: bold;
+  display: block;
+}
+
+.statLabel {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.menuSection {
+  background: white;
+  margin-top: 12px;
+  padding: 16px;
+}
+
+.menuItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+.menuIcon {
+  font-size: 24px;
+}
+
+.menuTitle {
+  font-size: 14px;
+  color: var(--text-color);
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+.loginBtn {
+  display: block;
+  width: 200px;
+  margin: 16px auto;
+  padding: 12px;
+  background: #1890ff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+/* 个人简介 */
+.bio {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.4;
+  margin-top: 4px;
+}
+
+/* 积分区域 */
+.pointsSection {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 8px;
+  padding: 12px;
+  margin-bottom: 16px;
+}
+
+.pointsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.pointsLabel {
+  font-size: 14px;
+  opacity: 0.9;
+}
+
+.pointsValue {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.levelHint {
+  font-size: 12px;
+  opacity: 0.8;
+  margin-top: 6px;
+  text-align: right;
+}
+
+/* 附加信息卡片 */
+.infoCard {
+  background: white;
+  margin: 12px 16px;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.infoItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 14px;
+  color: #666;
+}
+
+.infoIcon {
+  font-size: 16px;
+}

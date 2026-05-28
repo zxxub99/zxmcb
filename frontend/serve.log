@@ -1,0 +1,135 @@
+ INFO  Accepting connections at http://localhost:5000
+ HTTP  2026-05-26 9:22:38 AM ::1 GET /
+ HTTP  2026-05-26 9:22:38 AM ::1 Returned 200 in 10 ms
+ HTTP  2026-05-26 9:22:38 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:22:38 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:22:39 AM ::1 GET /init-data.js
+ HTTP  2026-05-26 9:22:39 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:22:45 AM ::1 GET /
+ HTTP  2026-05-26 9:22:45 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:24:23 AM ::1 GET /
+ HTTP  2026-05-26 9:24:23 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:24:49 AM ::1 GET /
+ HTTP  2026-05-26 9:24:49 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:24:49 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:24:49 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:24:49 AM ::1 GET /init-data.js
+ HTTP  2026-05-26 9:24:49 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:24:56 AM ::1 GET /
+ HTTP  2026-05-26 9:24:56 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:24:57 AM ::1 GET /init-data.js
+ HTTP  2026-05-26 9:24:57 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:24:57 AM ::1 Returned 200 in 2 ms
+ HTTP  2026-05-26 9:24:57 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:25:18 AM ::1 GET /
+ HTTP  2026-05-26 9:25:18 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:25:19 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:25:19 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:25:19 AM ::1 GET /init-data.js
+ HTTP  2026-05-26 9:25:19 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:25:45 AM ::1 GET /
+ HTTP  2026-05-26 9:25:45 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:25:49 AM ::1 GET /init-data.js
+ HTTP  2026-05-26 9:25:49 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:25:52 AM ::1 GET /init-data.js
+ HTTP  2026-05-26 9:25:52 AM ::1 Returned 200 in 2 ms
+ HTTP  2026-05-26 9:26:34 AM ::1 GET /
+ HTTP  2026-05-26 9:26:34 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:27:10 AM ::1 GET /
+ HTTP  2026-05-26 9:27:10 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:27:10 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:27:10 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:27:42 AM ::1 GET /
+ HTTP  2026-05-26 9:27:42 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:28:17 AM ::1 GET /
+ HTTP  2026-05-26 9:28:17 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:28:20 AM ::1 GET /
+ HTTP  2026-05-26 9:28:20 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:28:57 AM ::1 GET /
+ HTTP  2026-05-26 9:28:57 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:28:58 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:28:58 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:37:08 AM ::1 GET /
+ HTTP  2026-05-26 9:37:08 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:37:08 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:37:08 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 9:37:35 AM ::1 GET /
+ HTTP  2026-05-26 9:37:35 AM ::1 Returned 200 in 0 ms
+ HTTP  2026-05-26 9:37:36 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 9:37:36 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:45:40 AM ::1 GET /
+ HTTP  2026-05-26 10:45:40 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:45:40 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 10:45:40 AM ::1 Returned 200 in 0 ms
+ HTTP  2026-05-26 10:46:39 AM ::1 GET /
+ HTTP  2026-05-26 10:46:39 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:47:28 AM ::1 GET /
+ HTTP  2026-05-26 10:47:28 AM ::1 Returned 200 in 0 ms
+ HTTP  2026-05-26 10:47:31 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 10:47:31 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:47:31 AM ::1 GET /vite.svg
+ HTTP  2026-05-26 10:47:31 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:47:59 AM ::1 GET /
+ HTTP  2026-05-26 10:47:59 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:47:59 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 10:47:59 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:50:12 AM ::1 GET /
+ HTTP  2026-05-26 10:50:12 AM ::1 Returned 200 in 2 ms
+ HTTP  2026-05-26 10:50:31 AM ::1 GET /
+ HTTP  2026-05-26 10:50:31 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:51:05 AM ::1 GET /
+ HTTP  2026-05-26 10:51:05 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:51:06 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 10:51:06 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:51:17 AM ::1 GET /
+ HTTP  2026-05-26 10:51:17 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:51:18 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 10:51:18 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 10:58:06 AM ::1 GET /
+ HTTP  2026-05-26 10:58:06 AM ::1 Returned 200 in 0 ms
+ HTTP  2026-05-26 10:58:06 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 10:58:06 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:00:07 AM ::1 GET /
+ HTTP  2026-05-26 11:00:07 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:12:25 AM ::1 GET /
+ HTTP  2026-05-26 11:12:25 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:12:25 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:12:25 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:18:55 AM ::1 GET /
+ HTTP  2026-05-26 11:18:55 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:18:56 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:18:56 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:19:26 AM ::1 GET /
+ HTTP  2026-05-26 11:19:26 AM ::1 Returned 200 in 2 ms
+ HTTP  2026-05-26 11:19:58 AM ::1 GET /
+ HTTP  2026-05-26 11:19:58 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:19:58 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:19:58 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:27:29 AM ::1 GET /
+ HTTP  2026-05-26 11:27:29 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:27:30 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:27:30 AM ::1 Returned 200 in 0 ms
+ HTTP  2026-05-26 11:32:54 AM ::1 GET /
+ HTTP  2026-05-26 11:32:54 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:32:55 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:32:55 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:33:05 AM ::1 GET /
+ HTTP  2026-05-26 11:33:05 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:33:05 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:33:05 AM ::1 Returned 200 in 2 ms
+ HTTP  2026-05-26 11:33:10 AM ::1 GET /
+ HTTP  2026-05-26 11:33:10 AM ::1 Returned 200 in 0 ms
+ HTTP  2026-05-26 11:33:11 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:33:11 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:33:12 AM ::1 GET /vite.svg
+ HTTP  2026-05-26 11:33:12 AM ::1 Returned 200 in 2 ms
+ HTTP  2026-05-26 11:33:38 AM ::1 GET /
+ HTTP  2026-05-26 11:33:38 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:33:38 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:33:38 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:33:57 AM ::1 GET /
+ HTTP  2026-05-26 11:33:57 AM ::1 Returned 200 in 1 ms
+ HTTP  2026-05-26 11:33:57 AM ::1 GET /src/main.tsx
+ HTTP  2026-05-26 11:33:57 AM ::1 Returned 200 in 1 ms
+undefined
+ ERR_PNPM_RECURSIVE_EXEC_FIRST_FAIL  Command was killed with SIGKILL (Forced termination): serve -l 5000 -s .

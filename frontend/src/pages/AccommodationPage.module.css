@@ -1,0 +1,108 @@
+.container {
+  min-height: 100vh;
+  background: #f5f5f5;
+}
+
+.searchWrapper {
+  padding: 12px 16px;
+  background: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.listContainer {
+  padding: 12px 16px;
+  padding-bottom: 20px;
+}
+
+.card {
+  margin-bottom: 12px;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.cardContent {
+  display: flex;
+  padding: 12px;
+  gap: 12px;
+}
+
+.cardImage {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.cardInfo {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cardTitle {
+  font-size: 16px;
+  font-weight: 600;
+  color: #333;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardType {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.rating {
+  font-size: 12px;
+  color: #ff9500;
+}
+
+.cardDetail {
+  font-size: 12px;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cardTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  margin-top: 4px;
+}
+
+.cardFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: auto;
+  padding-top: 8px;
+}
+
+.price {
+  font-size: 18px;
+  font-weight: 600;
+  color: #ff6b6b;
+}
+
+@media (max-width: 375px) {
+  .cardImage {
+    width: 80px;
+    height: 80px;
+  }
+  
+  .cardTitle {
+    font-size: 14px;
+  }
+}

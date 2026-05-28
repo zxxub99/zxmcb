@@ -1,0 +1,302 @@
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* 背景装饰 */
+.bgDecoration {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.bgCircle1 {
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+}
+
+.bgCircle2 {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -50px;
+}
+
+/* Logo区域 */
+.header {
+  text-align: center;
+  padding: 30px 0 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.logoIcon {
+  font-size: 40px;
+}
+
+.logoText {
+  font-size: 28px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 2px;
+}
+
+.slogan {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+/* 表单卡片 */
+.formCard {
+  background: #fff;
+  border-radius: 20px;
+  padding: 30px 24px;
+  margin: 20px auto;
+  max-width: 360px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+}
+
+/* 切换标签 */
+.tabs {
+  display: flex;
+  background: #f5f5f5;
+  border-radius: 10px;
+  padding: 4px;
+  margin-bottom: 24px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  border-radius: 8px;
+  font-size: 15px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* 错误提示 */
+.error {
+  background: #fff2f0;
+  color: #ff4d4f;
+  padding: 10px 12px;
+  border-radius: 8px;
+  font-size: 13px;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* 输入框组 */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.inputGroup {
+  display: flex;
+  align-items: center;
+  background: #f8f8f8;
+  border-radius: 12px;
+  padding: 4px 12px;
+  border: 1px solid transparent;
+  transition: all 0.3s;
+}
+
+.inputGroup:focus-within {
+  border-color: #667eea;
+  background: #fff;
+}
+
+.inputIcon {
+  font-size: 18px;
+  margin-right: 8px;
+}
+
+.input {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 12px 0;
+  font-size: 15px;
+  color: #333;
+  outline: none;
+}
+
+.input::placeholder {
+  color: #bbb;
+}
+
+.togglePassword {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
+  padding: 4px;
+}
+
+/* 验证码按钮 */
+.codeBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  white-space: nowrap;
+  cursor: pointer;
+}
+
+/* 记住和忘记密码 */
+.forgotRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: -4px;
+}
+
+.remember {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+}
+
+.remember input {
+  accent-color: #667eea;
+}
+
+.forgotLink {
+  background: none;
+  border: none;
+  color: #667eea;
+  font-size: 13px;
+  cursor: pointer;
+}
+
+/* 提交按钮 */
+.submitBtn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  border: none;
+  padding: 14px;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.submitBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+}
+
+.submitBtn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* 其他登录方式 */
+.otherLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #eee;
+}
+
+.otherLogin span {
+  color: #999;
+  font-size: 12px;
+}
+
+.otherIcons {
+  display: flex;
+  gap: 12px;
+}
+
+.otherBtn {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #f0f0f0;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.otherBtn:hover {
+  background: #e0e0e0;
+  transform: scale(1.1);
+}
+
+/* 注册协议 */
+.agreement {
+  text-align: center;
+  font-size: 12px;
+  color: #999;
+  margin-top: 12px;
+}
+
+.agreement a {
+  color: #667eea;
+  text-decoration: none;
+}
+
+/* 返回首页 */
+.backHome {
+  display: block;
+  width: fit-content;
+  margin: 20px auto 0;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+}
+
+.backHome:hover {
+  color: #fff;
+}

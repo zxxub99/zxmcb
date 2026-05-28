@@ -1,0 +1,164 @@
+.container {
+  min-height: 100vh;
+  background: var(--bg-color);
+}
+
+.header {
+  background: white;
+  padding: 16px;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.header h2 {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.publishBtn {
+  margin: 12px 16px;
+  padding: 12px;
+  background: #1890ff;
+  color: white;
+  text-align: center;
+  border-radius: 8px;
+  font-size: 15px;
+}
+
+.list {
+  padding: 12px;
+}
+
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 16px;
+  margin-bottom: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  flex: 1;
+}
+
+.tag {
+  background: #e6f7ff;
+  color: #1890ff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.cardBody {
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.loading, .empty {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-secondary);
+}
+
+/* 移动端适配 */
+@media (max-width: 375px) {
+  .header {
+    padding: 12px;
+  }
+  
+  .header h2 {
+    font-size: 18px;
+  }
+  
+  .publishBtn {
+    margin: 10px 12px;
+    padding: 10px;
+    font-size: 14px;
+  }
+  
+  .list {
+    padding: 10px;
+  }
+  
+  .card {
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 6px;
+  }
+  
+  .title {
+    font-size: 15px;
+  }
+  
+  .cardBody {
+    font-size: 13px;
+  }
+}
+
+/* 搜索栏 */
+.searchBar {
+  padding: 12px 16px;
+  background: #f5f5f5;
+}
+
+/* 分类标签 */
+.categoryTabs {
+  display: flex;
+  gap: 8px;
+  padding: 0 16px 12px;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.categoryTabs::-webkit-scrollbar {
+  display: none;
+}
+
+.categoryBtn {
+  flex-shrink: 0;
+  padding: 6px 14px;
+  border-radius: 16px;
+  border: 1px solid #e0e0e0;
+  background: white;
+  font-size: 13px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.categoryBtn.active {
+  background: #11998e;
+  color: white;
+  border-color: #11998e;
+}
+
+/* 价格标签 */
+.price {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #ff6b6b;
+}
+
+/* 安全区域适配 */
+@supports (padding: env(safe-area-inset-bottom)) {
+  .list {
+    padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  }
+}

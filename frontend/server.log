@@ -1,0 +1,10 @@
+
+  VITE v5.4.21  ready in 118 ms
+
+  ➜  Local:   http://localhost:5000/
+  ➜  Network: http://9.96.251.74:5000/
+  ➜  Network: http://169.254.102.166:5000/
+9:21:07 AM [vite] hmr update /src/pages/LoginPage.tsx
+9:21:14 AM [vite] hmr update /src/pages/SquarePage.tsx
+9:21:28 AM [vite] hmr update /src/pages/MessagePage.tsx
+9:21:43 AM [vite] hmr update /src/pages/NearbyPage.tsx
