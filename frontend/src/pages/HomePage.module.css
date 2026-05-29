@@ -819,12 +819,70 @@
   margin-bottom: 0;
 }
 
-/* 概括区域诗词滚动 */
+/* 概括区域诗词滚动 - 水纹金边效果 */
 .introPoemScroll {
   height: 100px;
   overflow: hidden;
   margin-bottom: 8px;
   position: relative;
+  /* 水纹背景 */
+  background: linear-gradient(180deg, 
+    rgba(0, 100, 150, 0.3) 0%, 
+    rgba(0, 150, 200, 0.2) 50%, 
+    rgba(0, 100, 150, 0.3) 100%
+  );
+}
+
+/* 水纹波纹效果 - 伪元素 */
+.introPoemScroll::before,
+.introPoemScroll::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+}
+
+.introPoemScroll::before {
+  /* 第一层波纹 */
+  background: radial-gradient(ellipse at 20% 50%, 
+    rgba(255, 215, 0, 0.1) 0%, 
+    transparent 50%
+  );
+  animation: waterWave1 4s ease-in-out infinite;
+}
+
+.introPoemScroll::after {
+  /* 第二层波纹 */
+  background: radial-gradient(ellipse at 80% 50%, 
+    rgba(100, 180, 220, 0.15) 0%, 
+    transparent 50%
+  );
+  animation: waterWave2 5s ease-in-out infinite;
+}
+
+@keyframes waterWave1 {
+  0%, 100% {
+    transform: translateX(-10%) scale(1);
+    opacity: 0.5;
+  }
+  50% {
+    transform: translateX(10%) scale(1.1);
+    opacity: 1;
+  }
+}
+
+@keyframes waterWave2 {
+  0%, 100% {
+    transform: translateX(10%) scale(1.1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translateX(-10%) scale(1);
+    opacity: 1;
+  }
 }
 
 .introPoemContent {
@@ -833,24 +891,49 @@
   align-items: center;
   justify-content: center;
   animation: introPoemScrollUp 20s linear infinite;
+  position: relative;
+  z-index: 2;
 }
 
+/* 金边字体效果 */
 .introPoemLine {
-  color: #fff;
+  color: #ffd700;
   font-size: 18px;
   font-weight: bold;
-  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
   text-align: center;
   padding: 4px 0;
   letter-spacing: 4px;
+  /* 金色描边效果 */
+  -webkit-text-stroke: 0.5px #8B4513;
+  text-shadow: 
+    /* 内发光 */
+    0 0 10px rgba(255, 215, 0, 0.5),
+    /* 金色外发光 */
+    0 0 20px rgba(255, 215, 0, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.2),
+    /* 立体金边 */
+    2px 2px 0 #8B4513,
+    -2px -2px 0 #DAA520,
+    1px -1px 0 #B8860B,
+    -1px 1px 0 #CD853F;
+  /* 3D 金色文字效果 */
+  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
 }
 
 .introPoemAuthor {
-  color: #ffd700;
+  color: #FFD700;
   font-size: 14px;
   text-align: center;
   margin-bottom: 10px;
   font-style: italic;
+  /* 金色描边效果 */
+  -webkit-text-stroke: 0.3px #8B4513;
+  text-shadow: 
+    0 0 10px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3),
+    1px 1px 0 #8B4513,
+    -1px -1px 0 #DAA520;
+  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
 }
 
 /* 中间固定文字 */
