@@ -18,6 +18,18 @@ const stories = [
   },
   {
     id: 2,
+    title: '一波三折帝王路，一盘盘龙养流年',
+    excerpt: '盘龙菜诞生于皇权更迭的绝境，成名于嘉靖盛世，流传于民间烟火，六百年岁月沉淀...',
+    author: '宫廷御膳研究',
+    date: '2024-06-03',
+    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?w=400&h=300&fit=crop',
+    type: '美食',
+    likes: 777,
+    views: 4800,
+    isFeatured: true
+  },
+  {
+    id: 3,
     title: '百岁老人的早餐秘诀',
     excerpt: '103岁的张奶奶每天早上都会喝一碗葛根粉，她说这是祖辈传下来的养生之道...',
     author: '钟祥日报',
@@ -29,7 +41,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 3,
+    id: 4,
     title: '世界长寿之乡的饮食秘密',
     excerpt: '钟祥拥有独特的富硒土壤，种出的农作物含有丰富的微量元素...',
     author: '健康养生频道',
@@ -41,7 +53,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 4,
+    id: 5,
     title: '黄爹爹的太极人生',
     excerpt: '98岁的黄爷爷每天清晨都会在阳春公园打太极，已经坚持了50年...',
     author: '本地生活',
@@ -53,7 +65,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 5,
+    id: 6,
     title: '客店镇的千年泉水传说',
     excerpt: '相传这里的泉水是仙人留下的，常年饮用可延年益寿...',
     author: '文化探索',
@@ -65,7 +77,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 6,
+    id: 7,
     title: '钟祥米茶：明代御用的长寿秘密',
     excerpt: '明朝正德年间，兴王府厨工为嘉靖帝生母特制米茶，自此成为皇家御用清润饮品...',
     author: '长寿文化研究',
@@ -77,7 +89,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 7,
+    id: 8,
     title: '长寿老人们的共同习惯',
     excerpt: '通过对钟祥百岁老人的调研，发现他们都有这些共同点...',
     author: '养生专家',
@@ -89,7 +101,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 8,
+    id: 9,
     title: '石牌镇的豆腐密码',
     excerpt: '百年传承的手工豆腐，选用本地富硒黄豆，口感细腻营养丰富...',
     author: '美食探店',
@@ -98,6 +110,18 @@ const stories = [
     type: '美食',
     likes: 298,
     views: 2100,
+    isFeatured: false
+  },
+  {
+    id: 10,
+    title: '盘龙菜：嘉靖帝的登基神器',
+    excerpt: '三王进京、先到为君，后到为臣。嘉靖帝凭一盘神秘美食逆天改命...',
+    author: '帝王秘史',
+    date: '2024-06-04',
+    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop',
+    type: '传说',
+    likes: 999,
+    views: 6800,
     isFeatured: false
   }
 ];
@@ -141,8 +165,8 @@ const longevityElders = [
 // 长寿食谱
 const recipes = [
   { name: '钟祥米茶', benefit: '明代御饮·六百年长寿密码', icon: '🍵', featured: true },
+  { name: '钟祥盘龙菜', benefit: '嘉靖御赐·无宴不成席', icon: '🐉', featured: true },
   { name: '葛根粉羹', benefit: '清热解毒、延年益寿', icon: '🥣', featured: false },
-  { name: '钟祥蟠龙菜', benefit: '传承百年、宴席必备', icon: '🍖', featured: false },
   { name: '石牌豆腐', benefit: '富硒健康、手工制作', icon: '🧈', featured: false },
   { name: '客店土鸡蛋', benefit: '林间散养、营养丰富', icon: '🥚', featured: false },
   { name: '旧口砂梨', benefit: '清甜多汁、润肺止咳', icon: '🍐', featured: false },
@@ -259,6 +283,71 @@ export default function LongevityStories() {
         
         <button className={styles.miChaBtn} onClick={() => navigate('/specialty')}>
           🍵 立即品鉴钟祥米茶
+        </button>
+      </section>
+
+      {/* 钟祥盘龙菜专题 */}
+      <section className={styles.panLongSection}>
+        <div className={styles.panLongHeader}>
+          <span className={styles.panLongBadge}>🐉 宫廷御膳</span>
+          <h2 className={styles.panLongTitle}>一波三折帝王路，一盘御味养流年</h2>
+          <p className={styles.panLongSubtitle}>嘉靖御赐 · 无宴不成席的长寿御膳</p>
+        </div>
+        
+        <div className={styles.panLongContent}>
+          <div className={styles.panLongStory}>
+            <h3>🏰 传奇由来</h3>
+            <p><strong>一波三折，先到为君定传奇</strong></p>
+            <p>明正德十六年，武宗驾崩无嗣，朝堂立下旷世铁规：三王进京，先到为君，后到为臣。钟祥兴王朱厚熜千里迢迢、路途最远，按皇家仪仗行进，必败无疑。此为<strong>第一折：绝境临身，帝位将失</strong>。</p>
+            <p>为逆天改命，幕僚献策假扮钦犯、乘坐囚车日夜疾驰。可锦衣玉食长大的朱厚熜不堪囚车风霜，粗茶粗粮难以下咽。此为<strong>第二折：行路困局，命悬一线</strong>。</p>
+            <p>情急之下，朱厚熜下死令：三日内，必须造出一道吃肉不见肉、营养耐饿的吃食，逾期全员问斩。主厨詹多苦思无解，绝境逢生见妻子送来的蒸红薯，瞬间顿悟，<strong>第三折：绝境逢生，天赐奇方</strong>。</p>
+            <p>他连夜革新技法，精选本地鲜猪精肉、鲜活河鱼，反复捶打去腥，以蛋清淀粉摊皮卷馅，盘绕成龙形文火久蒸。成品形似朴素红薯，内里软糯鲜香，真正实现"吃肉不见肉，吃鱼不见鱼"。朱厚熜凭此珍味蓄力续航，率先入京、登临帝位。嘉靖感念此菜助他定鼎江山，御赐美名<strong>盘龙菜</strong>，列为宫廷御宴头牌。</p>
+          </div>
+          
+          <div className={styles.panLongFeatures}>
+            <h3>🍳 风物特点</h3>
+            <div className={styles.panLongFeatureGrid}>
+              <div className={styles.panLongFeatureItem}>
+                <span className={styles.panLongFeatureIcon}>🔥</span>
+                <span>古法蒸制</span>
+              </div>
+              <div className={styles.panLongFeatureItem}>
+                <span className={styles.panLongFeatureIcon}>🥬</span>
+                <span>清润为本</span>
+              </div>
+              <div className={styles.panLongFeatureItem}>
+                <span className={styles.panLongFeatureIcon}>✨</span>
+                <span>细腻无渣</span>
+              </div>
+              <div className={styles.panLongFeatureItem}>
+                <span className={styles.panLongFeatureIcon}>💪</span>
+                <span>补而不燥</span>
+              </div>
+            </div>
+            <p className={styles.panLongFeatureDesc}>盘龙菜摒弃传统大菜重油、重盐、重爆炒的做法，全程坚持纯古法蒸制。经捶茸、摊皮、卷馅、盘形、慢蒸数道精工，肉质细腻无渣、荤素相融、鲜香清雅。</p>
+          </div>
+          
+          <div className={styles.panLongLongevity}>
+            <h3>🌿 长寿渊源</h3>
+            <p>钟祥长寿的核心智慧，在于饮食清淡、脾胃常和、温润食补。盘龙菜本为帝王健体续命创制，恰好契合钟祥千年养生之道。</p>
+            <p>蒸制工艺温和养胃，细腻肉质极易吸收，可<strong>补益气血、调和脏腑、固本培元</strong>，不给肠胃增添负担。数百年来，这道皇家御膳走入寻常百姓家，成为钟祥人日常食补、节庆滋养的核心美食。</p>
+            <div className={styles.panLongQuoteBox}>
+              <p>"明显陵沉淀一城帝王文脉，盘龙菜滋养一方长寿子民"</p>
+            </div>
+          </div>
+          
+          <div className={styles.panLongLocal}>
+            <h3>🏠 民间地位</h3>
+            <p>在钟祥，盘龙菜是<strong>宴席之魂、待客之尊</strong>。婚寿嫁娶、团圆家宴、宾客酬宾，无论城乡大小宴席，必以盘龙菜为首席重头菜。</p>
+            <div className={styles.panLongHighlight}>
+              <p>素有"无盘龙不成席"的说法</p>
+            </div>
+            <p>它承载着钟祥人的礼仪文化、团圆温情与祥瑞期许。六百年帝王传奇、烟火传承，让这道绝境诞生的御味，成为钟祥兼具历史厚度、养生价值、民俗底蕴的顶级文旅美食名片。</p>
+          </div>
+        </div>
+        
+        <button className={styles.panLongBtn} onClick={() => navigate('/specialty')}>
+          🐉 立即品鉴盘龙御膳
         </button>
       </section>
 

@@ -603,6 +603,215 @@
   background: linear-gradient(135deg, #A0522D 0%, #D2691E 100%);
 }
 
+/* 钟祥盘龙菜专题 */
+.panLongSection {
+  max-width: 1200px;
+  margin: 30px auto;
+  padding: 0 16px;
+}
+
+.panLongHeader {
+  text-align: center;
+  padding: 30px 20px;
+  background: linear-gradient(135deg, #8B0000 0%, #DC143C 50%, #FFD700 100%);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.panLongHeader::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+
+.panLongBadge {
+  display: inline-block;
+  background: #FFD700;
+  color: #8B0000;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 1;
+}
+
+.panLongTitle {
+  font-size: 28px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.panLongSubtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+  position: relative;
+  z-index: 1;
+}
+
+.panLongContent {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.panLongStory,
+.panLongFeatures,
+.panLongLongevity,
+.panLongLocal {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.panLongStory:last-child,
+.panLongLocal:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.panLongStory h3,
+.panLongFeatures h3,
+.panLongLongevity h3,
+.panLongLocal h3 {
+  font-size: 20px;
+  color: #8B0000;
+  margin: 0 0 16px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.panLongStory p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.panLongStory p:last-child {
+  margin-bottom: 0;
+}
+
+.panLongStory strong {
+  color: #DC143C;
+}
+
+.panLongFeatureGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.panLongFeatureItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 8px;
+  background: linear-gradient(135deg, #FFF0F0 0%, #FFE4E1 100%);
+  border-radius: 12px;
+  border: 1px solid #DC143C;
+}
+
+.panLongFeatureIcon {
+  font-size: 28px;
+}
+
+.panLongFeatureItem span:last-child {
+  font-size: 14px;
+  color: #8B0000;
+  font-weight: bold;
+}
+
+.panLongFeatureDesc {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.panLongLongevity p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.panLongQuoteBox {
+  background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+  padding: 20px;
+  border-radius: 12px;
+  margin-top: 16px;
+}
+
+.panLongQuoteBox p {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.panLongLocal p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.panLongHighlight {
+  background: linear-gradient(135deg, #FFD700 0%, #FFA500 100%);
+  padding: 16px;
+  border-radius: 12px;
+  margin: 16px 0;
+}
+
+.panLongHighlight p {
+  color: #8B0000;
+  font-size: 18px;
+  font-weight: bold;
+  text-align: center;
+  margin: 0;
+}
+
+.panLongBtn {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 30px auto 0;
+  padding: 16px 32px;
+  background: linear-gradient(135deg, #8B0000 0%, #DC143C 100%);
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(139, 0, 0, 0.4);
+}
+
+.panLongBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 0, 0, 0.5);
+  background: linear-gradient(135deg, #A52A2A 0%, #DC143C 100%);
+}
+
 @media (max-width: 768px) {
   .miChaTitle {
     font-size: 22px;
@@ -613,6 +822,18 @@
   }
   
   .miChaContent {
+    padding: 20px;
+  }
+  
+  .panLongTitle {
+    font-size: 22px;
+  }
+  
+  .panLongFeatureGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .panLongContent {
     padding: 20px;
   }
 }
