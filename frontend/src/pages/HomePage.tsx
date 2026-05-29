@@ -16,6 +16,36 @@ import styles from './HomePage.module.css'
 // 变现区板块 - 旅游服务 + 长寿特产
 const monetizationSections = [
   {
+    id: 'longevity-stories',
+    icon: '🌿',
+    title: '长寿故事',
+    subTitle: '百岁老人养生之道',
+    desc: '探访钟祥百岁老人，揭秘长寿秘诀',
+    color: '#4CAF50',
+    bgGradient: 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)',
+    path: '/longevity-stories',
+    items: [
+      { id: 1, title: '百岁老人的早餐', views: '2.3k', img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=120&h=80&fit=crop' },
+      { id: 2, title: '长寿之乡饮食', views: '1.8k', img: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=120&h=80&fit=crop' },
+      { id: 3, title: '太极养生之道', views: '1.5k', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=120&h=80&fit=crop' },
+    ]
+  },
+  {
+    id: 'neighbor',
+    icon: '🏘️',
+    title: '邻居推荐',
+    subTitle: '真实邻居 严选好物',
+    desc: '邻里推荐，放心购买',
+    color: '#ff9800',
+    bgGradient: 'linear-gradient(135deg, #ff9800 0%, #ff5722 100%)',
+    path: '/neighbor-recommendations',
+    items: [
+      { id: 1, title: '王阿姨的手工桃酥', price: '¥35', img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=120&h=80&fit=crop' },
+      { id: 2, title: '李叔叔的河鱼', price: '¥28', img: 'https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=120&h=80&fit=crop' },
+      { id: 3, title: '张奶奶的棉鞋', price: '¥68', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=120&h=80&fit=crop' },
+    ]
+  },
+  {
     id: 'specialty',
     icon: '🎁',
     title: '长寿特产专区',

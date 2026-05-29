@@ -1,0 +1,418 @@
+/* 长寿故事专题页样式 */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f5f7fa 0%, #e4eaf0 100%);
+  padding-bottom: 120px;
+}
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, #2d5016 0%, #4a7c23 50%, #6b9b37 100%);
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  opacity: 0.3;
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 1;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.bannerTitle {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 12px;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.bannerTitle .icon {
+  font-size: 36px;
+  margin-right: 8px;
+}
+
+.bannerSubtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
+  margin-bottom: 24px;
+}
+
+.bannerStats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 20px;
+}
+
+.statItem {
+  text-align: center;
+}
+
+.statNumber {
+  display: block;
+  font-size: 28px;
+  font-weight: bold;
+  color: #ffd700;
+}
+
+.statLabel {
+  font-size: 14px;
+  color: rgba(255,255,255,0.8);
+}
+
+/* 通用 Section */
+.section {
+  padding: 30px 16px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.sectionTitle {
+  font-size: 22px;
+  color: #333;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.sectionTitle span {
+  font-size: 24px;
+}
+
+/* 长寿食谱 */
+.recipeGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+.recipeCard {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.recipeCard:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.12);
+}
+
+.recipeIcon {
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.recipeInfo {
+  flex: 1;
+}
+
+.recipeName {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 4px 0;
+}
+
+.recipeBenefit {
+  font-size: 14px;
+  color: #666;
+  margin: 0;
+}
+
+.recipeBtn {
+  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.recipeBtn:hover {
+  opacity: 0.9;
+}
+
+/* 长寿老人 */
+.eldersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+}
+
+.elderCard {
+  background: linear-gradient(135deg, #fff9e6 0%, #fff5d6 100%);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  border: 2px solid #ffd700;
+  position: relative;
+}
+
+.elderAvatar {
+  font-size: 64px;
+  margin-bottom: 12px;
+}
+
+.elderInfo {
+  text-align: left;
+}
+
+.elderHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.elderHeader h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.elderAge {
+  background: #ff6b6b;
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.elderLocation,
+.elderYears {
+  font-size: 14px;
+  color: #666;
+  margin: 4px 0;
+}
+
+.elderSecret {
+  font-size: 14px;
+  color: #4a7c23;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px dashed #ddd;
+}
+
+/* 分类筛选 */
+.categories {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.categoryBtn {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.categoryBtn.active {
+  background: linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%);
+  color: white;
+  border-color: #4CAF50;
+}
+
+/* 故事列表 */
+.storiesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 20px;
+}
+
+.storyCard {
+  background: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.storyCard:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+.storyImage {
+  height: 180px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.storyType {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(74, 124, 35, 0.9);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+.storyContent {
+  padding: 16px;
+}
+
+.storyTitle {
+  font-size: 18px;
+  color: #333;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.storyExcerpt {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.storyMeta {
+  display: flex;
+  gap: 16px;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 12px;
+}
+
+.storyActions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.likeBtn {
+  background: none;
+  border: none;
+  color: #999;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.likeBtn.liked {
+  color: #ff6b6b;
+}
+
+.views {
+  font-size: 14px;
+  color: #999;
+}
+
+.shareBtn {
+  background: none;
+  border: none;
+  color: #4a7c23;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+/* 长寿知识 */
+.tipsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+.tipCard {
+  background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+  border: 1px solid #a5d6a7;
+}
+
+.tipIcon {
+  font-size: 48px;
+  margin-bottom: 12px;
+}
+
+.tipCard h3 {
+  font-size: 18px;
+  color: #2d5016;
+  margin: 0 0 8px 0;
+}
+
+.tipCard p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* 返回按钮 */
+.backBtn {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 30px auto;
+  padding: 14px;
+  background: #ffffff;
+  border: 2px solid #4a7c23;
+  border-radius: 25px;
+  color: #4a7c23;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.backBtn:hover {
+  background: #4a7c23;
+  color: white;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+  .bannerTitle {
+    font-size: 26px;
+  }
+  
+  .bannerStats {
+    gap: 20px;
+  }
+  
+  .statNumber {
+    font-size: 22px;
+  }
+  
+  .storiesGrid {
+    grid-template-columns: 1fr;
+  }
+}

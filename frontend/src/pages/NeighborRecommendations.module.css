@@ -1,0 +1,423 @@
+/* 邻居推荐页面样式 */
+.container {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #fff8f0 0%, #fff5eb 100%);
+  padding-bottom: 120px;
+}
+
+/* Banner */
+.banner {
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerContent {
+  position: relative;
+  z-index: 1;
+}
+
+.bannerTitle {
+  font-size: 32px;
+  color: #ffffff;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.bannerSubtitle {
+  font-size: 16px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+
+.bannerDecor {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.decorCircle {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+}
+
+.decorCircle:nth-child(1) {
+  width: 200px;
+  height: 200px;
+  top: -100px;
+  right: -50px;
+}
+
+.decorCircle:nth-child(2) {
+  width: 150px;
+  height: 150px;
+  bottom: -75px;
+  left: -30px;
+}
+
+/* Tab 切换 */
+.tabs {
+  display: flex;
+  background: white;
+  padding: 8px;
+  gap: 8px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.tab {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  font-size: 16px;
+  color: #666;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.tab.active {
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  color: white;
+}
+
+/* 筛选按钮 */
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 16px;
+  background: white;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.filterBtn {
+  background: #f5f5f5;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 16px;
+  font-size: 14px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.filterBtn.active {
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  color: white;
+}
+
+/* 邻居卡片 */
+.neighborList {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.neighborCard {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+.neighborMain {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.avatarWrapper {
+  position: relative;
+  flex-shrink: 0;
+}
+
+.avatar {
+  font-size: 56px;
+  display: block;
+}
+
+.onlineDot {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  width: 14px;
+  height: 14px;
+  background: #4CAF50;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+
+.neighborInfo {
+  flex: 1;
+}
+
+.neighborHeader {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.neighborHeader h3 {
+  font-size: 18px;
+  color: #333;
+  margin: 0;
+}
+
+.location {
+  font-size: 12px;
+  color: #999;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.tag {
+  background: #fff3e0;
+  color: #ff9800;
+  padding: 2px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+}
+
+.intro {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0 0 8px 0;
+}
+
+.neighborMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 13px;
+  color: #666;
+}
+
+.rating {
+  color: #ff9800;
+  font-weight: bold;
+}
+
+.specialty {
+  color: #4CAF50;
+  font-weight: 500;
+}
+
+.neighborActions {
+  display: flex;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid #f0f0f0;
+}
+
+.chatBtn,
+.followBtn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 20px;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.chatBtn {
+  background: white;
+  border: 1px solid #ddd;
+  color: #666;
+}
+
+.chatBtn:hover {
+  border-color: #ff9800;
+  color: #ff9800;
+}
+
+.followBtn {
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  border: none;
+  color: white;
+}
+
+.followBtn.followed {
+  background: #e0e0e0;
+  color: #999;
+}
+
+/* 物品网格 */
+.itemsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  padding: 16px;
+}
+
+.itemCard {
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  display: flex;
+  flex-direction: column;
+}
+
+.itemImage {
+  height: 140px;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+
+.discountTag {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background: #ff5722;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+}
+
+.itemContent {
+  padding: 12px;
+  flex: 1;
+}
+
+.itemName {
+  font-size: 14px;
+  color: #333;
+  margin: 0 0 4px 0;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.itemNeighbor {
+  font-size: 12px;
+  color: #ff9800;
+  margin: 0 0 8px 0;
+}
+
+.itemMeta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 4px;
+}
+
+.itemPrice {
+  font-size: 18px;
+  color: #ff5722;
+  font-weight: bold;
+}
+
+.originalPrice {
+  font-size: 12px;
+  color: #999;
+  text-decoration: line-through;
+}
+
+.sales {
+  font-size: 12px;
+  color: #999;
+  margin-left: auto;
+}
+
+.itemRating {
+  font-size: 12px;
+  color: #ff9800;
+}
+
+.buyBtn {
+  width: 100%;
+  padding: 10px;
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  border: none;
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* 发布按钮 */
+.publishBtn {
+  position: fixed;
+  bottom: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: linear-gradient(135deg, #ff9800 0%, #ff5722 100%);
+  color: white;
+  border: none;
+  padding: 14px 32px;
+  border-radius: 25px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 16px rgba(255, 152, 0, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 100;
+}
+
+.publishBtn span {
+  font-size: 18px;
+}
+
+/* 返回按钮 */
+.backBtn {
+  display: block;
+  width: calc(100% - 32px);
+  margin: 20px auto;
+  padding: 14px;
+  background: white;
+  border: 2px solid #ff9800;
+  border-radius: 25px;
+  color: #ff9800;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.backBtn:hover {
+  background: #ff9800;
+  color: white;
+}
+
+/* 响应式 */
+@media (max-width: 480px) {
+  .itemsGrid {
+    grid-template-columns: 1fr;
+  }
+  
+  .neighborMain {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .tags {
+    justify-content: center;
+  }
+  
+  .neighborMeta {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+}
