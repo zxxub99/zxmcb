@@ -825,16 +825,31 @@
   overflow: hidden;
   margin-bottom: 8px;
   position: relative;
-  /* 水纹背景 */
-  background: linear-gradient(180deg, 
-    rgba(0, 100, 150, 0.3) 0%, 
-    rgba(0, 150, 200, 0.2) 50%, 
-    rgba(0, 100, 150, 0.3) 100%
-  );
+  /* 钟祥市区背景图片 */
+  background-image: url('/images/poem-bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-/* 水纹波纹效果 - 伪元素 */
-.introPoemScroll::before,
+/* 半透明遮罩层 */
+.introPoemScroll::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, 
+    rgba(0, 50, 80, 0.6) 0%, 
+    rgba(0, 80, 120, 0.5) 30%,
+    rgba(0, 60, 100, 0.55) 70%,
+    rgba(0, 40, 70, 0.6) 100%
+  );
+  z-index: 1;
+}
+
+/* 水纹波纹效果 - 第二层伪元素 */
 .introPoemScroll::after {
   content: '';
   position: absolute;
@@ -843,24 +858,13 @@
   right: 0;
   bottom: 0;
   pointer-events: none;
-}
-
-.introPoemScroll::before {
-  /* 第一层波纹 */
-  background: radial-gradient(ellipse at 20% 50%, 
-    rgba(255, 215, 0, 0.1) 0%, 
-    transparent 50%
+  /* 第一层波纹 - 金色光斑 */
+  background: radial-gradient(ellipse at 30% 40%, 
+    rgba(255, 215, 0, 0.15) 0%, 
+    transparent 40%
   );
   animation: waterWave1 4s ease-in-out infinite;
-}
-
-.introPoemScroll::after {
-  /* 第二层波纹 */
-  background: radial-gradient(ellipse at 80% 50%, 
-    rgba(100, 180, 220, 0.15) 0%, 
-    transparent 50%
-  );
-  animation: waterWave2 5s ease-in-out infinite;
+  z-index: 2;
 }
 
 @keyframes waterWave1 {
@@ -892,7 +896,7 @@
   justify-content: center;
   animation: introPoemScrollUp 20s linear infinite;
   position: relative;
-  z-index: 2;
+  z-index: 3;
 }
 
 /* 金边字体效果 */
