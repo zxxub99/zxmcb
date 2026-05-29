@@ -2,6 +2,96 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LongevityStories.module.css';
 
+// 评论类型
+interface Comment {
+  id: number;
+  foodId: string;
+  author: string;
+  avatar: string;
+  content: string;
+  time: string;
+  likes: number;
+}
+
+// 初始评论数据
+const initialComments: Comment[] = [
+  { id: 1, foodId: 'miCha', author: '钟祥张阿姨', avatar: '👩', content: '从小就喝米茶，每天早上一碗，胃里暖暖的！我们家三代人都爱喝！', time: '2024-06-15', likes: 56 },
+  { id: 2, foodId: 'miCha', author: '长寿李爷爷', avatar: '👴', content: '今年98岁了，喝了80多年的米茶，这东西养胃！', time: '2024-06-14', likes: 89 },
+  { id: 3, foodId: 'miCha', author: '游客小王', avatar: '🧑', content: '来钟祥旅游第一次喝米茶，香！回去带了好几袋给朋友', time: '2024-06-13', likes: 34 },
+  
+  { id: 4, foodId: 'panLongCai', author: '王大厨', avatar: '👨‍🍳', content: '做了30年盘龙菜，这道菜确实是手艺活！推荐大家来钟祥尝尝正宗的！', time: '2024-06-15', likes: 78 },
+  { id: 5, foodId: 'panLongCai', author: '婚宴老李', avatar: '👨', content: '钟祥人结婚没有盘龙菜不成席，这是规矩！', time: '2024-06-14', likes: 92 },
+  { id: 6, foodId: 'panLongCai', author: '美食达人', avatar: '👩‍🎨', content: '吃过的最好吃的肉菜！入口即化，老人小孩都适合！', time: '2024-06-13', likes: 67 },
+  
+  { id: 7, foodId: 'baoZi', author: '丰乐河老刘', avatar: '👴', content: '我爷爷那辈就开始做包子了，祖传手艺！', time: '2024-06-15', likes: 45 },
+  { id: 8, foodId: 'baoZi', author: '早餐店老板', avatar: '👨', content: '每天能卖几百个，回头客特别多！', time: '2024-06-14', likes: 38 },
+  
+  { id: 9, foodId: 'laoJiu', author: '老钟祥人', avatar: '👴', content: '转斗湾的老酒，一口下去满嘴粮香！', time: '2024-06-15', likes: 52 },
+  { id: 10, foodId: 'laoJiu', author: '码头老张', avatar: '👨', content: '祖辈就在码头卖酒，这酒是老味道！', time: '2024-06-14', likes: 41 },
+  
+  { id: 11, foodId: 'suBing', author: '张集王奶奶', avatar: '👵', content: '我做的酥饼酥得掉渣！', time: '2024-06-15', likes: 36 },
+  { id: 12, foodId: 'suBing', author: '游客', avatar: '🧑', content: '买了几盒带回去，脆香脆香的！', time: '2024-06-14', likes: 28 },
+  
+  { id: 13, foodId: 'douFu', author: '石牌豆腐坊', avatar: '👨', content: '做了几十年豆腐，石牌的水土是真的好！', time: '2024-06-15', likes: 63 },
+  { id: 14, foodId: 'douFu', author: '家庭主妇', avatar: '👩', content: '石牌豆腐真的嫩！怎么炒都好吃！', time: '2024-06-14', likes: 55 },
+];
+
+// 评论组件
+const CommentSection: React.FC<{ foodId: string; comments: Comment[]; onAddComment: (foodId: string, content: string) => void }> = ({ foodId, comments, onAddComment }) => {
+  const [newComment, setNewComment] = useState('');
+  const [showComments, setShowComments] = useState(false);
+  
+  const foodComments = comments.filter(c => c.foodId === foodId);
+  
+  const handleSubmit = () => {
+    if (newComment.trim()) {
+      onAddComment(foodId, newComment);
+      setNewComment('');
+    }
+  };
+  
+  return (
+    <div className={styles.commentSection}>
+      <div className={styles.commentToggle} onClick={() => setShowComments(!showComments)}>
+        <span className={styles.commentIcon}>💬</span>
+        <span className={styles.commentCount}>查看 {foodComments.length} 条评论</span>
+        <span className={styles.arrow}>{showComments ? '▲' : '▼'}</span>
+      </div>
+      
+      {showComments && (
+        <div className={styles.commentList}>
+          {foodComments.map(comment => (
+            <div key={comment.id} className={styles.commentItem}>
+              <div className={styles.commentAvatar}>{comment.avatar}</div>
+              <div className={styles.commentBody}>
+                <div className={styles.commentHeader}>
+                  <span className={styles.commentAuthor}>{comment.author}</span>
+                  <span className={styles.commentTime}>{comment.time}</span>
+                </div>
+                <p className={styles.commentContent}>{comment.content}</p>
+                <div className={styles.commentActions}>
+                  <span className={styles.commentLike}>❤️ {comment.likes}</span>
+                </div>
+              </div>
+            </div>
+          ))}
+          
+          <div className={styles.commentInput}>
+            <input
+              type="text"
+              placeholder="说说你对这道美食的感受..."
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              className={styles.commentInputField}
+            />
+            <button onClick={handleSubmit} className={styles.commentSubmit}>发布</button>
+          </div>
+        </div>
+      )}
+    </div>
+  );
+};
+
 // 长寿故事数据
 const stories = [
   {
@@ -158,6 +248,7 @@ export default function LongevityStories() {
   const navigate = useNavigate();
   const [activeCategory, setActiveCategory] = useState('全部');
   const [likedStories, setLikedStories] = useState<number[]>([]);
+  const [comments, setComments] = useState<Comment[]>(initialComments);
 
   const filteredStories = activeCategory === '全部' 
     ? stories 
@@ -169,6 +260,19 @@ export default function LongevityStories() {
         ? prev.filter(i => i !== id)
         : [...prev, id]
     );
+  };
+
+  const handleAddComment = (foodId: string, content: string) => {
+    const newComment: Comment = {
+      id: Date.now(),
+      foodId,
+      author: '匿名用户',
+      avatar: '👤',
+      content,
+      time: new Date().toISOString().split('T')[0],
+      likes: 0
+    };
+    setComments(prev => [...prev, newComment]);
   };
 
   return (
@@ -263,6 +367,9 @@ export default function LongevityStories() {
         <button className={styles.miChaBtn} onClick={() => navigate('/specialty')}>
           🍵 立即品鉴钟祥米茶
         </button>
+        
+        {/* 米茶评论区 */}
+        <CommentSection foodId="miCha" comments={comments} onAddComment={handleAddComment} />
       </section>
 
       {/* 钟祥盘龙菜专题 */}
@@ -328,6 +435,9 @@ export default function LongevityStories() {
         <button className={styles.panLongBtn} onClick={() => navigate('/specialty')}>
           🐉 立即品鉴盘龙御膳
         </button>
+        
+        {/* 盘龙菜评论区 */}
+        <CommentSection foodId="panLongCai" comments={comments} onAddComment={handleAddComment} />
       </section>
 
       {/* 钟祥八大长寿风物专辑 */}
@@ -390,6 +500,9 @@ export default function LongevityStories() {
             </div>
           </div>
         </div>
+        
+        {/* 丰乐河包子评论区 */}
+        <CommentSection foodId="baoZi" comments={comments} onAddComment={handleAddComment} />
       </section>
 
       {/* 转斗湾老酒专题 */}
@@ -440,6 +553,9 @@ export default function LongevityStories() {
             </div>
           </div>
         </div>
+        
+        {/* 转斗湾老酒评论区 */}
+        <CommentSection foodId="laoJiu" comments={comments} onAddComment={handleAddComment} />
       </section>
 
       {/* 张集酥饼专题 */}
@@ -490,6 +606,9 @@ export default function LongevityStories() {
             </div>
           </div>
         </div>
+        
+        {/* 张集酥饼评论区 */}
+        <CommentSection foodId="suBing" comments={comments} onAddComment={handleAddComment} />
       </section>
 
       {/* 石牌豆腐专题 */}
@@ -540,6 +659,9 @@ export default function LongevityStories() {
             </div>
           </div>
         </div>
+        
+        {/* 石牌豆腐评论区 */}
+        <CommentSection foodId="douFu" comments={comments} onAddComment={handleAddComment} />
       </section>
 
       {/* 长寿食谱推荐 */}
