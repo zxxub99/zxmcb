@@ -30,6 +30,54 @@ const stories = [
   },
   {
     id: 3,
+    title: '丰乐河包子：陀螺藏古味，御包润千秋',
+    excerpt: '始于宋代王府、兴于明代帝途，嘉靖帝御封的宫廷斋包，一枚包子承载宋韵明风...',
+    author: '非遗美食研究',
+    date: '2024-06-05',
+    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop',
+    type: '美食',
+    likes: 666,
+    views: 3800,
+    isFeatured: true
+  },
+  {
+    id: 4,
+    title: '转斗湾老酒：汉江码头酿，纯粮养流年',
+    excerpt: '源于汉江古埠、兴于千年楚风，纯粮古酿浸润码头烟火，一杯老酒润岁岁安康...',
+    author: '楚酒文化研究',
+    date: '2024-06-06',
+    image: 'https://images.unsplash.com/photo-1516594895297-db690e2f1a62?w=400&h=300&fit=crop',
+    type: '美食',
+    likes: 555,
+    views: 3200,
+    isFeatured: true
+  },
+  {
+    id: 5,
+    title: '张集酥饼：楚酥承军韵，一脆养烟火',
+    excerpt: '源自楚庄王北伐的千年军粮，嘉靖帝御封的长寿点心，千年老街酥香不绝...',
+    author: '荆楚美食研究',
+    date: '2024-06-07',
+    image: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=400&h=300&fit=crop',
+    type: '美食',
+    likes: 444,
+    views: 2800,
+    isFeatured: true
+  },
+  {
+    id: 6,
+    title: '石牌豆腐：一方白玉豆香，千年温润长寿',
+    excerpt: '千年豆腐之乡，始于汉代、兴于明清、盛于当代，白玉珍馐誉满江汉...',
+    author: '长寿美食研究',
+    date: '2024-06-08',
+    image: 'https://images.unsplash.com/photo-1565587425305-80f4c7a6c0e9?w=400&h=300&fit=crop',
+    type: '美食',
+    likes: 333,
+    views: 2200,
+    isFeatured: true
+  },
+  {
+    id: 7,
     title: '百岁老人的早餐秘诀',
     excerpt: '103岁的张奶奶每天早上都会喝一碗葛根粉，她说这是祖辈传下来的养生之道...',
     author: '钟祥日报',
@@ -41,7 +89,7 @@ const stories = [
     isFeatured: false
   },
   {
-    id: 4,
+    id: 8,
     title: '世界长寿之乡的饮食秘密',
     excerpt: '钟祥拥有独特的富硒土壤，种出的农作物含有丰富的微量元素...',
     author: '健康养生频道',
@@ -50,78 +98,6 @@ const stories = [
     type: '饮食',
     likes: 256,
     views: 1890,
-    isFeatured: false
-  },
-  {
-    id: 5,
-    title: '黄爹爹的太极人生',
-    excerpt: '98岁的黄爷爷每天清晨都会在阳春公园打太极，已经坚持了50年...',
-    author: '本地生活',
-    date: '2024-05-15',
-    image: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=400&h=300&fit=crop',
-    type: '运动',
-    likes: 412,
-    views: 3200,
-    isFeatured: false
-  },
-  {
-    id: 6,
-    title: '客店镇的千年泉水传说',
-    excerpt: '相传这里的泉水是仙人留下的，常年饮用可延年益寿...',
-    author: '文化探索',
-    date: '2024-05-12',
-    image: 'https://images.unsplash.com/photo-1569856358087-8d1aeb97fe58?w=400&h=300&fit=crop',
-    type: '传说',
-    likes: 189,
-    views: 1450,
-    isFeatured: false
-  },
-  {
-    id: 7,
-    title: '钟祥米茶：明代御用的长寿秘密',
-    excerpt: '明朝正德年间，兴王府厨工为嘉靖帝生母特制米茶，自此成为皇家御用清润饮品...',
-    author: '长寿文化研究',
-    date: '2024-06-02',
-    image: 'https://images.unsplash.com/photo-1556679343-c7306c1976bc?w=400&h=300&fit=crop',
-    type: '美食',
-    likes: 666,
-    views: 4200,
-    isFeatured: false
-  },
-  {
-    id: 8,
-    title: '长寿老人们的共同习惯',
-    excerpt: '通过对钟祥百岁老人的调研，发现他们都有这些共同点...',
-    author: '养生专家',
-    date: '2024-05-10',
-    image: 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=400&h=300&fit=crop',
-    type: '研究',
-    likes: 567,
-    views: 4200,
-    isFeatured: false
-  },
-  {
-    id: 9,
-    title: '石牌镇的豆腐密码',
-    excerpt: '百年传承的手工豆腐，选用本地富硒黄豆，口感细腻营养丰富...',
-    author: '美食探店',
-    date: '2024-05-08',
-    image: 'https://images.unsplash.com/photo-1565587425305-80f4c7a6c0e9?w=400&h=300&fit=crop',
-    type: '美食',
-    likes: 298,
-    views: 2100,
-    isFeatured: false
-  },
-  {
-    id: 10,
-    title: '盘龙菜：嘉靖帝的登基神器',
-    excerpt: '三王进京、先到为君，后到为臣。嘉靖帝凭一盘神秘美食逆天改命...',
-    author: '帝王秘史',
-    date: '2024-06-04',
-    image: 'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=400&h=300&fit=crop',
-    type: '传说',
-    likes: 999,
-    views: 6800,
     isFeatured: false
   }
 ];
@@ -166,8 +142,11 @@ const longevityElders = [
 const recipes = [
   { name: '钟祥米茶', benefit: '明代御饮·六百年长寿密码', icon: '🍵', featured: true },
   { name: '钟祥盘龙菜', benefit: '嘉靖御赐·无宴不成席', icon: '🐉', featured: true },
+  { name: '丰乐河包子', benefit: '陀螺古味·千年非遗', icon: '🥮', featured: true },
+  { name: '转斗湾老酒', benefit: '汉江古酿·码头烟火', icon: '🍶', featured: true },
+  { name: '张集酥饼', benefit: '楚酥军粮·嘉靖御封', icon: '🥮', featured: true },
+  { name: '石牌豆腐', benefit: '白玉珍馐·富硒健康', icon: '🧈', featured: false },
   { name: '葛根粉羹', benefit: '清热解毒、延年益寿', icon: '🥣', featured: false },
-  { name: '石牌豆腐', benefit: '富硒健康、手工制作', icon: '🧈', featured: false },
   { name: '客店土鸡蛋', benefit: '林间散养、营养丰富', icon: '🥚', featured: false },
   { name: '旧口砂梨', benefit: '清甜多汁、润肺止咳', icon: '🍐', featured: false },
   { name: '长寿香米', benefit: '富硒土壤、粒粒精华', icon: '🍚', featured: false }
@@ -349,6 +328,218 @@ export default function LongevityStories() {
         <button className={styles.panLongBtn} onClick={() => navigate('/specialty')}>
           🐉 立即品鉴盘龙御膳
         </button>
+      </section>
+
+      {/* 钟祥八大长寿风物专辑 */}
+      <section className={styles.albumSection}>
+        <div className={styles.albumHeader}>
+          <h2 className={styles.albumTitle}>🌾 钟祥八大长寿风物专辑</h2>
+          <p className={styles.albumSubtitle}>一风物一故事，一味藏千年福寿</p>
+          <p className={styles.albumIntro}>
+            钟祥，世界长寿之乡。千年文脉浸润一方水土，温润风物滋养世代百姓。
+            从一碗米茶、一盘御膳，到一枚酥饼、一坛老酒，八大本土风物，承千年农耕智慧、融皇家祥瑞底蕴、载百姓长寿密码。
+          </p>
+        </div>
+      </section>
+
+      {/* 丰乐河包子专题 */}
+      <section className={styles.baoZiSection}>
+        <div className={styles.baoZiHeader}>
+          <span className={styles.baoZiBadge}>🥮 非遗烟火</span>
+          <h2 className={styles.baoZiTitle}>丰乐河包子：陀螺藏古味，御包润千秋</h2>
+          <p className={styles.baoZiSubtitle}>始于宋代王府 · 嘉靖帝御封</p>
+        </div>
+        
+        <div className={styles.baoZiContent}>
+          <div className={styles.baoZiStory}>
+            <h3>🏺 传奇由来</h3>
+            <p><strong>宋韵明风，千年非遗</strong></p>
+            <p>丰乐河陀螺包子始于北宋，民间素有"丰乐河的包子，转斗湾的酒"的千古美誉。</p>
+            <p>古时王府宴席摒弃清水和面，独创本地黄酒老面发酵技法，经反复揉制、塑形，成品形似陀螺、色白如雪、松软清甜、久放不干。因其口感温润、耐储顶饱、清香不腻，成为宋代王府御用点心。</p>
+            <p>明代嘉靖帝北上登基，途经丰乐河，百姓敬献数百筐陀螺包子。皇子一路昼夜兼程，全凭这一口软糯干粮充饥续航。嘉靖登基后念念不忘其味，御封其为宫廷"斋包"，列入御膳名录。</p>
+          </div>
+          
+          <div className={styles.baoZiFeatures}>
+            <h3>✨ 风物特色</h3>
+            <div className={styles.featureGrid}>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🍶</span>
+                <span>黄酒发酵</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🌀</span>
+                <span>陀螺形状</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>❄️</span>
+                <span>久放不干</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🥮</span>
+                <span>层层起筋</span>
+              </div>
+            </div>
+            <p className={styles.featureDesc}>依靠黄酒自然发酵，无添加、无酵母，层层起筋、温润养胃，易消化、护脾胃，适配老人孩童体质。</p>
+          </div>
+          
+          <div className={styles.baoZiLongevity}>
+            <h3>🌿 长寿渊源</h3>
+            <p>一方陀螺包子、一碗清润米茶，构成钟祥人最经典的养生早餐。千百年来，这种清淡易消化的饮食习惯，养出了钟祥人平和康健的体态。</p>
+            <div className={styles.quoteBox}>
+              <p>"一枚小小包子，承载宋韵明风，藏着水乡烟火，是钟祥最温柔、最绵长的长寿乡愁味道"</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 转斗湾老酒专题 */}
+      <section className={styles.laoJiuSection}>
+        <div className={styles.laoJiuHeader}>
+          <span className={styles.laoJiuBadge}>🍶 汉江古酿</span>
+          <h2 className={styles.laoJiuTitle}>转斗湾老酒：汉江码头酿，纯粮养流年</h2>
+          <p className={styles.laoJiuSubtitle}>纯粮古酿 · 码头烟火</p>
+        </div>
+        
+        <div className={styles.laoJiuContent}>
+          <div className={styles.laoJiuStory}>
+            <h3>🏺 传奇由来</h3>
+            <p><strong>汉江古埠，千年楚风</strong></p>
+            <p>转斗湾依汉江而立，自古为粮食转运码头，粮船云集、五谷丰登，为酿酒提供了绝佳原料与水土条件。</p>
+            <p>其酿酒技艺承袭春秋郢州春酒古法，取汉江活水、本土纯粮，固态发酵、陶缸窖藏，承楚酒清冽风骨。</p>
+            <p>古时码头船工、商旅劳力，晨起必饮一杯早酒，驱寒暖身、舒筋益气，抵御江汉湿气，百年形成独特的早酒养生民俗。</p>
+          </div>
+          
+          <div className={styles.laoJiuFeatures}>
+            <h3>✨ 风物特色</h3>
+            <div className={styles.featureGrid}>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🌾</span>
+                <span>纯粮酿造</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🏺</span>
+                <span>陶缸窖藏</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>💧</span>
+                <span>汉江活水</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🍶</span>
+                <span>早酒民俗</span>
+              </div>
+            </div>
+            <p className={styles.featureDesc}>老酒酒体清亮、粮香醇厚、绵甜爽净、入口温润，不口干、不上头，无勾兑、无香精。</p>
+          </div>
+          
+          <div className={styles.laoJiuLongevity}>
+            <h3>🌿 长寿渊源</h3>
+            <p>温补气血、祛湿散寒，契合钟祥温润养生的长寿之道。一杯老酒，酿的是汉江水土，藏的是码头烟火，润的是岁岁安康。</p>
+            <div className={styles.quoteBox}>
+              <p>"是钟祥市井烟火里最醇厚的长寿滋味"</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 张集酥饼专题 */}
+      <section className={styles.suBingSection}>
+        <div className={styles.suBingHeader}>
+          <span className={styles.suBingBadge}>🥮 楚酥军粮</span>
+          <h2 className={styles.suBingTitle}>张集酥饼：楚酥承军韵，一脆养烟火</h2>
+          <p className={styles.suBingSubtitle}>源自楚庄王 · 嘉靖帝御封</p>
+        </div>
+        
+        <div className={styles.suBingContent}>
+          <div className={styles.suBingStory}>
+            <h3>🏺 传奇由来</h3>
+            <p><strong>千年军粮，楚风酥香</strong></p>
+            <p>张集酥饼古称"酥粑粑"，始于楚、兴于明、盛于清，是源自楚庄王北伐的千年军粮。</p>
+            <p>相传春秋时期，楚庄王北伐问鼎，大军粮草转运艰难，偶遇张集本土酥饼，其便携耐存、香酥顶饱、干食不腻，遂定为楚军专用军粮，助楚军驰骋中原、成就霸业。</p>
+            <p>明代嘉靖帝往返钟祥古道，偏爱此饼酥香温润、养胃耐饥，登基后将其列为宫廷御点、长寿茶点。清代匠人改良工艺，叠层起酥、土缸倒挂烤制。</p>
+          </div>
+          
+          <div className={styles.suBingFeatures}>
+            <h3>✨ 风物特色</h3>
+            <div className={styles.featureGrid}>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🫓</span>
+                <span>叠层起酥</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🔥</span>
+                <span>炭火慢烤</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🧈</span>
+                <span>小磨麻油</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🥮</span>
+                <span>酥脆化渣</span>
+              </div>
+            </div>
+            <p className={styles.featureDesc}>依托古法手工制作，取材本土面粉、小磨麻油，自然发酵，口感酥脆化渣、清香绵长，温润平和、不燥不火。</p>
+          </div>
+          
+          <div className={styles.suBingLongevity}>
+            <h3>🌿 长寿渊源</h3>
+            <p>解馋充饥、和胃益气，适配日常养生。千年老街酥香不绝，一饼酥脆承楚风、润烟火。</p>
+            <div className={styles.quoteBox}>
+              <p>"是钟祥最具古战场底蕴的长寿非遗风物"</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 石牌豆腐专题 */}
+      <section className={styles.douFuSection}>
+        <div className={styles.douFuHeader}>
+          <span className={styles.douFuBadge}>🧈 千年豆腐</span>
+          <h2 className={styles.douFuTitle}>石牌豆腐：一方白玉豆香，千年温润长寿</h2>
+          <p className={styles.douFuSubtitle}>汉代传承 · 明代贡品</p>
+        </div>
+        
+        <div className={styles.douFuContent}>
+          <div className={styles.douFuStory}>
+            <h3>🏺 传奇由来</h3>
+            <p><strong>千年豆腐之乡，白玉珍馐</strong></p>
+            <p>石牌镇，千年豆腐之乡，依汉江沃土、汲清冽甘泉，孕育出享誉江汉的石牌豆腐。其技艺始于汉代、兴于明清、盛于当代。</p>
+            <p>石牌水土温润、黄豆优质、地下水甘冽，为豆腐制作提供了天然禀赋。汉代先民开创古法，石磨慢碾、卤水点制，做出的豆腐白嫩如玉、豆香纯粹、久煮不烂、清润养胃。</p>
+            <p>明代时，石牌豆腐以色纯味真、清淡适口，入选兴王府贡品，深得嘉靖帝喜爱，誉为"人间清味、白玉珍馐"。</p>
+          </div>
+          
+          <div className={styles.douFuFeatures}>
+            <h3>✨ 风物特色</h3>
+            <div className={styles.featureGrid}>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🫘</span>
+                <span>本土黄豆</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>💧</span>
+                <span>清冽甘泉</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🪨</span>
+                <span>石磨慢碾</span>
+              </div>
+              <div className={styles.featureItem}>
+                <span className={styles.featureIcon}>🧂</span>
+                <span>卤水点制</span>
+              </div>
+            </div>
+            <p className={styles.featureDesc}>白嫩如玉、豆香纯粹、久煮不烂、清润养胃，低脂健康、老少皆宜。</p>
+          </div>
+          
+          <div className={styles.douFuLongevity}>
+            <h3>🌿 长寿渊源</h3>
+            <p>豆腐性平微凉、清润补虚、健脾养胃、清淡低脂，最贴合钟祥"少盐少油、顺时养生"的长寿理念。千百年来，石牌人以豆腐为日常，煎炒炖煮、百样吃法，豆制品贯穿三餐，温润滋养。</p>
+            <div className={styles.quoteBox}>
+              <p>"石牌镇是钟祥清淡长寿饮食文化的核心代表"</p>
+            </div>
+          </div>
+        </div>
       </section>
 
       {/* 长寿食谱推荐 */}

@@ -812,6 +812,444 @@
   background: linear-gradient(135deg, #A52A2A 0%, #DC143C 100%);
 }
 
+/* 八大长寿风物专辑 */
+.albumSection {
+  padding: 30px 20px;
+  text-align: center;
+  background: linear-gradient(180deg, #f5f7fa 0%, #e8f5e9 100%);
+}
+
+.albumHeader {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.albumTitle {
+  font-size: 28px;
+  color: #2d5016;
+  margin: 0 0 10px 0;
+}
+
+.albumSubtitle {
+  font-size: 18px;
+  color: #4a7c23;
+  margin: 0 0 15px 0;
+}
+
+.albumIntro {
+  font-size: 15px;
+  color: #666;
+  line-height: 1.8;
+  margin: 0;
+}
+
+/* 丰乐河包子专题 - 暖黄色调 */
+.baoZiSection {
+  margin: 0 20px 30px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.baoZiHeader {
+  background: linear-gradient(135deg, #DAA520 0%, #F4A460 50%, #FFE4B5 100%);
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.baoZiBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #8B4513;
+  margin-bottom: 10px;
+}
+
+.baoZiTitle {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.baoZiSubtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+
+.baoZiContent {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.baoZiStory,
+.baoZiFeatures,
+.baoZiLongevity {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.baoZiStory:last-child,
+.baoZiLongevity:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.baoZiStory h3,
+.baoZiFeatures h3,
+.baoZiLongevity h3 {
+  font-size: 20px;
+  color: #8B4513;
+  margin: 0 0 16px 0;
+}
+
+.baoZiStory p,
+.baoZiLongevity p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.baoZiStory p:last-child,
+.baoZiLongevity p:last-child {
+  margin-bottom: 0;
+}
+
+.baoZiBtn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #DAA520 0%, #F4A460 100%);
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.baoZiBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 165, 32, 0.5);
+}
+
+/* 转斗湾老酒专题 - 棕红色调 */
+.laoJiuSection {
+  margin: 0 20px 30px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.laoJiuHeader {
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 50%, #CD853F 100%);
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.laoJiuBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #8B4513;
+  margin-bottom: 10px;
+}
+
+.laoJiuTitle {
+  font-size: 24px;
+  color: #ffffff;
+  margin: 0 0 8px 0;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.laoJiuSubtitle {
+  font-size: 14px;
+  color: rgba(255,255,255,0.9);
+  margin: 0;
+}
+
+.laoJiuContent {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.laoJiuStory,
+.laoJiuFeatures,
+.laoJiuLongevity {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.laoJiuStory:last-child,
+.laoJiuLongevity:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.laoJiuStory h3,
+.laoJiuFeatures h3,
+.laoJiuLongevity h3 {
+  font-size: 20px;
+  color: #8B4513;
+  margin: 0 0 16px 0;
+}
+
+.laoJiuStory p,
+.laoJiuLongevity p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.laoJiuStory p:last-child,
+.laoJiuLongevity p:last-child {
+  margin-bottom: 0;
+}
+
+.laoJiuBtn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #8B4513 0%, #A0522D 100%);
+  border: none;
+  border-radius: 30px;
+  color: #ffffff;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(139, 69, 19, 0.4);
+}
+
+.laoJiuBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 69, 19, 0.5);
+}
+
+/* 张集酥饼专题 - 金黄色调 */
+.suBingSection {
+  margin: 0 20px 30px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.suBingHeader {
+  background: linear-gradient(135deg, #DAA520 0%, #FFD700 50%, #FFEC8B 100%);
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.suBingBadge {
+  display: inline-block;
+  background: rgba(255,255,255,0.9);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #8B6914;
+  margin-bottom: 10px;
+}
+
+.suBingTitle {
+  font-size: 24px;
+  color: #8B4513;
+  margin: 0 0 8px 0;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.suBingSubtitle {
+  font-size: 14px;
+  color: #8B6914;
+  margin: 0;
+}
+
+.suBingContent {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.suBingStory,
+.suBingFeatures,
+.suBingLongevity {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.suBingStory:last-child,
+.suBingLongevity:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.suBingStory h3,
+.suBingFeatures h3,
+.suBingLongevity h3 {
+  font-size: 20px;
+  color: #8B4513;
+  margin: 0 0 16px 0;
+}
+
+.suBingStory p,
+.suBingLongevity p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.suBingStory p:last-child,
+.suBingLongevity p:last-child {
+  margin-bottom: 0;
+}
+
+.suBingBtn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #DAA520 0%, #FFD700 100%);
+  border: none;
+  border-radius: 30px;
+  color: #8B4513;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(218, 165, 32, 0.4);
+}
+
+.suBingBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(218, 165, 32, 0.5);
+}
+
+/* 石牌豆腐专题 - 清新白色调 */
+.douFuSection {
+  margin: 0 20px 30px 20px;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.douFuHeader {
+  background: linear-gradient(135deg, #F5F5DC 0%, #FFFACD 50%, #FFF8DC 100%);
+  padding: 30px 20px;
+  text-align: center;
+  position: relative;
+  border-bottom: 3px solid #e8e0c8;
+}
+
+.douFuBadge {
+  display: inline-block;
+  background: #ffffff;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  color: #8B7355;
+  margin-bottom: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.douFuTitle {
+  font-size: 24px;
+  color: #5D4E37;
+  margin: 0 0 8px 0;
+  text-shadow: 0 1px 2px rgba(255,255,255,0.5);
+}
+
+.douFuSubtitle {
+  font-size: 14px;
+  color: #8B7355;
+  margin: 0;
+}
+
+.douFuContent {
+  background: #fff;
+  border-radius: 0 0 20px 20px;
+  padding: 30px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.douFuStory,
+.douFuFeatures,
+.douFuLongevity {
+  margin-bottom: 30px;
+  padding-bottom: 30px;
+  border-bottom: 1px dashed #e0e0e0;
+}
+
+.douFuStory:last-child,
+.douFuLongevity:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.douFuStory h3,
+.douFuFeatures h3,
+.douFuLongevity h3 {
+  font-size: 20px;
+  color: #5D4E37;
+  margin: 0 0 16px 0;
+}
+
+.douFuStory p,
+.douFuLongevity p {
+  font-size: 15px;
+  color: #555;
+  line-height: 1.8;
+  margin: 0 0 12px 0;
+}
+
+.douFuStory p:last-child,
+.douFuLongevity p:last-child {
+  margin-bottom: 0;
+}
+
+.douFuBtn {
+  display: block;
+  width: 100%;
+  padding: 16px;
+  background: linear-gradient(135deg, #F5F5DC 0%, #FFFACD 100%);
+  border: 2px solid #D4C4A8;
+  border-radius: 30px;
+  color: #5D4E37;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 4px 15px rgba(139, 115, 85, 0.2);
+}
+
+.douFuBtn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(139, 115, 85, 0.3);
+  background: linear-gradient(135deg, #FFFACD 0%, #FFF8DC 100%);
+}
+
 @media (max-width: 768px) {
   .miChaTitle {
     font-size: 22px;
