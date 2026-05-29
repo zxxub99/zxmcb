@@ -13,5 +13,5 @@ run = ["bash", "frontend/scripts/coze-preview-run.sh"]
 
 [deploy]
 profile = { kind = "service", flavor = "web" }
-build = ["bash", "scripts/build.sh"]
-run = ["bash", "scripts/run.sh"]
+build = ["bash", "frontend/scripts/coze-deploy-build.sh"]
+run = ["bash", "frontend/scripts/coze-deploy-run.sh"]
