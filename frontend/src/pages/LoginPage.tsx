@@ -1,14 +1,12 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './LoginPage.module.css';
-
-// 模拟用户数据存储（实际项目应连接后端API）
-const mockUsers = [
-  { phone: '13800138000', password: '123456', nickname: '钟祥游客', avatar: '' },
-];
+import { signIn, signUp, sendVerificationCode, isConfigured } from '../services/database';
+import { useUserStore } from '../stores/userStore';
 
 export default function LoginPage() {
   const navigate = useNavigate();
+  const { setUser } = useUserStore();
   const [isLogin, setIsLogin] = useState(true);
   const [phone, setPhone] = useState('');
   const [password, setPassword] = useState('');
@@ -18,15 +16,32 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
+  const [codeSent, setCodeSent] = useState(false);
 
-  // 模拟发送验证码
-  const sendCode = () => {
+  // 发送验证码
+  const handleSendCode = async () => {
     if (!phone || phone.length !== 11) {
       setError('请输入正确的手机号');
       return;
     }
+    setLoading(true);
     setError('');
-    alert('验证码已发送至您的手机');
+    
+    try {
+      if (!isConfigured()) {
+        // 开发模式：模拟发送验证码
+        setError('Supabase 未配置，请先配置环境变量');
+        setLoading(false);
+        return;
+      }
+      await sendVerificationCode(phone);
+      setCodeSent(true);
+      alert('验证码已发送至您的手机');
+    } catch (err: any) {
+      setError(err.message || '发送验证码失败');
+    } finally {
+      setLoading(false);
+    }
   };
 
   // 处理登录
@@ -38,18 +53,27 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
 
-    // 模拟登录验证
-    setTimeout(() => {
-      const user = mockUsers.find(u => u.phone === phone && u.password === password);
-      if (user) {
-        localStorage.setItem('user', JSON.stringify(user));
-        localStorage.setItem('isLoggedIn', 'true');
+    try {
+      if (!isConfigured()) {
+        // 开发模式：模拟登录
+        const mockUser = { id: '1', phone, user_metadata: { nickname: '钟祥游客' } };
+        setUser(mockUser);
+        localStorage.setItem('user', JSON.stringify(mockUser));
         navigate('/profile');
-      } else {
-        setError('手机号或密码错误');
+        setLoading(false);
+        return;
       }
+      
+      const { data, error: authError } = await signIn(phone, password);
+      if (authError) throw new Error(authError.message);
+      
+      setUser(data.user);
+      navigate('/profile');
+    } catch (err: any) {
+      setError(err.message || '登录失败，请检查手机号和密码');
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   // 处理注册
@@ -66,18 +90,34 @@ export default function LoginPage() {
       setError('密码至少6位');
       return;
     }
+    if (!code && isConfigured()) {
+      setError('请输入验证码');
+      return;
+    }
     setLoading(true);
     setError('');
 
-    // 模拟注册
-    setTimeout(() => {
-      const newUser = { phone, password, nickname, avatar: '' };
-      mockUsers.push(newUser);
-      localStorage.setItem('user', JSON.stringify(newUser));
-      localStorage.setItem('isLoggedIn', 'true');
+    try {
+      if (!isConfigured()) {
+        // 开发模式：模拟注册
+        const mockUser = { id: '1', phone, user_metadata: { nickname } };
+        setUser(mockUser);
+        localStorage.setItem('user', JSON.stringify(mockUser));
+        navigate('/profile');
+        setLoading(false);
+        return;
+      }
+      
+      const { data, error: authError } = await signUp(phone, password, nickname);
+      if (authError) throw new Error(authError.message);
+      
+      setUser(data.user);
       navigate('/profile');
+    } catch (err: any) {
+      setError(err.message || '注册失败，请重试');
+    } finally {
       setLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -233,8 +273,12 @@ export default function LoginPage() {
                 className={styles.input}
                 style={{ flex: 1 }}
               />
-              <button className={styles.codeBtn} onClick={sendCode}>
-                获取验证码
+              <button 
+                className={styles.codeBtn} 
+                onClick={handleSendCode}
+                disabled={loading || codeSent}
+              >
+                {codeSent ? '已发送' : '获取验证码'}
               </button>
             </div>
 

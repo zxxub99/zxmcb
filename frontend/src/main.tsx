@@ -2,6 +2,13 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
+import { useUserStore } from './stores/userStore'
+
+// 初始化用户状态
+const initApp = async () => {
+  const initialize = useUserStore.getState().initialize
+  await initialize()
+}
 
 // 初始化模拟数据
 const initMockData = () => {
@@ -118,6 +125,7 @@ const initMockData = () => {
 
 // 启动应用
 initMockData()
+initApp()
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
