@@ -21,6 +21,7 @@
     "antd-mobile": "^5.42.3",
     "antd-mobile-icons": "^0.3.0",
     "axios": "^1.6.7",
+    "leancloud-storage": "^4.15.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.22.0",
