@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "npm cache clean --force && npm install --legacy-peer-deps && vite build",
+    "build": "pnpm install && pnpm run build",
     "build:cf": "vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
