@@ -1,7 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Tag, Empty, Spin } from 'antd-mobile';
-import { EnvironmentOutline, ClockCircleOutline, WalletOutline } from 'antd-mobile-icons';
+import { EnvironmentOutline, ClockCircleOutline, PayCircleOutline } from 'antd-mobile-icons';
 import styles from './TwelveScenicSpots.module.css';
 
 // 钟祥十二景完整数据
@@ -213,7 +213,7 @@ const TwelveScenicSpots: React.FC = () => {
                   <span>{spot.openTime}</span>
                 </div>
                 <div className={styles.metaItem}>
-                  <WalletOutline className={styles.metaIcon} />
+                  <PayCircleOutline className={styles.metaIcon} />
                   <span>{spot.ticket}</span>
                 </div>
                 <div className={styles.metaItem}>
