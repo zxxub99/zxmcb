@@ -79,6 +79,23 @@ const monetizationSections = [
       { id: 5, title: '温峡漂流', rating: '4.8', price: '¥128', img: 'https://picsum.photos/120/80?random=145' },
     ]
   },
+  {
+    id: 'twelve-scenic',
+    icon: '🏛️',
+    title: '钟祥十二景',
+    subTitle: '文旅精华',
+    desc: '明显陵 · 莫愁湖 · 黄仙洞 · 石牌古镇',
+    color: '#667eea',
+    bgGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+    path: '/twelve-scenic-spots',
+    items: [
+      { id: 1, title: '明显陵', tag: '5A', img: 'https://picsum.photos/120/80?random=151' },
+      { id: 2, title: '莫愁湖', tag: '5A', img: 'https://picsum.photos/120/80?random=152' },
+      { id: 3, title: '黄仙洞', tag: '4A', img: 'https://picsum.photos/120/80?random=153' },
+      { id: 4, title: '石牌古镇', tag: '历史', img: 'https://picsum.photos/120/80?random=154' },
+      { id: 5, title: '更多...', tag: '', img: 'https://picsum.photos/120/80?random=155' },
+    ]
+  },
 ]
 
 // 流量区板块 - 交友 + 二手 + 资讯
