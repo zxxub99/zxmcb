@@ -821,17 +821,17 @@
 
 /* 概括区域诗词滚动 - 水纹金边效果 */
 .introPoemScroll {
-  height: 100px;
+  height: 60px;
   overflow: hidden;
-  margin-bottom: 8px;
+  margin-bottom: 6px;
   position: relative;
   /* 钟祥市区背景图片 - 只显示天空和水面，去掉建筑物 */
   background-image: url('/images/poem-bg.png');
   background-size: cover;
   background-position: center top;
   background-repeat: no-repeat;
-  /* 使用 clip-path 裁剪掉建筑物部分（只保留天空和水面约60%） */
-  clip-path: polygon(0 0, 100% 0, 100% 55%, 0 60%);
+  /* 使用 clip-path 裁剪掉建筑物部分 */
+  clip-path: polygon(0 0, 100% 0, 100% 50%, 0 55%);
 }
 
 /* 建筑物遮挡层 - 用渐变遮罩隐藏剩余建筑物 */
@@ -906,11 +906,11 @@
 /* 金边字体效果 */
 .introPoemLine {
   color: #ffd700;
-  font-size: 18px;
+  font-size: 13px;
   font-weight: bold;
   text-align: center;
-  padding: 4px 0;
-  letter-spacing: 4px;
+  padding: 1px 0;
+  letter-spacing: 2px;
   /* 金色描边效果 */
   -webkit-text-stroke: 0.5px #8B4513;
   text-shadow: 
