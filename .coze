@@ -12,5 +12,5 @@ build = ["bash", "frontend/scripts/coze-preview-build.sh"]
 run = ["bash", "frontend/scripts/coze-preview-run.sh"]
 
 [deploy]
-build = ["bash", "-c", "cd frontend && pnpm run build"]
-run = ["bash", "-c", "cd frontend && pnpm run serve"]
+profile = "cloudflare-pages"
+build = ["bash", "frontend/scripts/coze-deploy-build.sh"]
