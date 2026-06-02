@@ -16,3 +16,4 @@ run = ["bash", "frontend/scripts/coze-preview-run.sh"]
 profile = "cloudflare-pages"
 kind = "static"
 build = ["bash", "frontend/scripts/coze-deploy-build.sh"]
+run = ["echo", "Static site deployed on Cloudflare Pages"]
