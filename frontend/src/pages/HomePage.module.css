@@ -821,7 +821,7 @@
 
 /* 概括区域诗词滚动 - 水纹金边效果 */
 .introPoemScroll {
-  height: 60px;
+  height: 80px;
   overflow: hidden;
   margin-bottom: 6px;
   position: relative;
