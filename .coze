@@ -12,8 +12,13 @@ preview_enable = "enabled"
 build = ["bash", "frontend/scripts/coze-preview-build.sh"]
 run = ["bash", "frontend/scripts/coze-preview-run.sh"]
 
+[deploy.profile]
+kind = "service"
+flavor = "web"
+
 [deploy]
-profile = "cloudflare-pages"
-kind = "static"
 build = ["bash", "frontend/scripts/coze-deploy-build.sh"]
-run = ["echo", "Static site deployed on Cloudflare Pages"]
+run = ["bash", "frontend/scripts/coze-deploy-run.sh"]
+
+[subprojects]
+path = ["."]
