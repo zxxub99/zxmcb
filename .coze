@@ -13,12 +13,12 @@ build = ["bash", "frontend/scripts/coze-preview-build.sh"]
 run = ["bash", "frontend/scripts/coze-preview-run.sh"]
 
 [deploy.profile]
-kind = "static"
+kind = "service"
 flavor = "web"
 
 [deploy]
 build = ["bash", "frontend/scripts/coze-deploy-build.sh"]
-run = ["echo", "static site deployed"]
+run = ["bash", "scripts/run.sh"]
 
 [subprojects]
 path = ["."]
