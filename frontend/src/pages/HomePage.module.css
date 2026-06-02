@@ -823,7 +823,7 @@
 .introPoemScroll {
   height: 160px;
   overflow: hidden;
-  margin-bottom: 6px;
+  margin-bottom: 0;
   position: relative;
   /* 钟祥市区背景图片 - 只显示天空和水面，去掉建筑物 */
   background-image: url('/images/poem-bg.png');
@@ -932,7 +932,8 @@
   color: #FFD700;
   font-size: 14px;
   text-align: center;
-  margin-bottom: 10px;
+  margin-bottom: 2px;
+  margin-top: -10px;
   font-style: italic;
   /* 金色描边效果 */
   -webkit-text-stroke: 0.3px #8B4513;
