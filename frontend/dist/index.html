@@ -30,13 +30,10 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .poemTitleRow{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;background:rgba(255,255,255,.12);font-size:13px;color:#f1f8e9;font-weight:600;letter-spacing:1px}
 .poemBody{padding:0 18px 14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
 .poemScroll{flex:1;min-width:0;height:78px;overflow:hidden;position:relative;border-radius:8px;background:rgba(0,0,0,.08)}
-.poemScrollInner{position:absolute;top:0;left:0;width:100%;animation:poemScrollUp 12s ease-in-out infinite}
+.poemScrollInner{position:absolute;top:0;left:0;width:100%;animation:poemScrollUp 18s linear infinite}
 @keyframes poemScrollUp{
-  0%{transform:translateY(0);opacity:.8}
-  25%{transform:translateY(0);opacity:1}
-  60%{transform:translateY(-52%);opacity:1}
-  85%{transform:translateY(-52%);opacity:.8}
-  100%{transform:translateY(-52%);opacity:.8}}
+  0%{transform:translateY(0)}
+  100%{transform:translateY(-52%)}}
 .poemLine{font-family:"KaiTi","STKaiti","楷体",serif;font-size:17px;color:#f1f8e9;line-height:1.9;text-shadow:0 0 8px rgba(129,199,132,.4),0 0 2px rgba(46,125,50,.5);letter-spacing:2px;font-weight:600;text-align:center;padding:4px 0}
 .poemQrcodeArea{flex-shrink:0;text-align:center}
 .poemQrcodeArea img{width:110px;height:110px;border-radius:10px;border:2px solid rgba(255,255,255,.35)}
@@ -257,4 +254,5 @@ document.addEventListener('DOMContentLoaded',function(){console.log('✅ 钟祥�
 </script>
 </body>
 </html>
-<!-- v2 1780468938 -->
+<!-- v3 1780469327 -->
+FORCE Wed Jun  3 14:49:49 CST 2026
