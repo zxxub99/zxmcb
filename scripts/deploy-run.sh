@@ -1,10 +1,11 @@
-#!/usr/bin/env bash
-set -euo pipefail
+#!/bin/bash
+set -Eeuo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 PROJECT_DIR="$(cd "$SCRIPT_DIR/.." && pwd)"
 cd "$PROJECT_DIR"
 
-echo "Starting production server on port 5000..."
-cd frontend
-npx serve -s dist -l 5000
+PORT="${DEPLOY_RUN_PORT:-5000}"
+
+echo "Starting static server on port $PORT..."
+exec npx serve frontend/dist -l "$PORT" --no-clipboard

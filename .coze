@@ -17,8 +17,8 @@ kind = "service"
 flavor = "web"
 
 [deploy]
-build = ["bash", "frontend/scripts/coze-deploy-build.sh"]
-run = ["bash", "scripts/run.sh"]
+build = ["bash", "scripts/deploy-build.sh"]
+run = ["bash", "scripts/deploy-run.sh"]
 
 [subprojects]
 path = ["."]
