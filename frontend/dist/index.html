@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>钟祥莫愁帮 - 长寿之乡·本地互助平台</title>
-<meta name="description" content="钟祥莫愁帮 - 世界长寿之乡钟祥本地社交互助平台：同城交友、二手交易、长寿特产、旅游资源、农家小院智能体">
-<meta name="keywords" content="钟祥,莫愁村,明显陵,长寿特产,盘龙菜,米茶,本地交友,二手闲置,农家乐,黄仙洞">
+<title>钟祥莫愁帮 - V1.0 - 长寿之乡·旅游指南</title>
+<meta name="description" content="钟祥莫愁帮 - 世界长寿之乡钟祥旅游指南、长寿特产展示平台">
+<meta name="keywords" content="钟祥,莫愁村,明显陵,长寿特产,盘龙菜,米茶,旅游">
 <style>
 /* ===== Reset & Base ===== */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -16,6 +16,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .topNav{position:sticky;top:0;z-index:100;background:linear-gradient(135deg,#1b5e20 0%,#2e7d32 50%,#43a047 100%);color:#fff;padding:12px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 2px 12px rgba(27,94,32,.3)}
 .topNav .logo{font-size:20px;font-weight:700;letter-spacing:1px;white-space:nowrap}
 .topNav .sub{font-size:11px;opacity:.85;margin-left:auto}
+.topNav .version{font-size:10px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:10px}
 
 /* ===== Container ===== */
 .wrap{max-width:500px;margin:0 auto;padding:10px 14px 80px}
@@ -29,7 +30,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .poemPanel{margin-top:16px;background:linear-gradient(135deg,#558b2f,#689f38);border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(85,139,47,.25)}
 .poemTitleRow{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;background:rgba(255,255,255,.12);font-size:13px;color:#f1f8e9;font-weight:600;letter-spacing:1px}
 .poemBody{padding:0 18px 14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
-	.poemScroll{flex:1;min-width:0;height:78px;overflow:hidden;position:relative;border-radius:8px;background-image:url("/images/poem-bg.png");background-size:cover;background-position:center;box-shadow:inset 0 2px 10px rgba(0,0,0,.18)}
+.poemScroll{flex:1;min-width:0;height:78px;overflow:hidden;position:relative;border-radius:8px;background-image:url("/images/poem-bg.png");background-size:cover;background-position:center;box-shadow:inset 0 2px 10px rgba(0,0,0,.18)}
 .poemScrollInner{position:absolute;top:0;left:0;width:100%;animation:poemScrollUp 18s linear infinite}
 @keyframes poemScrollUp{
   0%{transform:translateY(0)}
@@ -70,11 +71,31 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
 /* ===== Scenic Spots Grid ===== */
 .spotGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
-.spotItem{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#f1f8e9,#dcedc8);border-radius:10px;padding:6px 4px;text-decoration:none;transition:all .2s;border:1px solid rgba(129,199,132,.2);text-align:center;min-height:72px}
+.spotItem{aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(145deg,#f1f8e9,#dcedc8);border-radius:10px;padding:6px 4px;text-decoration:none;transition:all .2s;border:1px solid rgba(129,199,132,.2);text-align:center;min-height:72px;cursor:pointer}
 .spotItem:active{transform:scale(.96);background:linear-gradient(145deg,#dcedc8,#c5e1a5)}
 .spotNum{font-size:11px;color:#558b2f;font-weight:700}
 .spotName{font-size:11px;color:#33691e;font-weight:600;margin-top:1px;line-height:1.2;word-break:break-all}
 .spotImg{width:100%;height:56px;object-fit:cover;border-radius:6px;margin-bottom:2px}
+
+/* ===== Specialty Products ===== */
+.specialtyGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+.specialtyItem{background:linear-gradient(145deg,#fffde7,#fff9c4);border-radius:12px;padding:12px;border:1px solid rgba(255,193,7,.2);transition:all .2s;cursor:pointer}
+.specialtyItem:active{transform:scale(.98);background:linear-gradient(145deg,#fff9c4,#fff59d)}
+.specialtyIcon{font-size:32px;text-align:center;margin-bottom:8px}
+.specialtyName{font-size:14px;font-weight:700;color:#e65100;text-align:center}
+.specialtyDesc{font-size:11px;color:#f57c00;text-align:center;margin-top:4px;line-height:1.4}
+
+/* ===== Modal ===== */
+.modalOverlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center;z-index:200;opacity:0;visibility:hidden;transition:all .3s}
+.modalOverlay.show{opacity:1;visibility:visible}
+.modalContent{background:#fff;width:100%;max-width:500px;border-radius:20px 20px 0 0;padding:20px;max-height:80vh;overflow-y:auto;transform:translateY(100%);transition:transform .3s}
+.modalOverlay.show .modalContent{transform:translateY(0)}
+.modalHeader{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;padding-bottom:12px;border-bottom:2px solid #e8f5e9}
+.modalTitle{font-size:18px;font-weight:700;color:#1b5e20}
+.modalClose{font-size:24px;cursor:pointer;color:#81c784;line-height:1}
+.modalImg{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:16px}
+.modalInfo p{font-size:14px;line-height:1.8;color:#555;margin-bottom:10px}
+.modalInfo .label{font-weight:700;color:#2e7d32}
 
 /* ===== Floating Buttons ===== */
 .floatBtn{position:fixed;bottom:70px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.2);z-index:90;text-decoration:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
@@ -86,6 +107,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .footer{text-align:center;padding:30px 16px 20px;color:#81c784;font-size:12px;line-height:1.8}
 .footer a{color:#4caf50;text-decoration:none}
 .footer .heart{color:#ef5350}
+.footer .versionBadge{display:inline-block;background:#c8e6c9;color:#2e7d32;padding:4px 12px;border-radius:12px;font-weight:600;margin-bottom:8px}
 
 /* ===== Notice Bar ===== */
 .noticeBar{background:linear-gradient(90deg,#fff8e1,#ffecb3);border-left:4px solid #ffa000;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#e65100;line-height:1.6}
@@ -97,7 +119,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="topNav">
 <span class="leaf">🌿</span>
 <span class="logo">钟祥莫愁帮</span>
-<span class="sub">长寿之乡 · 本地互助</span>
+<span class="version">V1.0</span>
+<span class="sub">旅游指南</span>
 </div>
 
 <div class="wrap">
@@ -105,7 +128,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <!-- ===== 标题 + 诗词 + 二维码 ===== -->
 <div class="headerSection">
 <div class="mainTitle"><span class="leaf">🍃</span> 钟祥莫愁帮 <span class="leaf">🌾</span></div>
-<div class="subTitle">世界长寿之乡 · 本地互助平台</div>
+<div class="subTitle">世界长寿之乡 · 旅游指南</div>
 
 <div class="poemPanel">
 <div class="poemTitleRow">📖 湖北钟祥旅游天堂</div>
@@ -122,7 +145,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div></div>
 <div class="poemQrcodeArea">
 <img src="/images/video-qrcode.png" alt="关注钟祥莫愁帮视频号" onerror="this.style.display='none'">
-<div class="qrcodeLabel">📺 关注钟祥莫愁帮视频号</div>
+<div class="qrcodeLabel">📺 关注视频号</div>
 </div>
 </div>
 </div>
@@ -134,39 +157,118 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="bannerSlide active" style="background:linear-gradient(135deg,#1b5e20,#4caf50)">🏛️ 明显陵 — 世界文化遗产</div>
 <div class="bannerSlide" style="background:linear-gradient(135deg,#00695c,#4db6ac)">🌸 莫愁湖 · 莫愁村 — 国家4A级景区</div>
 <div class="bannerSlide" style="background:linear-gradient(135deg,#e65100,#ff9800)">🎁 长寿特产 — 盘龙菜·米茶·葛根粉</div>
-<div class="bannerSlide" style="background:linear-gradient(135deg,#4a148c,#ab47bc)">🤝 本地互助 — 同城交友·二手交易</div>
+<div class="bannerSlide" style="background:linear-gradient(135deg,#4a148c,#ab47bc)">🌿 大口森林公园 — 天然氧吧</div>
 </div>
 <div class="bannerDots" id="bannerDots"></div>
 </div>
 
 <!-- ===== 特别声明 ===== -->
 <div class="noticeBar">
-⚠️ <b>特别声明：</b>"钟祥居保与许可的农家小院"为智能助手，所提供信息仅供参考。涉及金钱交易请务必核实对方身份！如遇可疑人员或诈骗行为，请立即报警。
+ℹ️ <b>V1.0 说明：</b>当前为旅游展示版本，后续将逐步开放更多功能。
 </div>
 
-<!-- ===== 精选服务区 ===== -->
-<div class="sectionCard">
-<div class="sectionHeader"><span class="sectionIcon">🎯</span><span class="sectionTitle">精选服务区</span></div>
-<div class="tagRow">
-<a class="tagItem" href="#specialty"><span>🎁</span> 钟祥长寿特产  点击更多</a>
-<a class="tagItem" href="#tourism"><span>🏨</span> 钟祥旅游配套，点击更多</a>
+<!-- ===== 钟祥十二景 ===== -->
+<div class="sectionCard" id="tourism">
+<div class="sectionHeader"><span class="sectionIcon">🏛️</span><span class="sectionTitle">钟祥十二景</span></div>
+<div class="spotGrid">
+<div class="spotItem" onclick="showSpotDetail(1)">
+<img src="/images/scenic-spots/01-mingxiaoling.png" class="spotImg" alt="明显陵" onerror="this.style.display='none'">
+<div class="spotNum">①</div>
+<div class="spotName">明显陵</div>
 </div>
-<button class="bigBtn" onclick="alert('即将进入钟祥长寿特产...')">进入长寿特产 →</button>
+<div class="spotItem" onclick="showSpotDetail(2)">
+<img src="/images/scenic-spots/02-mochouhu.png" class="spotImg" alt="莫愁湖" onerror="this.style.display='none'">
+<div class="spotNum">②</div>
+<div class="spotName">莫愁湖·莫愁村</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(3)">
+<img src="/images/scenic-spots/03-huangxiandong.png" class="spotImg" alt="黄仙洞" onerror="this.style.display='none'">
+<div class="spotNum">③</div>
+<div class="spotName">黄仙洞</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(4)">
+<img src="/images/scenic-spots/04-dakousenlin.png" class="spotImg" alt="大口森林" onerror="this.style.display='none'">
+<div class="spotNum">④</div>
+<div class="spotName">大口森林公园</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(5)">
+<img src="/images/scenic-spots/05-zhongxiangbowuguan.png" class="spotImg" alt="博物馆" onerror="this.style.display='none'">
+<div class="spotNum">⑤</div>
+<div class="spotName">博物馆</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(6)">
+<img src="/images/scenic-spots/06-xingwangfu.png" class="spotImg" alt="兴王府" onerror="this.style.display='none'">
+<div class="spotNum">⑥</div>
+<div class="spotName">兴王府</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(7)">
+<img src="/images/scenic-spots/07-yuanyougong.png" class="spotImg" alt="元佑宫" onerror="this.style.display='none'">
+<div class="spotNum">⑦</div>
+<div class="spotName">元佑宫</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(8)">
+<img src="/images/scenic-spots/08-pengdun.png" class="spotImg" alt="彭墩乡村" onerror="this.style.display='none'">
+<div class="spotNum">⑧</div>
+<div class="spotName">彭墩乡村</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(9)">
+<img src="/images/scenic-spots/09-huiyuannonggu.png" class="spotImg" alt="汇源农谷" onerror="this.style.display='none'">
+<div class="spotNum">⑨</div>
+<div class="spotName">汇源农谷</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(10)">
+<img src="/images/scenic-spots/10-wanziqianhong.png" class="spotImg" alt="万紫千红" onerror="this.style.display='none'">
+<div class="spotNum">⑩</div>
+<div class="spotName">万紫千红植物园</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(11)">
+<img src="/images/scenic-spots/11-shipaiguzhen.png" class="spotImg" alt="石牌古镇" onerror="this.style.display='none'">
+<div class="spotNum">⑪</div>
+<div class="spotName">石牌古镇</div>
+</div>
+<div class="spotItem" onclick="showSpotDetail(12)">
+<img src="/images/scenic-spots/12-mochoudubaixuelou.png" class="spotImg" alt="白雪楼" onerror="this.style.display='none'">
+<div class="spotNum">⑫</div>
+<div class="spotName">莫愁渡白雪楼</div>
+</div>
+</div>
 </div>
 
-<!-- ===== 热门服务 ===== -->
-<div class="sectionCard">
-<div class="sectionHeader"><span class="sectionIcon">📱</span><span class="sectionTitle">热门服务</span></div>
-<div class="tagRow">
-<a class="tagItem" href="#"><span>👥</span> 同城交友</a>
-<a class="tagItem" href="#"><span>🔄</span> 二手闲置</a>
-<a class="tagItem" href="#"><span>🤝</span> 邻居互助</a>
+<!-- ===== 长寿特产 ===== -->
+<div class="sectionCard" id="specialty">
+<div class="sectionHeader"><span class="sectionIcon">🎁</span><span class="sectionTitle">长寿特产</span></div>
+<div class="specialtyGrid">
+<div class="specialtyItem" onclick="showSpecialtyDetail(1)">
+<div class="specialtyIcon">🍚</div>
+<div class="specialtyName">钟祥米茶</div>
+<div class="specialtyDesc">长寿之乡特色饮品，清热解暑</div>
 </div>
-<div class="tagRow">
-<a class="tagItem" href="#"><span>🌿</span> 长寿故事</a>
-<a class="tagItem" href="#"><span>🏛️</span> 钟祥十二景</a>
+<div class="specialtyItem" onclick="showSpecialtyDetail(2)">
+<div class="specialtyIcon">🥩</div>
+<div class="specialtyName">盘龙菜</div>
+<div class="specialtyDesc">钟祥传统名菜，明朝宫廷御膳</div>
 </div>
-<button class="bigBtn" onclick="alert('即将进入热门服务...')">进入热门服务 →</button>
+<div class="specialtyItem" onclick="showSpecialtyDetail(3)">
+<div class="specialtyIcon">🍄</div>
+<div class="specialtyName">香菇木耳</div>
+<div class="specialtyDesc">大洪山天然食用菌，营养丰富</div>
+</div>
+<div class="specialtyItem" onclick="showSpecialtyDetail(4)">
+<div class="specialtyIcon">🌾</div>
+<div class="specialtyName">葛根粉</div>
+<div class="specialtyDesc">野生葛根制作，养生佳品</div>
+</div>
+<div class="specialtyItem" onclick="showSpecialtyDetail(5)">
+<div class="specialtyIcon">🥜</div>
+<div class="specialtyName">花生酥</div>
+<div class="specialtyDesc">传统手工糕点，香酥可口</div>
+</div>
+<div class="specialtyItem" onclick="showSpecialtyDetail(6)">
+<div class="specialtyIcon">🍯</div>
+<div class="specialtyName">土蜂蜜</div>
+<div class="specialtyDesc">天然百花蜜，纯正香甜</div>
+</div>
+</div>
 </div>
 
 <!-- ===== 视频号 · 智能体 ===== -->
@@ -181,76 +283,138 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div style="flex:1;min-width:140px">
 <h3>🏡 农家小院智能体</h3>
 <p>"钟祥居保与许可的农家小院" AI智能助手，解答农家美食/住宿/游玩</p>
-<a class="tagItem" href="#" onclick="alert('即将打开智能体对话...')" style="margin-top:8px;display:inline-flex"><span>💬</span> 打开智能体 →</a>
+<a class="tagItem" href="#" onclick="event.preventDefault();alert('智能体功能开发中，敬请期待！')" style="margin-top:8px;display:inline-flex"><span>💬</span> 敬请期待 →</a>
 </div>
-</div>
-</div>
-
-<!-- ===== 钟祥十二景 ===== -->
-<div class="sectionCard">
-<div class="sectionHeader"><span class="sectionIcon">🏛️</span><span class="sectionTitle">钟祥十二景</span></div>
-<div class="spotGrid">
-<a class="spotItem" href="#"><img src="/images/scenic-spots/01-mingxiaoling.png" class="spotImg" alt="明显陵" onerror="this.style.display='none';this.nextElementSibling.style.display=''"><div style="display:none">① 明显陵</div><div class="spotNum">①</div><div class="spotName">明显陵</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/02-mochouhu.png" class="spotImg" alt="莫愁湖" onerror="this.style.display='none'"><div class="spotNum">②</div><div class="spotName">莫愁湖·莫愁村</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/03-huangxiandong.png" class="spotImg" alt="黄仙洞" onerror="this.style.display='none'"><div class="spotNum">③</div><div class="spotName">黄仙洞</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/04-dakousenlin.png" class="spotImg" alt="大口森林" onerror="this.style.display='none'"><div class="spotNum">④</div><div class="spotName">大口森林公园</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/05-zhongxiangbowuguan.png" class="spotImg" alt="博物馆" onerror="this.style.display='none'"><div class="spotNum">⑤</div><div class="spotName">博物馆</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/06-xingwangfu.png" class="spotImg" alt="兴王府" onerror="this.style.display='none'"><div class="spotNum">⑥</div><div class="spotName">兴王府</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/07-yuanyougong.png" class="spotImg" alt="元佑宫" onerror="this.style.display='none'"><div class="spotNum">⑦</div><div class="spotName">元佑宫</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/08-pengdun.png" class="spotImg" alt="彭墩乡村" onerror="this.style.display='none'"><div class="spotNum">⑧</div><div class="spotName">彭墩乡村</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/09-huiyuannonggu.png" class="spotImg" alt="汇源农谷" onerror="this.style.display='none'"><div class="spotNum">⑨</div><div class="spotName">汇源农谷</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/10-wanziqianhong.png" class="spotImg" alt="万紫千红" onerror="this.style.display='none'"><div class="spotNum">⑩</div><div class="spotName">万紫千红植物园</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/11-shipaiguzhen.png" class="spotImg" alt="石牌古镇" onerror="this.style.display='none'"><div class="spotNum">⑪</div><div class="spotName">石牌古镇</div></a>
-<a class="spotItem" href="#"><img src="/images/scenic-spots/12-mochoudubaixuelou.png" class="spotImg" alt="白雪楼" onerror="this.style.display='none'"><div class="spotNum">⑫</div><div class="spotName">莫愁渡白雪楼</div></a>
 </div>
 </div>
 
 <!-- ===== 底部信息 ===== -->
 <div class="footer">
-<p>🌿 钟祥莫愁帮 © 2026 · 世界长寿之乡 · 本地互助平台</p>
+<div class="versionBadge">🎉 V1.0 - 旅游指南</div>
+<p>🌿 钟祥莫愁帮 © 2026 · 世界长寿之乡</p>
 <p style="margin-top:8px">用 <span class="heart">❤️</span> 为家乡建设添砖加瓦</p>
 <p style="margin-top:6px;font-size:11px;color:#a5d6a7">湖北省荆门市钟祥市 | Powered by 扣子编程</p>
 </div>
 
 </div><!-- /.wrap -->
 
+<!-- ===== 景点详情弹窗 ===== -->
+<div class="modalOverlay" id="spotModal" onclick="closeModal(event)">
+<div class="modalContent" onclick="event.stopPropagation()">
+<div class="modalHeader">
+<span class="modalTitle" id="spotModalTitle">景点详情</span>
+<span class="modalClose" onclick="closeModal()">&times;</span>
+</div>
+<img class="modalImg" id="spotModalImg" src="" alt="">
+<div class="modalInfo" id="spotModalInfo">
+</div>
+</div>
+</div>
+
+<!-- ===== 特产详情弹窗 ===== -->
+<div class="modalOverlay" id="specialtyModal" onclick="closeModal(event)">
+<div class="modalContent" onclick="event.stopPropagation()">
+<div class="modalHeader">
+<span class="modalTitle" id="specialtyModalTitle">特产详情</span>
+<span class="modalClose" onclick="closeModal()">&times;</span>
+</div>
+<div class="modalInfo" id="specialtyModalInfo">
+</div>
+</div>
+</div>
+
 <!-- ===== 悬浮按钮 ===== -->
-<a href="#" class="floatBtn floatBtnLeft" title="农家小院智能体" onclick="event.preventDefault();alert('即将打开农家小院智能体...')">
-🏡<span class="floatBtnLabel">农家小院</span>
+<a href="#" class="floatBtn floatBtnLeft" title="返回顶部" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
+⬆️<span class="floatBtnLabel">返回顶部</span>
 </a>
-<a href="#" class="floatBtn floatBtnRight" title="智能客服" onclick="event.preventDefault();alert('智能客服功能开发中...')">
-📞<span class="floatBtnLabel">客服</span>
+<a href="#specialty" class="floatBtn floatBtnRight" title="长寿特产">
+🎁<span class="floatBtnLabel">特产专区</span>
 </a>
 
 <script>
+// ===== 景点数据 =====
+var spotsData = {
+  1: {name:'明显陵',img:'/images/scenic-spots/01-mingxiaoling.png',desc:'世界文化遗产，明代帝陵中最大的单体陵墓，国家4A级景区。',location:'湖北省钟祥市纯德山',ticket:'65元',hours:'08:30-17:30'},
+  2: {name:'莫愁湖·莫愁村',img:'/images/scenic-spots/02-mochouhu.png',desc:'莫愁女传说发源地，国家4A级景区，莫愁村是湖北民俗民艺第一村。',location:'钟祥市城区',ticket:'免费',hours:'全天开放'},
+  3: {name:'黄仙洞',img:'/images/scenic-spots/03-huangxiandong.png',desc:'国家4A级景区，洞内有世界罕见的喀斯特地貌"娘娘寨"。',location:'钟祥市客店镇',ticket:'78元',hours:'08:30-17:00'},
+  4: {name:'大口森林公园',img:'/images/scenic-spots/04-dakousenlin.png',desc:'国家森林公园，天然氧吧，森林覆盖率达90%以上。',location:'钟祥市大口林场',ticket:'40元',hours:'08:00-18:00'},
+  5: {name:'钟祥市博物馆',img:'/images/scenic-spots/05-zhongxiangbowuguan.png',desc:'国家三级博物馆，馆藏文物众多，了解钟祥历史文化的窗口。',location:'钟祥市城区',ticket:'免费',hours:'09:00-17:00'},
+  6: {name:'兴王府',img:'/images/scenic-spots/06-xingwangfu.png',desc:'明嘉靖皇帝出生地，明代藩王府第，全国重点文物保护单位。',location:'钟祥市城区',ticket:'免费',hours:'08:30-17:30'},
+  7: {name:'元佑宫',img:'/images/scenic-spots/07-yuanyougong.png',desc:'明代道教建筑，全国重点文物保护单位，建筑宏伟壮观。',location:'钟祥市城区',ticket:'免费',hours:'08:30-17:30'},
+  8: {name:'彭墩乡村',img:'/images/scenic-spots/08-pengdun.png',desc:'全国休闲农业与乡村旅游示范点，体验田园生活的好去处。',location:'钟祥市石牌镇',ticket:'免费',hours:'全天开放'},
+  9: {name:'汇源农谷',img:'/images/scenic-spots/09-huiyuannonggu.png',desc:'现代生态农业观光园，体验采摘、农耕文化。',location:'钟祥市东桥镇',ticket:'60元',hours:'08:30-17:30'},
+  10: {name:'万紫千红植物园',img:'/images/scenic-spots/10-wanziqianhong.png',desc:'花卉主题植物园，四季花开，美不胜收。',location:'钟祥市客店镇',ticket:'50元',hours:'08:30-17:30'},
+  11: {name:'石牌古镇',img:'/images/scenic-spots/11-shipaiguzhen.png',desc:'中国历史文化名镇，豆腐之乡，保存完好的明清古建筑群。',location:'钟祥市石牌镇',ticket:'免费',hours:'全天开放'},
+  12: {name:'莫愁渡白雪楼',img:'/images/scenic-spots/12-mochoudubaixuelou.png',desc:'莫愁湖边的历史名楼，古代文人墨客吟咏之地。',location:'钟祥市莫愁湖畔',ticket:'免费',hours:'全天开放'}
+};
+
+// ===== 特产数据 =====
+var specialtyData = {
+  1: {name:'钟祥米茶',icon:'🍚',desc:'钟祥市特有的地方传统饮品，具有生津止渴、清热解暑、健脾开胃之功效。传说由明朝嘉靖皇帝赐名。',price:'10-30元/斤',usage:'100℃开水冲泡，5g米茶/200ml水，焖3分钟即可饮用'},
+  2: {name:'盘龙菜',icon:'🥩',desc:'又称"卷切"，钟祥传统名菜，始于明朝正德年间，为嘉靖皇帝爱吃的宫廷御菜。色泽鲜艳，肥而不腻。',price:'50-100元/份',usage:'切片蒸热即可食用，或配以佐料凉拌'},
+  3: {name:'香菇木耳',icon:'🍄',desc:'大洪山天然林区出产，绿色无污染，营养丰富，口感鲜美，是钟祥著名的土特产。',price:'香菇60-120元/斤，木耳80-150元/斤',usage:'温水泡发后，可炒、炖、煲汤等'},
+  4: {name:'葛根粉',icon:'🌾',desc:'采用钟祥山区野生葛根经传统工艺精制而成，具有清热解毒、生津止渴、补肾健脾等功效。',price:'50-120元/斤',usage:'温水调匀后，用沸水冲调，可加蜂蜜调味'},
+  5: {name:'花生酥',icon:'🥜',desc:'钟祥传统手工糕点，选用优质花生、芝麻、麦芽糖等原料，香酥可口，甜而不腻。',price:'15-30元/盒',usage:'开袋即食，老少皆宜'},
+  6: {name:'土蜂蜜',icon:'🍯',desc:'钟祥山区天然百花蜜，纯正香甜，营养丰富，具有滋阴润燥、补虚润肺等功效。',price:'80-180元/斤',usage:'直接食用或温水冲服，不宜用开水'}
+};
+
+// ===== 显示景点详情 =====
+function showSpotDetail(id){
+  var spot=spotsData[id];
+  if(!spot)return;
+  document.getElementById('spotModalTitle').textContent=spot.name;
+  document.getElementById('spotModalImg').src=spot.img;
+  document.getElementById('spotModalInfo').innerHTML='<p><span class="label">📍 地址：</span>'+spot.location+'</p><p><span class="label">🎫 门票：</span>'+spot.ticket+'</p><p><span class="label">⏰ 开放时间：</span>'+spot.hours+'</p><p><span class="label">📝 简介：</span>'+spot.desc+'</p>';
+  document.getElementById('spotModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+// ===== 显示特产详情 =====
+function showSpecialtyDetail(id){
+  var s=specialtyData[id];
+  if(!s)return;
+  document.getElementById('specialtyModalTitle').textContent=s.name;
+  document.getElementById('specialtyModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+s.icon+'</p><p><span class="label">💰 参考价格：</span>'+s.price+'</p><p><span class="label">🍽️ 食用方法：</span>'+s.usage+'</p><p><span class="label">📝 简介：</span>'+s.desc+'</p>';
+  document.getElementById('specialtyModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+// ===== 关闭弹窗 =====
+function closeModal(e){
+  if(e && e.target !== e.currentTarget)return;
+  document.getElementById('spotModal').classList.remove('show');
+  document.getElementById('specialtyModal').classList.remove('show');
+  document.body.style.overflow='auto';
+}
+
 // ===== Banner 自动轮播 =====
 (function(){
-var slides=document.querySelectorAll('.bannerSlide');
-if(!slides.length)return;
-var dotsBox=document.getElementById('bannerDots');
-slides.forEach(function(_,i){
-var d=document.createElement('div');
-d.className='dot'+(i===0?' active':'');
-d.onclick=function(){go(i)};
-dotsBox.appendChild(d);
-});
-var cur=0;
-function go(n){cur=n;
-slides.forEach(function(s,i){s.classList.toggle('active',i===n)});
-dotsBox.querySelectorAll('.dot').forEach(function(d,i){d.classList.toggle('active',i===n)});
-}
-function next(){go((cur+1)%slides.length)}
-setInterval(next,3500);
+  var slides=document.querySelectorAll('.bannerSlide');
+  if(!slides.length)return;
+  var dotsBox=document.getElementById('bannerDots');
+  slides.forEach(function(_,i){
+    var d=document.createElement('div');
+    d.className='dot'+(i===0?' active':'');
+    d.onclick=function(){go(i)};
+    dotsBox.appendChild(d);
+  });
+  var cur=0;
+  function go(n){cur=n;
+    slides.forEach(function(s,i){s.classList.toggle('active',i===n)});
+    dotsBox.querySelectorAll('.dot').forEach(function(d,i){d.classList.toggle('active',i===n)});
+  }
+  function next(){go((cur+1)%slides.length)}
+  setInterval(next,3500);
 
-// 触摸滑动支持
-var sx=0,mv=false,slider=document.getElementById('bannerSlider');
-slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;mv=false});
-slider.addEventListener('touchmove',function(e){mv=true});
-slider.addEventListener('touchend',function(e){if(!mv)return;var ex=e.changedTouches[0].clientX;if(ex<sx-40)next();else if(ex>sx+40)go((cur-1+slides.length)%slides.length)});
+  // 触摸滑动支持
+  var sx=0,mv=false,slider=document.getElementById('bannerSlider');
+  slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;mv=false});
+  slider.addEventListener('touchmove',function(e){mv=true});
+  slider.addEventListener('touchend',function(e){if(!mv)return;var ex=e.changedTouches[0].clientX;if(ex<sx-40)next();else if(ex>sx+40)go((cur-1+slides.length)%slides.length)});
 })();
 
 // ===== 加载完成标记 =====
-document.addEventListener('DOMContentLoaded',function(){console.log('✅ 钟祥莫愁帮 - 页面加载完成');});
+document.addEventListener('DOMContentLoaded',function(){console.log('✅ 钟祥莫愁帮 V1.0 - 页面加载完成');});
 </script>
 </body>
 </html>
