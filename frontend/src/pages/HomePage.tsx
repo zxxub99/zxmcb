@@ -452,6 +452,12 @@ export default function HomePage() {
         <span className={styles.serviceLabel}>智能客服</span>
       </div>
 
+      {/* 悬浮农家小院智能体按钮 */}
+      <div className={styles.floatingAgentBtn} onClick={() => navigate('/agent-chat')}>
+        <span className={styles.agentIconText}>🏡</span>
+        <span className={styles.agentLabel}>农家小院</span>
+      </div>
+
       {/* 底部导航 */}
       <TabBar activeKey={activeTab} onChange={(key) => setActiveTab(key)} className={styles.tabBar}>
         {tabs.map(tab => (

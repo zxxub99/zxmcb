@@ -39,6 +39,7 @@ import RulesPage from './pages/RulesPage'
 import LongevityStories from './pages/LongevityStories'
 import NeighborRecommendations from './pages/NeighborRecommendations'
 import TwelveScenicSpots from './pages/TwelveScenicSpots'
+import AgentChatPage from './pages/AgentChatPage'
 
 function App() {
   return (
@@ -80,6 +81,7 @@ function App() {
           <Route path="/longevity-stories" element={<LongevityStories />} />
           <Route path="/neighbor-recommendations" element={<NeighborRecommendations />} />
           <Route path="/twelve-scenic-spots" element={<TwelveScenicSpots />} />
+          <Route path="/agent-chat" element={<AgentChatPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/product/:id" element={<ProductDetail />} />
