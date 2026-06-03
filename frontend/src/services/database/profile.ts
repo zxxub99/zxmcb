@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { supabase, isConfigured } from './supabase'
 
 export interface Profile {
   id: string
@@ -14,7 +14,8 @@ export interface Profile {
 
 // 获取用户资料
 export async function getProfile(userId: string) {
-  const { data, error } = await supabase
+  if (!isConfigured()) return null
+  const { data, error } = await supabase!
     .from('profiles')
     .select('*')
     .eq('id', userId)
@@ -25,7 +26,8 @@ export async function getProfile(userId: string) {
 
 // 更新用户资料
 export async function updateProfile(userId: string, updates: Partial<Profile>) {
-  const { data, error } = await supabase
+  if (!isConfigured()) throw new Error('数据库未配置')
+  const { data, error } = await supabase!
     .from('profiles')
     .update(updates)
     .eq('id', userId)
@@ -37,7 +39,8 @@ export async function updateProfile(userId: string, updates: Partial<Profile>) {
 
 // 创建用户资料
 export async function createProfile(profile: Omit<Profile, 'created_at' | 'updated_at'>) {
-  const { data, error } = await supabase
+  if (!isConfigured()) throw new Error('数据库未配置')
+  const { data, error } = await supabase!
     .from('profiles')
     .insert(profile)
     .select()
@@ -48,16 +51,17 @@ export async function createProfile(profile: Omit<Profile, 'created_at' | 'updat
 
 // 上传头像
 export async function uploadAvatar(userId: string, file: File) {
+  if (!isConfigured()) throw new Error('数据库未配置')
   const fileExt = file.name.split('.').pop()
   const fileName = `${userId}/avatar.${fileExt}`
   
-  const { error: uploadError } = await supabase.storage
+  const { error: uploadError } = await supabase!.storage
     .from('avatars')
     .upload(fileName, file, { upsert: true })
   
   if (uploadError) throw new Error(uploadError.message)
   
-  const { data: { publicUrl } } = supabase.storage
+  const { data: { publicUrl } } = supabase!.storage
     .from('avatars')
     .getPublicUrl(fileName)
   

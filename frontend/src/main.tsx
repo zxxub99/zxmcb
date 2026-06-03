@@ -125,7 +125,9 @@ const initMockData = () => {
 
 // 启动应用
 initMockData()
-initApp()
+initApp().catch((err) => {
+  console.warn('应用初始化跳过(离线模式):', err)
+})
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>

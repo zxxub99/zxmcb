@@ -1,4 +1,4 @@
-import { supabase } from './supabase'
+import { supabase, isConfigured } from './supabase'
 
 export interface DatingPost {
   id: string
