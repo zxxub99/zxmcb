@@ -774,7 +774,7 @@ function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 document.addEventListener('DOMContentLoaded',function(){
 	initBanner();
 	loadMessages();
-});
+	document.addEventListener("DOMContentLoaded",function(){initBanner();loadMessages();loadUserItems();});
 </script>
 </body>
 </html>
