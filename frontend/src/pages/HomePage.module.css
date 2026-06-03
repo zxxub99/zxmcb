@@ -1,3 +1,97 @@
+/* 诗词 + 视频号 并排区域 */
+.poemQrcodeRow {
+  display: flex;
+  gap: 12px;
+  margin: 16px;
+  align-items: stretch;
+}
+
+/* 诗词面板在左侧占主要空间 */
+.poemQrcodeRow .introPanel {
+  flex: 1;
+  margin: 0;
+  min-width: 0;
+}
+
+/* 视频号二维码 - 紧贴诗词右侧 */
+.videoChannelInline {
+  width: 160px;
+  min-width: 160px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.97) 0%, rgba(250,247,240,0.97) 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(230,81,0,0.08),
+    0 2px 8px rgba(0,0,0,0.04);
+  border: 1px solid rgba(230,126,34,0.15);
+  display: flex;
+  flex-direction: column;
+}
+
+.videoChannelHeaderInline {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 10px;
+  background: linear-gradient(135deg, #e65100 0%, #f57c00 50%, #ffb74d 100%);
+  color: white;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.qrcodeContainerInline {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 8px;
+  gap: 6px;
+  flex: 1;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(245,243,238,0.8) 0%, rgba(255,255,255,0.9) 100%);
+}
+
+.qrcodeContainerInline .qrcodeImage {
+  width: 120px !important;
+  height: 120px !important;
+  border-radius: 10px !important;
+  border: 2px solid #fff !important;
+}
+
+.qrcodeContainerInline .qrcodeTip {
+  font-size: 11px !important;
+  color: #888;
+  margin: 0;
+}
+
+/* 响应式：小屏幕下堆叠显示 */
+@media (max-width: 480px) {
+  .poemQrcodeRow {
+    flex-direction: column;
+  }
+  .videoChannelInline {
+    width: 100%;
+    min-width: auto;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  .videoChannelHeaderInline {
+    writing-mode: horizontal-tb;
+    padding: 8px 14px;
+    border-radius: 0 16px 16px 0;
+  }
+  .qrcodeContainerInline {
+    flex-direction: row;
+    padding: 8px 12px;
+    gap: 10px;
+  }
+  .qrcodeContainerInline .qrcodeImage {
+    width: 80px !important;
+    height: 80px !important;
+  }
+}
+
 /* 首页样式 - 钟祥莫愁帮 */
 .container {
   min-height: 100vh;

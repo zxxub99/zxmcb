@@ -264,26 +264,10 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* 视频号 - 许可3108 */}
-      <div className={styles.videoChannel}>
-        <div className={styles.videoChannelHeader}>
-          <span className={styles.videoChannelIcon}>📺</span>
-          <span className={styles.videoChannelTitle}>许可3108 视频号</span>
-        </div>
-        <div className={styles.videoChannelContent}>
-          <div className={styles.qrcodeContainer}>
-            <img
-              src="/images/video-qrcode.png"
-              alt="许可3108 视频号二维码"
-              className={styles.qrcodeImage}
-            />
-            <p className={styles.qrcodeTip}>扫一扫二维码，关注"许可3108"视频号</p>
-          </div>
-        </div>
-      </div>
-
-      {/* 钟祥特色介绍 - 可折叠面板 */}
-      <div className={styles.introPanel}>
+      {/* 诗词 + 视频号 并排区域 */}
+      <div className={styles.poemQrcodeRow}>
+        {/* 钟祥特色介绍 - 可折叠面板（诗词） */}
+        <div className={styles.introPanel}>
         <div className={styles.introHeader} onClick={() => setIntroExpanded(!introExpanded)}>
           <span className={styles.introTitleWrap}>
             <span className={styles.introTitleLeft}>📖 湖北钟祥旅游天堂</span>
@@ -324,6 +308,23 @@ export default function HomePage() {
             ))}
           </div>
         )}
+      </div>
+
+        {/* 视频号二维码 - 诗右侧 */}
+        <div className={styles.videoChannelInline}>
+          <div className={styles.videoChannelHeaderInline}>
+            <span className={styles.videoChannelIcon}>📺</span>
+            <span className={styles.videoChannelTitle}>许可3108</span>
+          </div>
+          <div className={styles.qrcodeContainerInline}>
+            <img
+              src="/images/video-qrcode.png"
+              alt="许可3108 视频号二维码"
+              className={styles.qrcodeImage}
+            />
+            <p className={styles.qrcodeTip}>扫一扫关注</p>
+          </div>
+        </div>
       </div>
 
       {/* 变现区标题 - 上半区 */}
