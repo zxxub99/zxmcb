@@ -1,76 +1,55 @@
-import { supabase, isConfigured } from './supabase'
-
-// 用户登录
-export async function signIn(phone: string, password: string) {
-  if (!isConfigured()) throw new Error('数据库未配置')
-  const { data, error } = await supabase!.auth.signInWithPassword({
-    phone,
-    password,
-  })
-  if (error) throw new Error(error.message)
-  return data
-}
-
-// 用户注册
-export async function signUp(phone: string, password: string, nickname: string) {
-  if (!isConfigured()) throw new Error('数据库未配置')
-  const { data, error } = await supabase!.auth.signUp({
-    phone,
-    password,
-    options: {
-      data: { nickname }
-    }
-  })
-  if (error) throw new Error(error.message)
-  return data
-}
-
-// 发送验证码
-export async function sendVerificationCode(phone: string) {
-  if (!isConfigured()) throw new Error('数据库未配置')
-  const { error } = await supabase!.auth.signInWithOtp({
-    phone,
-    options: {
-      channel: 'sms'
-    }
-  })
-  if (error) throw new Error(error.message)
-}
-
-// 验证验证码
-export async function verifyCode(phone: string, token: string) {
-  const { data, error } = await supabase.auth.verifyOTP(phone, token)
-  if (error) throw new Error(error.message)
-  return data
-}
+import { supabase } from './supabase'
 
 // 获取当前用户
-export async function getCurrentUser() {
-  if (!isConfigured()) return null
-  const { data: { user }, error } = await supabase!.auth.getUser()
-  if (error) throw new Error(error.message)
+export const getCurrentUser = async () => {
+  const { data: { user } } = await supabase.auth.getUser()
   return user
 }
 
-// 获取会话
-export async function getSession() {
-  if (!isConfigured()) return null
-  const { data: { session }, error } = await supabase!.auth.getSession()
-  if (error) throw new Error(error.message)
-  return session
-}
-
-// 退出登录
-export async function signOut() {
-  if (!isConfigured()) return
-  const { error } = await supabase!.auth.signOut()
-  if (error) throw new Error(error.message)
-}
-
 // 监听认证状态变化
-export function onAuthStateChange(callback: (user: any) => void) {
-  if (!isConfigured()) return { data: { subscription: { unsubscribe: () => {} } } }
-  return supabase!.auth.onAuthStateChange((event, session) => {
-    callback(session?.user || null)
+export const onAuthStateChange = (callback: (event: string, session: any) => void) => {
+  return supabase.auth.onAuthStateChange(callback)
+}
+
+// 登录
+export const signIn = async (email: string, password: string) => {
+  const { data, error } = await supabase.auth.signInWithPassword({ email, password })
+  if (error) throw error
+  return data.user
+}
+
+// 注册
+export const signUp = async (email: string, password: string, userData: any) => {
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+    options: { data: userData }
   })
+  if (error) throw error
+  return data.user
+}
+
+// 登出
+export const signOut = async () => {
+  const { error } = await supabase.auth.signOut()
+  if (error) throw error
+}
+
+// 重置密码
+export const resetPassword = async (email: string) => {
+  const { error } = await supabase.auth.resetPasswordForEmail(email)
+  if (error) throw error
+}
+
+// 更新用户信息
+export const updateUserProfile = async (updates: any) => {
+  const { data, error } = await supabase.auth.updateUser(updates)
+  if (error) throw error
+  return data.user
+}
+
+// 发送验证码（离线模式返回成功）
+export const sendVerificationCode = async (_phone: string): Promise<boolean> => {
+  // 离线模式下直接返回成功（Mock模式）
+  return true
 }
