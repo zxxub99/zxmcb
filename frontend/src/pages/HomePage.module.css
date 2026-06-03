@@ -13,17 +13,17 @@
   min-width: 0;
 }
 
-/* 视频号二维码 - 紧贴诗词右侧 */
+/* 视频号二维码 - 紧贴诗词右侧 | 自然绿 */
 .videoChannelInline {
   width: 160px;
   min-width: 160px;
-  background: linear-gradient(135deg, rgba(255,255,255,0.97) 0%, rgba(250,247,240,0.97) 100%);
+  background: linear-gradient(135deg, rgba(255,255,255,0.97) 0%, rgba(241,248,233,0.97) 100%);
   border-radius: 16px;
   overflow: hidden;
   box-shadow:
-    0 4px 20px rgba(230,81,0,0.08),
-    0 2px 8px rgba(0,0,0,0.04);
-  border: 1px solid rgba(230,126,34,0.15);
+    0 4px 20px rgba(46, 125, 50, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(129, 199, 132, 0.25);
   display: flex;
   flex-direction: column;
 }
@@ -34,7 +34,12 @@
   justify-content: center;
   gap: 6px;
   padding: 10px 10px;
-  background: linear-gradient(135deg, #e65100 0%, #f57c00 50%, #ffb74d 100%);
+  background: linear-gradient(135deg,
+    #ef6c00 0%,
+    #f57c00 35%,
+    #ff9800 70%,
+    #ffb74d 100%
+  );
   color: white;
   font-size: 14px;
   font-weight: 700;
@@ -48,7 +53,7 @@
   gap: 6px;
   flex: 1;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(245,243,238,0.8) 0%, rgba(255,255,255,0.9) 100%);
+  background: linear-gradient(180deg, rgba(241,248,233,0.8) 0%, rgba(232,245,233,0.9) 100%);
 }
 
 .qrcodeContainerInline .qrcodeImage {
@@ -92,19 +97,31 @@
   }
 }
 
-/* 首页样式 - 钟祥莫愁帮 */
+/* 首页样式 - 钟祥莫愁帮 | 绿色环保自然风 */
 .container {
   min-height: 100vh;
-  background: linear-gradient(180deg, #e3f2fd 0%, #bbdefb 50%, #90caf9 100%);
+  background: linear-gradient(180deg,
+    #e8f5e9 0%,
+    #c8e6c9 20%,
+    #a5d6a7 45%,
+    #81c784 70%,
+    #66bb6a 100%
+  );
   padding-bottom: 70px;
 }
 
-/* 顶部区域 */
+/* 顶部区域 - 自然森林绿 */
 .header {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f64f59 100%);
+  background: linear-gradient(135deg,
+    #1b5e20 0%,
+    #2e7d32 30%,
+    #388e3c 55%,
+    #43a047 80%,
+    #4caf50 100%
+  );
   padding: 12px 16px;
   padding-top: 24px;
-  box-shadow: 0 4px 20px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 20px rgba(27, 94, 32, 0.35);
 }
 
 .locationBar {
@@ -134,11 +151,14 @@
   font-size: 10px;
 }
 
-/* 搜索栏 */
+/* 搜索栏 - 清新绿 */
 .searchSection {
   padding: 10px 16px 16px;
   margin-top: -10px;
-  background: linear-gradient(135deg, rgba(102, 126, 234, 0.15) 0%, rgba(118, 75, 162, 0.15) 100%);
+  background: linear-gradient(135deg,
+    rgba(46, 125, 50, 0.12) 0%,
+    rgba(67, 160, 71, 0.10) 100%
+  );
   border-radius: 12px;
   margin-left: 16px;
   margin-right: 16px;
@@ -150,8 +170,8 @@
   padding: 12px 20px;
   display: flex;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.15);
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.12);
+  border: 1px solid rgba(76, 175, 80, 0.15);
 }
 
 .searchPlaceholder {
@@ -162,7 +182,7 @@
 /* 搜索栏中间文字 */
 .searchCenterText {
   text-align: center;
-  color: #667eea;
+  color: #2e7d32;
   font-size: 18px;
   font-weight: bold;
   margin-top: 10px;
@@ -173,7 +193,7 @@
   margin: 0 16px;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.25);
+  box-shadow: 0 8px 25px rgba(46, 125, 50, 0.20);
   /* 显示一张图片 */
   width: calc(100% - 32px);
   max-width: 100%;
@@ -421,10 +441,10 @@
   backdrop-filter: blur(5px);
 }
 
-/* 板块内容区域 */
+/* 板块内容区域 - 柔和绿底 */
 .sectionContent {
   padding: 14px;
-  background: linear-gradient(180deg, #fafbff 0%, #f5f7ff 100%);
+  background: linear-gradient(180deg, #f1f8e9 0%, #e8f5e9 100%);
 }
 
 .sectionScroll {
@@ -558,7 +578,7 @@
 }
 
 .idleActionBtn:nth-child(1) {
-  background: linear-gradient(145deg, #ff6b6b 0%, #ee5a5a 100%);
+  background: linear-gradient(145deg, #66bb6a 0%, #4caf50 100%);
 }
 
 .idleActionBtn:nth-child(2) {
@@ -602,7 +622,7 @@
 
 .idleItemPrice {
   font-size: 15px;
-  color: #ff4d4f;
+  color: #2e7d32;
   font-weight: 700;
 }
 
@@ -675,19 +695,19 @@
 
 .helpItemPrice {
   font-size: 15px;
-  color: #ff4d4f;
+  color: #e65100;
   font-weight: 700;
 }
 
 .urgentBadge {
-  background: linear-gradient(145deg, #ff4d4f 0%, #ff6b6b 100%);
+  background: linear-gradient(145deg, #ef6c00 0%, #f57c00 100%);
   color: #fff;
   font-size: 10px;
   padding: 2px 6px;
   border-radius: 6px;
   font-weight: 600;
   flex-shrink: 0;
-  box-shadow: 0 2px 6px rgba(255, 77, 79, 0.3);
+  box-shadow: 0 2px 6px rgba(239, 108, 0, 0.30);
 }
 
 .helpItemReward {
@@ -732,14 +752,14 @@
   content: '⭐ ';
 }
 
-/* 钟祥特色介绍 - 可折叠面板 */
+/* 钟祥特色介绍 - 可折叠面板 | 自然田园绿 */
 .introPanel {
   margin: 16px;
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 6px 25px rgba(102, 126, 234, 0.15);
-  border: 1px solid rgba(102, 126, 234, 0.1);
+  box-shadow: 0 6px 25px rgba(46, 125, 50, 0.12);
+  border: 1px solid rgba(129, 199, 132, 0.20);
 }
 
 .introHeader {
@@ -747,7 +767,12 @@
   align-items: center;
   justify-content: space-between;
   padding: 16px 18px;
-  background: linear-gradient(135deg, #ffd700 0%, #ffb300 50%, #ffa500 100%);
+  background: linear-gradient(135deg,
+    #558b2f 0%,
+    #689f38 35%,
+    #7cb342 65%,
+    #8bc34a 100%
+  );
   cursor: pointer;
   position: relative;
   overflow: hidden;
@@ -767,7 +792,7 @@
 .introTitle {
   font-size: 16px;
   font-weight: bold;
-  color: #5d4037;
+  color: #f1f8e9;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -791,7 +816,7 @@
 .introTitleLeft {
   font-size: 16px;
   font-weight: bold;
-  color: #5d4037;
+  color: #f1f8e9;
   white-space: nowrap;
   animation: moveLeftToRight 8s linear infinite;
 }
@@ -800,7 +825,7 @@
 .introTitleRight {
   font-size: 16px;
   font-weight: bold;
-  color: #8d6e63;
+  color: #dcedc8;
   white-space: nowrap;
   animation: moveRightToLeft 8s linear infinite;
 }
@@ -821,9 +846,9 @@
 
 .introToggle {
   font-size: 20px;
-  color: #5d4037;
+  color: #f1f8e9;
   transition: transform 0.3s;
-  background: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.22);
   padding: 4px 10px;
   border-radius: 10px;
 }
@@ -832,13 +857,13 @@
   padding: 16px;
   max-height: 500px;
   overflow-y: auto;
-  background: linear-gradient(180deg, #fffdf5 0%, #fffef8 100%);
+  background: linear-gradient(180deg, #f9fbe7 0%, #f1f8e9 100%);
 }
 
 .introSection {
   margin-bottom: 18px;
   padding-bottom: 16px;
-  border-bottom: 1px dashed #ffe082;
+  border-bottom: 1px dashed #c5e1a5;
 }
 
 .introSection:last-child {
@@ -997,46 +1022,46 @@
   z-index: 3;
 }
 
-/* 金边字体效果 */
+/* 金边字体效果 - 自然橄榄绿 */
 .introPoemLine {
-  color: #ffd700;
+  color: #e6ee9c;
   font-size: 13px;
   font-weight: bold;
   text-align: center;
   padding: 1px 0;
   letter-spacing: 2px;
-  /* 金色描边效果 */
-  -webkit-text-stroke: 0.5px #8B4513;
-  text-shadow: 
+  /* 橄榄绿描边效果 */
+  -webkit-text-stroke: 0.4px #558b2f;
+  text-shadow:
     /* 内发光 */
-    0 0 10px rgba(255, 215, 0, 0.5),
-    /* 金色外发光 */
-    0 0 20px rgba(255, 215, 0, 0.3),
-    0 0 30px rgba(255, 215, 0, 0.2),
-    /* 立体金边 */
-    2px 2px 0 #8B4513,
-    -2px -2px 0 #DAA520,
-    1px -1px 0 #B8860B,
-    -1px 1px 0 #CD853F;
-  /* 3D 金色文字效果 */
-  filter: drop-shadow(0 0 8px rgba(255, 215, 0, 0.8));
+    0 0 10px rgba(139, 195, 74, 0.45),
+    /* 绿色外发光 */
+    0 0 20px rgba(129, 199, 132, 0.28),
+    0 0 30px rgba(104, 159, 56, 0.18),
+    /* 立体绿边 */
+    2px 2px 0 #33691e,
+    -2px -2px 0 #558b2f,
+    1px -1px 0 #689f38,
+    -1px 1px 0 #7cb342;
+  /* 3D 绿色文字效果 */
+  filter: drop-shadow(0 0 8px rgba(139, 195, 74, 0.7));
 }
 
 .introPoemAuthor {
-  color: #FFD700;
+  color: #c5e1a5;
   font-size: 14px;
   text-align: center;
   margin-bottom: 2px;
   margin-top: -10px;
   font-style: italic;
-  /* 金色描边效果 */
-  -webkit-text-stroke: 0.3px #8B4513;
-  text-shadow: 
-    0 0 10px rgba(255, 215, 0, 0.5),
-    0 0 20px rgba(255, 215, 0, 0.3),
-    1px 1px 0 #8B4513,
-    -1px -1px 0 #DAA520;
-  filter: drop-shadow(0 0 6px rgba(255, 215, 0, 0.8));
+  /* 嫩绿描边效果 */
+  -webkit-text-stroke: 0.3px #33691e;
+  text-shadow:
+    0 0 10px rgba(139, 195, 74, 0.45),
+    0 0 20px rgba(129, 199, 132, 0.28),
+    1px 1px 0 #33691e,
+    -1px -1px 0 #558b2f;
+  filter: drop-shadow(0 0 6px rgba(139, 195, 74, 0.7));
 }
 
 /* 中间固定文字 */
@@ -1064,9 +1089,9 @@
   padding: 12px;
   text-align: center;
   font-size: 14px;
-  color: #e65100;
-  background: linear-gradient(180deg, rgba(255, 152, 0, 0.12) 0%, rgba(255, 152, 0, 0.05) 100%);
-  border-top: 1px dashed #ffcc80;
+  color: #33691e;
+  background: linear-gradient(180deg, rgba(139, 195, 74, 0.10) 0%, rgba(129, 199, 132, 0.05) 100%);
+  border-top: 1px dashed #aed581;
   cursor: pointer;
   transition: all 0.2s;
   font-weight: 600;
@@ -1077,7 +1102,7 @@
 }
 
 .introMoreBtn:active {
-  background: rgba(255, 152, 0, 0.2);
+  background: rgba(139, 195, 74, 0.18);
 }
 
 .introMoreBtn::before {
@@ -1088,18 +1113,18 @@
   content: '📕';
 }
 
-/* 底部导航 */
+/* 底部导航 | 自然绿边框 */
 .tabBar {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
   background: #fff;
-  border-top: 1px solid #eee;
-  box-shadow: 0 -4px 20px rgba(0,0,0,0.08);
+  border-top: 1px solid rgba(129, 199, 132, 0.25);
+  box-shadow: 0 -4px 20px rgba(46, 125, 50, 0.08);
 }
 
-/* 特别声明 */
+/* 特别声明 - 自然大地色 */
 .disclaimer {
   display: flex;
   align-items: center;
@@ -1107,9 +1132,14 @@
   gap: 10px;
   padding: 18px 16px;
   margin: 16px;
-  background: linear-gradient(145deg, #ff6b6b 0%, #ff4757 50%, #ff3838 100%);
+  background: linear-gradient(145deg,
+    #6d4c41 0%,
+    #795548 35%,
+    #8d6e63 65%,
+    #a1887f 100%
+  );
   border-radius: 14px;
-  box-shadow: 0 6px 20px rgba(255, 71, 87, 0.4);
+  box-shadow: 0 6px 20px rgba(93, 64, 55, 0.30);
   position: relative;
   overflow: hidden;
 }
@@ -1144,17 +1174,21 @@
 
 .disclaimerCopyright {
   display: block;
-  color: #fff;
+  color: #efebe9;
   font-size: 13px;
   font-weight: 600;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
   margin-top: 8px;
   padding: 6px 16px;
-  background: linear-gradient(90deg, #c0392b, #e74c3c, #c0392b);
+  background: linear-gradient(90deg,
+    rgba(93,64,55,0.6),
+    rgba(121,85,72,0.5),
+    rgba(93,64,55,0.6)
+  );
   background-size: 200% 100%;
   border-radius: 15px;
   letter-spacing: 1px;
-  animation: gradientShift 2s ease infinite;
+  animation: gradientShift 3s ease infinite;
   position: relative;
   z-index: 1;
 }
@@ -1169,37 +1203,26 @@
   50% { transform: scale(1.2); }
 }
 
-/* 高度概括副标题 */
+/* 高度概括副标题 - 自然橄榄 */
 .introSubTitle2 {
   font-size: 13px;
-  color: #b8860b;
+  color: #558b2f;
   text-align: center;
   margin-bottom: 10px;
   padding: 8px 16px;
-  background: linear-gradient(90deg, #fff5d6 0%, #fff8e7 50%, #fff5d6 100%);
+  background: linear-gradient(90deg,
+    #f1f8e9 0%,
+    #e8f5e9 50%,
+    #f1f8e9 100%
+  );
   border-radius: 20px;
-  border: 1px solid #f0c850;
+  border: 1px solid #c5e1a5;
   font-weight: 500;
   letter-spacing: 1px;
 }
 
 
-/* 高度概括副标题 */
-.introSubTitle2 {
-  font-size: 13px;
-  color: #b8860b;
-  text-align: center;
-  margin-bottom: 10px;
-  padding: 8px 16px;
-  background: linear-gradient(90deg, #fff5d6 0%, #fff8e7 50%, #fff5d6 100%);
-  border-radius: 20px;
-  border: 1px solid #f0c850;
-  font-weight: 500;
-  letter-spacing: 1px;
-}
-
-
-/* 悬浮智能客服按钮 */
+/* 悬浮智能客服按钮 - 翡翠绿 */
 .floatingServiceBtn {
   position: fixed;
   right: 16px;
@@ -1207,12 +1230,17 @@
   width: 60px;
   height: 60px;
   border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg,
+    #00897b 0%,
+    #009688 35%,
+    #26a69a 70%,
+    #4db6ac 100%
+  );
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 4px 16px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 16px rgba(0, 137, 123, 0.35);
   cursor: pointer;
   z-index: 100;
   transition: transform 0.3s, box-shadow 0.3s;
@@ -1290,12 +1318,16 @@
   letter-spacing: 0.5px;
 }
 
-/* 分享按钮 */
+/* 分享按钮 - 森林绿 */
 .shareButton {
   position: fixed;
   top: 70px;
   right: 16px;
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg,
+    #2e7d32 0%,
+    #388e3c 50%,
+    #43a047 100%
+  );
   color: #fff;
   padding: 12px 18px;
   border-radius: 24px;
@@ -1304,7 +1336,7 @@
   gap: 6px;
   font-size: 14px;
   font-weight: 500;
-  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.35);
   cursor: pointer;
   z-index: 9999;
   transition: transform 0.3s, box-shadow 0.3s;
