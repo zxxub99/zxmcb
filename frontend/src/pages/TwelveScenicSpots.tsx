@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Card, Tag, Empty, Spin } from 'antd-mobile';
 import { EnvironmentOutline, ClockCircleOutline, PayCircleOutline } from 'antd-mobile-icons';
+import { Image } from 'antd-mobile';
 import styles from './TwelveScenicSpots.module.css';
 
 // 钟祥十二景完整数据
@@ -9,6 +10,7 @@ const scenicSpots = [
   {
     id: 1,
     name: '明显陵',
+    image: '/images/scenic-spots/01-mingxiaoling.png',
     level: '5A',
     tag: '世界文化遗产',
     shortDesc: '明代帝陵孤例，一陵两冢世所罕见。龙鳞神道、石像生、九曲御河尽显皇家气势。',
@@ -22,6 +24,7 @@ const scenicSpots = [
   {
     id: 2,
     name: '莫愁湖·莫愁村',
+    image: '/images/scenic-spots/02-mochouhu.png',
     level: '5A',
     tag: '景区核心',
     shortDesc: '莫愁湖碧波环抱，湿地风光秀美；莫愁村荆楚风情浓郁，非遗演艺、地道美食云集。',
@@ -35,6 +38,7 @@ const scenicSpots = [
   {
     id: 3,
     name: '黄仙洞',
+    image: '/images/scenic-spots/03-huangxiandong.png',
     level: '4A',
     tag: '天下第一洞',
     shortDesc: '大洪山核心溶洞，喀斯特地貌奇观。2万㎡云盆梯田、百变钟乳石、悬空栈道，光影奇幻。',
@@ -48,6 +52,7 @@ const scenicSpots = [
   {
     id: 4,
     name: '大口国家森林公园',
+    image: '/images/scenic-spots/04-dakousenlin.png',
     level: '国家森林公园',
     tag: '天然氧吧',
     shortDesc: '鄂中原始林海，森林覆盖率超93%。九级天溪瀑布、溪涧清流、古木葱郁，避暑徒步优选。',
@@ -61,6 +66,7 @@ const scenicSpots = [
   {
     id: 5,
     name: '钟祥博物馆',
+    image: '/images/scenic-spots/05-zhongxiangbowuguan.png',
     level: '城市文化地标',
     tag: '免费参观',
     shortDesc: '建筑呈"明"字造型，馆藏元青花梅瓶等国宝，系统展示钟祥千年文脉与长寿文化。',
@@ -74,6 +80,7 @@ const scenicSpots = [
   {
     id: 6,
     name: '兴王府',
+    image: '/images/scenic-spots/06-xingwangfu.png',
     level: '明代遗存',
     tag: '藩王府邸',
     shortDesc: '嘉靖皇帝出生地，明代藩王府规制典范。殿宇古朴庄重，雕梁画栋精巧，院落清幽雅致。',
@@ -87,6 +94,7 @@ const scenicSpots = [
   {
     id: 7,
     name: '元佑宫',
+    image: '/images/scenic-spots/07-yuanyougong.png',
     level: '明代皇家道观',
     tag: '道教圣地',
     shortDesc: '嘉靖敕建皇家道观，南方道教名地。红墙绿瓦殿宇恢弘，古碑石刻林立，道韵悠长。',
@@ -100,6 +108,7 @@ const scenicSpots = [
   {
     id: 8,
     name: '彭墩乡村世界',
+    image: '/images/scenic-spots/08-pengdun.png',
     level: '4A',
     tag: '最美休闲乡村',
     shortDesc: '中国最美休闲乡村，田园风光如画。融合现代农业、采摘游乐、康养度假，尽享田园慢生活。',
@@ -113,6 +122,7 @@ const scenicSpots = [
   {
     id: 9,
     name: '汇源农谷体验园',
+    image: '/images/scenic-spots/09-huiyuannonggu.png',
     level: '4A',
     tag: '田园综合体',
     shortDesc: '华中大型田园综合体，集农业观光、果蔬采摘、亲子游乐、研学科普于一体，四季鲜果不断。',
@@ -126,6 +136,7 @@ const scenicSpots = [
   {
     id: 10,
     name: '万紫千红植物园',
+    image: '/images/scenic-spots/10-wanziqianhong.png',
     level: '生态景区',
     tag: '紫薇花海',
     shortDesc: '毗邻石门水库，以紫薇花为特色。繁花盛放、山水相依，步道清幽，搭配特色民宿，花海漫步。',
@@ -139,6 +150,7 @@ const scenicSpots = [
   {
     id: 11,
     name: '石牌古镇',
+    image: '/images/scenic-spots/11-shipaiguzhen.png',
     level: '历史文化名镇',
     tag: '豆腐之乡',
     shortDesc: '千年荆楚名镇，"中国豆腐之乡"。青石板古街完好，古桥老宅错落，品豆腐美食，感受古镇民俗。',
@@ -152,6 +164,7 @@ const scenicSpots = [
   {
     id: 12,
     name: '莫愁渡·白雪楼',
+    image: '/images/scenic-spots/12-mochoudubaixuelou.png',
     level: '历史文化地标',
     tag: '楚风诗意',
     shortDesc: '千年古渡临江而立，流传莫愁女动人传说；白雪楼复刻"阳春白雪"典故，登楼远眺汉江，山水诗意。',
@@ -188,9 +201,14 @@ const TwelveScenicSpots: React.FC = () => {
             className={styles.spotCard}
             onClick={() => handleSpotClick(spot)}
           >
-            {/* 图片占位 */}
-            <div className={styles.imagePlaceholder}>
-              <span className={styles.imageText}>{spot.name}</span>
+            {/* 景点图片 */}
+            <div className={styles.spotImage}>
+              <Image
+                src={spot.image}
+                alt={spot.name}
+                fit="cover"
+                className={styles.spotImg}
+              />
               <div className={styles.levelBadge}>
                 <Tag color={spot.level.includes('5A') ? 'danger' : spot.level.includes('4A') ? 'warning' : 'primary'}>
                   {spot.level}
