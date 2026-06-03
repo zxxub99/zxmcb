@@ -13,6 +13,17 @@ import {
 } from 'antd-mobile-icons'
 import styles from './HomePage.module.css'
 
+const [expandedCards, setExpandedCards] = React.useState<Set<string>>(new Set())
+
+const toggleCardExpand = (cardId: string) => {
+  setExpandedCards(prev => {
+    const next = new Set(prev)
+    if (next.has(cardId)) next.delete(cardId)
+    else next.add(cardId)
+    return next
+  })
+}
+
 // 精选服务板块 - 长寿特产 + 旅游服务
 const monetizationSections = [
   {
@@ -369,7 +380,7 @@ export default function HomePage() {
             </div>
             <div className={styles.trafficDesc}>{section.desc}</div>
             <div className={styles.trafficItems}>
-              {section.items.map(item => (
+              {section.items.slice(0, expandedCards.has(section.id) ? section.items.length : 2).map(item => (
                 <div key={item.id} className={styles.trafficItem}>
                   <img src={item.img} alt={item.title} className={styles.trafficItemImg} />
                   <div className={styles.trafficItemInfo}>
@@ -379,10 +390,21 @@ export default function HomePage() {
                     {'views' in item && <span className={styles.trafficItemMeta}>{String(item.views)}</span>}
                     {'rating' in item && <span className={styles.trafficItemMeta}>★ {String(item.rating)}</span>}
                     {'helpers' in item && <span className={styles.trafficItemMeta}>🤝 {String(item.helpers)}人</span>}
+                    {'tag' in item && item.tag && <span className={styles.scenicTag}>{String(item.tag)}</span>}
                   </div>
                 </div>
               ))}
             </div>
+            {section.items.length > 2 && (
+              <div
+                className={styles.expandToggle}
+                onClick={(e) => { e.stopPropagation(); toggleCardExpand(section.id) }}
+              >
+                <span className={styles.expandToggleText}>
+                  {expandedCards.has(section.id) ? '收起 ▲' : `展开全部 (${section.items.length}) ▼`}
+                </span>
+              </div>
+            )}
             <div className={styles.trafficMore}>查看更多 {'>'}</div>
           </div>
         ))}

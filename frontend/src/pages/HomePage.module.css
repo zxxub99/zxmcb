@@ -1656,10 +1656,33 @@
   font-weight: 600;
 }
 
+.expandToggle {
+  text-align: center;
+  padding: 6px 0 2px;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.expandToggleText {
+  font-size: 11px;
+  color: #4CAF50;
+  font-weight: 500;
+  display: inline-block;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+  padding: 4px 12px;
+  border-radius: 20px;
+  background: rgba(76, 175, 80, 0.06);
+}
+
+.expandToggle:active .expandToggleText {
+  opacity: 0.6;
+  transform: scale(0.96);
+}
+
 .trafficMore {
   text-align: center;
   font-size: 10px;
-  color: #667eea;
+  color: #4CAF50;
   padding: 4px;
   border-top: 1px solid #f0f0f0;
 }
