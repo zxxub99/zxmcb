@@ -28,9 +28,14 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
 .poemPanel{margin-top:16px;background:linear-gradient(135deg,#558b2f,#689f38);border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(85,139,47,.25)}
 .poemTitleRow{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;background:rgba(255,255,255,.12);font-size:13px;color:#f1f8e9;font-weight:600;letter-spacing:1px}
-.poemBody{padding:14px 18px;display:flex;align-items:flex-start;gap:12px;flex-wrap:wrap}
-.poemText{flex:1;min-width:0;text-align:center}
-.poemLine{font-family:"KaiTi","STKaiti","楷体",serif;font-size:17px;color:#f1f8e9;line-height:1.9;text-shadow:0 0 8px rgba(129,199,132,.4),0 0 2px rgba(46,125,50,.5);letter-spacing:2px;font-weight:600}
+.poemBody{padding:0 18px 14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.poemScroll{flex:1;min-width:0;height:76px;overflow:hidden;position:relative;border-radius:8px;background:rgba(0,0,0,.08)}
+.poemScrollInner{position:absolute;top:0;left:0;width:100%;animation:poemScrollUp 10s ease-in-out infinite}
+@keyframes poemScrollUp{
+  0%{transform:translateY(0)}
+  30%{transform:translateY(0)}
+  70%{transform:translateY(-50%)}}
+.poemLine{font-family:"KaiTi","STKaiti","楷体",serif;font-size:17px;color:#f1f8e9;line-height:1.9;text-shadow:0 0 8px rgba(129,199,132,.4),0 0 2px rgba(46,125,50,.5);letter-spacing:2px;font-weight:600;text-align:center;padding:4px 0}
 .poemQrcodeArea{flex-shrink:0;text-align:center}
 .poemQrcodeArea img{width:110px;height:110px;border-radius:10px;border:2px solid rgba(255,255,255,.35)}
 .qrcodeLabel{font-size:10px;color:rgba(241,248,233,.8);margin-top:3px}
@@ -106,12 +111,16 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="poemPanel">
 <div class="poemTitleRow">📖 钟祥旅游天堂</div>
 <div class="poemBody">
-<div class="poemText">
+<div class="poemScroll"><div class="poemScrollInner">
 <div class="poemLine">莫愁故里喜相逢</div>
 <div class="poemLine">莫愁村中笑语浓</div>
 <div class="poemLine">莫愁湖畔风光好</div>
 <div class="poemLine">莫愁小院话从容</div>
-</div>
+<div class="poemLine">莫愁故里喜相逢</div>
+<div class="poemLine">莫愁村中笑语浓</div>
+<div class="poemLine">莫愁湖畔风光好</div>
+<div class="poemLine">莫愁小院话从容</div>
+</div></div>
 <div class="poemQrcodeArea">
 <img src="/images/video-qrcode.png" alt="许可3108视频号" onerror="this.style.display='none'">
 <div class="qrcodeLabel">📺 许可3108</div>
