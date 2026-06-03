@@ -373,45 +373,15 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <span class="secondHandTag">皇庄街道</span>
 </div>
 </div>
-<div class="secondHandItem" onclick="showSecondHandDetail(3)">
-<div class="secondHandIcon">📚</div>
-<div class="secondHandTitle">儿童绘本</div>
-<div class="secondHandPrice">¥ 30</div>
-<div class="secondHandMeta">
-<span class="secondHandTag">全新</span>
-	&lt;button class="bigBtn" onclick="showPublishForm()"&gt;+ 发布二手物品&lt;/button&gt;
-	&lt;div class="publishForm" id="publishForm" style="display:none;margin-top:14px"&gt;
-	&lt;h4&gt;📝 发布二手物品&lt;/h4&gt;
-	&lt;div class="publishRow"&gt;
-	&lt;input type="text" id="itemTitle" class="publishInput" placeholder="物品名称（如：小米手机）" maxlength="30"&gt;
-	&lt;/div&gt;
-	&lt;div class="publishRow"&gt;
-	&lt;input type="number" id="itemPrice" class="publishInput" placeholder="价格（元）" min="0"&gt;
-	&lt;select id="itemCondition" class="publishSelect"&gt;
-	&lt;option value="全新"&gt;全新&lt;/option&gt;
-	&lt;option value="9成新" selected&gt;9成新&lt;/option&gt;
-	&lt;option value="8成新"&gt;8成新&lt;/option&gt;
-	&lt;option value="7成新"&gt;7成新&lt;/option&gt;
-	&lt;option value="6成新及以下"&gt;6成新及以下&lt;/option&gt;
-	&lt;/select&gt;
-	&lt;/div&gt;
-	&lt;div class="publishRow"&gt;
-	&lt;select id="itemCategory" class="publishSelect"&gt;
-	&lt;option value="📱"&gt;📱 数码&lt;/option&gt;
-	&lt;option value="🏠"&gt;🏠 家居&lt;/option&gt;
-	&lt;option value="👕"&gt;👕 服饰&lt;/option&gt;
-	&lt;option value="📚"&gt;📚 书籍&lt;/option&gt;
-	&lt;option value="👶"&gt;👶 母婴&lt;/option&gt;
-	&lt;option value="⚽"&gt;⚽ 运动&lt;/option&gt;
-	&lt;option value="🎮"&gt;🎮 游戏&lt;/option&gt;
-	&lt;option value="🎁"&gt;🎁 其他&lt;/option&gt;
-	&lt;/select&gt;
-	&lt;input type="text" id="itemLocation" class="publishInput" placeholder="位置（如：郢中街道）" maxlength="15"&gt;
-	&lt;/div&gt;
-	&lt;textarea id="itemDesc" class="publishTextarea" placeholder="物品描述（成色、使用情况、交易方式等）" maxlength="200"&gt;&lt;/textarea&gt;
-	&lt;button class="publishBtn" onclick="submitItem()"&gt;✅ 发布物品&lt;/button&gt;
-	&lt;/div&gt;
-</div>
+	<div class="secondHandItem" onclick="showSecondHandDetail(3)">
+	<div class="secondHandIcon">📚</div>
+	<div class="secondHandTitle">儿童绘本</div>
+	<div class="secondHandPrice">¥ 30</div>
+	<div class="secondHandMeta">
+	<span class="secondHandTag">全新</span>
+	<span class="secondHandTag">郢中街道</span>
+	</div>
+	</div>
 </div>
 <div class="secondHandItem" onclick="showSecondHandDetail(4)">
 <div class="secondHandIcon">👶</div>
@@ -424,6 +394,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 </div>
 </div>
+	<button class="bigBtn" onclick="showPublishForm()">+ 发布二手物品</button>
+	<div class="publishForm" id="publishForm" style="display:none;margin-top:14px">
+	<h4>📝 发布二手物品</h4>
+	<div class="publishRow">
+	<input type="text" id="itemTitle" class="publishInput" placeholder="物品名称（如：小米手机）" maxlength="30">
+	</div>
+	<div class="publishRow">
+	<input type="number" id="itemPrice" class="publishInput" placeholder="价格（元）" min="0">
+	<select id="itemCondition" class="publishSelect">
+	<option value="全新">全新</option>
+	<option value="9成新" selected>9成新</option>
+	<option value="8成新">8成新</option>
+	<option value="7成新">7成新</option>
+	<option value="6成新及以下">6成新及以下</option>
+	</select>
+	</div>
+	<div class="publishRow">
+	<select id="itemCategory" class="publishSelect">
+	<option value="📱">📱 数码</option>
+	<option value="🏠">🏠 家居</option>
+	<option value="👕">👕 服饰</option>
+	<option value="📚">📚 书籍</option>
+	<option value="👶">👶 母婴</option>
+	<option value="⚽">⚽ 运动</option>
+	<option value="🎮">🎮 游戏</option>
+	<option value="🎁">🎁 其他</option>
+	</select>
+	<input type="text" id="itemLocation" class="publishInput" placeholder="位置（如：郢中街道）" maxlength="15">
+	</div>
+	<textarea id="itemDesc" class="publishTextarea" placeholder="物品描述（成色、使用情况、交易方式等）" maxlength="200"></textarea>
+	<button class="publishBtn" onclick="submitItem()">✅ 发布物品</button>
+	</div>
 
 <!-- ===== 交友 + 邻里互助 (V3.0) ===== -->
 <div class="sectionCard" id="social" style="display:none">
