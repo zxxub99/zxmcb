@@ -1465,7 +1465,7 @@
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 12px rgba(46, 125, 50, 0.1);
 }
 
 .monetizationHeader {
@@ -1557,17 +1557,26 @@
 
 /* 流量区网格 - 三个卡片并排 */
 .trafficGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  display: flex;
   gap: 10px;
   padding: 0 16px 16px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.trafficGrid::-webkit-scrollbar {
+  display: none;
 }
 
 .trafficCard {
   background: #fff;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  box-shadow: 0 2px 8px rgba(46, 125, 50, 0.08);
+  flex-shrink: 0;
+  width: calc(50% - 5px);
+  scroll-snap-align: start;
 }
 
 .trafficHeader {

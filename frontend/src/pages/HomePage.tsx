@@ -13,46 +13,16 @@ import {
 } from 'antd-mobile-icons'
 import styles from './HomePage.module.css'
 
-// 变现区板块 - 旅游服务 + 长寿特产
+// 精选服务板块 - 长寿特产 + 旅游服务
 const monetizationSections = [
-  {
-    id: 'longevity-stories',
-    icon: '🌿',
-    title: '长寿故事',
-    subTitle: '百岁老人养生之道',
-    desc: '探访钟祥百岁老人，揭秘长寿秘诀',
-    color: '#4CAF50',
-    bgGradient: 'linear-gradient(135deg, #4CAF50 0%, #2E7D32 100%)',
-    path: '/longevity-stories',
-    items: [
-      { id: 1, title: '百岁老人的早餐', views: '2.3k', img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=120&h=80&fit=crop' },
-      { id: 2, title: '长寿之乡饮食', views: '1.8k', img: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=120&h=80&fit=crop' },
-      { id: 3, title: '太极养生之道', views: '1.5k', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=120&h=80&fit=crop' },
-    ]
-  },
-  {
-    id: 'neighbor',
-    icon: '🏘️',
-    title: '邻居推荐',
-    subTitle: '真实邻居 严选好物',
-    desc: '邻里推荐，放心购买',
-    color: '#ff9800',
-    bgGradient: 'linear-gradient(135deg, #ff9800 0%, #ff5722 100%)',
-    path: '/neighbor-recommendations',
-    items: [
-      { id: 1, title: '王阿姨的手工桃酥', price: '¥35', img: 'https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=120&h=80&fit=crop' },
-      { id: 2, title: '李叔叔的河鱼', price: '¥28', img: 'https://images.unsplash.com/photo-1534604973900-c43ab4c2e0ab?w=120&h=80&fit=crop' },
-      { id: 3, title: '张奶奶的棉鞋', price: '¥68', img: 'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?w=120&h=80&fit=crop' },
-    ]
-  },
   {
     id: 'specialty',
     icon: '🎁',
     title: '长寿特产专区',
     subTitle: '地道钟祥 原生态',
     desc: '石牌豆腐 · 葛根粉 · 米茶 · 蟠龙菜',
-    color: '#ff6b6b',
-    bgGradient: 'linear-gradient(135deg, #ff6b6b 0%, #ee5a5a 100%)',
+    color: '#4CAF50',
+    bgGradient: 'linear-gradient(135deg, #66BB6A 0%, #388E3C 100%)',
     path: '/specialty',
     items: [
       { id: 1, title: '钟祥蟠龙菜', price: '¥68', img: 'https://picsum.photos/120/80?random=131' },
@@ -68,8 +38,8 @@ const monetizationSections = [
     title: '旅游服务专区',
     subTitle: '吃住游玩 全方位',
     desc: '民宿农家乐 · 景区门票 · 旅游咨询',
-    color: '#11998e',
-    bgGradient: 'linear-gradient(135deg, #11998e 0%, #0e8a7c 100%)',
+    color: '#26A69A',
+    bgGradient: 'linear-gradient(135deg, #4DB6AC 0%, #00796B 100%)',
     path: '/tourism-service',
     items: [
       { id: 1, title: '莫愁村民宿', rating: '4.9', price: '¥288起', img: 'https://picsum.photos/120/80?random=141' },
@@ -79,26 +49,9 @@ const monetizationSections = [
       { id: 5, title: '温峡漂流', rating: '4.8', price: '¥128', img: 'https://picsum.photos/120/80?random=145' },
     ]
   },
-  {
-    id: 'twelve-scenic',
-    icon: '🏛️',
-    title: '钟祥十二景',
-    subTitle: '文旅精华',
-    desc: '明显陵 · 莫愁湖 · 黄仙洞 · 石牌古镇',
-    color: '#667eea',
-    bgGradient: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-    path: '/twelve-scenic-spots',
-    items: [
-      { id: 1, title: '明显陵', tag: '5A', img: 'https://picsum.photos/120/80?random=151' },
-      { id: 2, title: '莫愁湖', tag: '5A', img: 'https://picsum.photos/120/80?random=152' },
-      { id: 3, title: '黄仙洞', tag: '4A', img: 'https://picsum.photos/120/80?random=153' },
-      { id: 4, title: '石牌古镇', tag: '历史', img: 'https://picsum.photos/120/80?random=154' },
-      { id: 5, title: '更多...', tag: '', img: 'https://picsum.photos/120/80?random=155' },
-    ]
-  },
 ]
 
-// 流量区板块 - 交友 + 二手 + 资讯
+// 热门服务板块 - 交友 + 二手 + 互助 + 故事 + 十二景
 const trafficSections = [
   {
     id: 'social',
@@ -106,8 +59,8 @@ const trafficSections = [
     title: '同城交友',
     subTitle: '邻里交流 兴趣结伴',
     desc: '生活求助 · 问答互助',
-    color: '#ff9a9e',
-    bgGradient: 'linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%)',
+    color: '#66BB6A',
+    bgGradient: 'linear-gradient(135deg, #81C784 0%, #4CAF50 100%)',
     path: '/social',
     items: [
       { id: 1, title: '周边自驾游', members: 128, img: 'https://picsum.photos/120/80?random=101' },
@@ -121,8 +74,8 @@ const trafficSections = [
     title: '二手闲置',
     subTitle: '闲置处置 物品互换',
     desc: '同城自提 · 低价好物',
-    color: '#4ecdc4',
-    bgGradient: 'linear-gradient(135deg, #4ecdc4 0%, #44b8b0 100%)',
+    color: '#26A69A',
+    bgGradient: 'linear-gradient(135deg, #4DB6AC 0%, #00897B 100%)',
     path: '/square',
     items: [
       { id: 1, title: '九成新自行车', price: '¥180', img: 'https://picsum.photos/120/80?random=111' },
@@ -131,18 +84,54 @@ const trafficSections = [
     ]
   },
   {
-    id: 'info',
-    icon: '📰',
-    title: '旅游资讯',
-    subTitle: '景区攻略 游玩路线',
-    desc: '人文文化 · 乡村旅游',
-    color: '#a8edea',
-    bgGradient: 'linear-gradient(135deg, #a8edea 0%, #fed6e3 100%)',
-    path: '/tourism-info',
+    id: 'neighbor-help',
+    icon: '🤝',
+    title: '邻居互助',
+    subTitle: '邻里守望 温情相助',
+    desc: '生活帮手 · 资源共享 · 爱心传递',
+    color: '#8D6E63',
+    bgGradient: 'linear-gradient(135deg, #A1887F 0%, #6D4C41 100%)',
+    path: '/neighbor-help',
     items: [
-      { id: 1, title: '明显陵游览攻略', views: '2.3k', img: 'https://picsum.photos/120/80?random=151' },
-      { id: 2, title: '莫愁村美食地图', views: '1.8k', img: 'https://picsum.photos/120/80?random=152' },
-      { id: 3, title: '黄仙洞探秘指南', views: '1.5k', img: 'https://picsum.photos/120/80?random=153' },
+      { id: 1, title: '帮忙照看宠物', helpers: 12, img: 'https://images.unsplash.com/photo-1548681528-6a5c45b66b42?w=120&h=80&fit=crop' },
+      { id: 2, title: '代收快递包裹', helpers: 28, img: 'https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=120&h=80&fit=crop' },
+      { id: 3, title: '拼车上下班', helpers: 45, img: 'https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?w=120&h=80&fit=crop' },
+      { id: 4, title: '老人陪伴聊天', helpers: 18, img: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=120&h=80&fit=crop' },
+      { id: 5, title: '技能互换学习', helpers: 35, img: 'https://images.unsplash.com/photo-1516534775068-ba3e7458af70?w=120&h=80&fit=crop' },
+    ]
+  },
+  {
+    id: 'longevity-stories',
+    icon: '🌿',
+    title: '长寿故事',
+    subTitle: '百岁老人 养生之道',
+    desc: '探访长寿之乡 · 揭秘长寿秘诀',
+    color: '#558B2F',
+    bgGradient: 'linear-gradient(135deg, #7CB342 0%, #33691E 100%)',
+    path: '/longevity-stories',
+    items: [
+      { id: 1, title: '百岁老人的早餐', views: '2.3k', img: 'https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=120&h=80&fit=crop' },
+      { id: 2, title: '长寿之乡饮食', views: '1.8k', img: 'https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=120&h=80&fit=crop' },
+      { id: 3, title: '太极养生之道', views: '1.5k', img: 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=120&h=80&fit=crop' },
+      { id: 4, title: '百岁寿星专访', views: '3.2k', img: 'https://images.unsplash.com/photo-1581579438747-1dc8d17bbce4?w=120&h=80&fit=crop' },
+      { id: 5, title: '富硒水土探秘', views: '1.1k', img: 'https://images.unsplash.com/photo-1464226184884-fa280b87c399?w=120&h=80&fit=crop' },
+    ]
+  },
+  {
+    id: 'twelve-scenic',
+    icon: '🏛️',
+    title: '钟祥十二景',
+    subTitle: '文旅精华 一网打尽',
+    desc: '明显陵 · 莫愁湖 · 黄仙洞 · 石牌古镇',
+    color: '#00695C',
+    bgGradient: 'linear-gradient(135deg, #26A69A 0%, #004D40 100%)',
+    path: '/twelve-scenic-spots',
+    items: [
+      { id: 1, title: '明显陵', tag: '5A', img: '/images/scenic-spots/01-mingxiaoling.png' },
+      { id: 2, title: '莫愁湖·莫愁村', tag: '5A', img: '/images/scenic-spots/02-mochouhu.png' },
+      { id: 3, title: '黄仙洞', tag: '4A', img: '/images/scenic-spots/03-huangxiandong.png' },
+      { id: 4, title: '大口森林公园', tag: '自然', img: '/images/scenic-spots/04-dakousenlin.png' },
+      { id: 5, title: '更多十二景...', tag: '', img: '/images/scenic-spots/05-zhongxiangbowuguan.png' },
     ]
   },
 ]
@@ -330,7 +319,7 @@ export default function HomePage() {
       {/* 变现区标题 - 上半区 */}
       <div className={styles.sectionAreaTitle}>
         <span className={styles.sectionAreaTitleText}>🎯 精选服务</span>
-        <span className={styles.sectionAreaSubTitle}>长寿特产 · 旅游服务</span>
+        <span className={styles.sectionAreaSubTitle}>长寿特产专区 · 旅游服务专区</span>
       </div>
 
       {/* 变现区 - 长寿特产 + 旅游服务 */}
@@ -363,8 +352,8 @@ export default function HomePage() {
 
       {/* 流量区标题 - 下半区 */}
       <div className={styles.sectionAreaTitle}>
-        <span className={styles.sectionAreaTitleText}>📱 热门频道</span>
-        <span className={styles.sectionAreaSubTitle}>同城交友 · 二手闲置 · 旅游资讯</span>
+        <span className={styles.sectionAreaTitleText}>📱 热门服务</span>
+        <span className={styles.sectionAreaSubTitle}>同城交友 · 二手闲置 · 邻居互助 · 长寿故事 · 钟祥十二景</span>
       </div>
 
       {/* 流量区 - 交友 + 二手 + 资讯 */}
@@ -389,6 +378,7 @@ export default function HomePage() {
                     {'price' in item && <span className={styles.trafficItemPrice}>{String(item.price)}</span>}
                     {'views' in item && <span className={styles.trafficItemMeta}>{String(item.views)}</span>}
                     {'rating' in item && <span className={styles.trafficItemMeta}>★ {String(item.rating)}</span>}
+                    {'helpers' in item && <span className={styles.trafficItemMeta}>🤝 {String(item.helpers)}人</span>}
                   </div>
                 </div>
               ))}
