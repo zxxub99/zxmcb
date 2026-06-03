@@ -166,6 +166,19 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .messageAuthor{font-weight:700;color:#7b1fa2;font-size:14px}
 .messageTime{font-size:11px;color:#9e9e9e}
 .messageContent{font-size:13px;color:#555;line-height:1.6}
+	/* ===== 二手商品发布表单 ===== */
+	.publishForm{background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:14px;padding:16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(33,150,243,.12)}
+	.publishForm h4{font-size:15px;color:#0d47a1;margin-bottom:12px;font-weight:700}
+	.publishRow{display:flex;gap:8px;margin-bottom:10px}
+	.publishInput{flex:1;padding:10px 12px;border:2px solid #90caf9;border-radius:10px;font-size:14px;outline:none;background:#fff}
+	.publishInput:focus{border-color:#1976d2;box-shadow:0 0 0 3px rgba(25,118,210,.15)}
+	.publishSelect{padding:10px 12px;border:2px solid #90caf9;border-radius:10px;font-size:14px;outline:none;background:#fff;min-width:100px}
+	.publishTextarea{width:100%;padding:12px 14px;border:2px solid #90caf9;border-radius:10px;font-size:14px;outline:none;resize:vertical;min-height:80px;font-family:inherit;background:#fff}
+	.publishTextarea:focus{border-color:#1976d2;box-shadow:0 0 0 3px rgba(25,118,210,.15)}
+	.publishBtn{width:100%;padding:14px;text-align:center;background:linear-gradient(135deg,#1976d2,#42a5f5);color:#fff!important;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;box-shadow:0 3px 10px rgba(25,118,210,.28);transition:all .2s;border:none;cursor:pointer;margin-top:8px}
+	.publishBtn:active{transform:scale(.98)}
+	.userItemBadge{display:inline-block;background:#ff9800;color:#fff;padding:2px 8px;border-radius:10px;font-size:10px;margin-bottom:6px}
+
 .messageEmpty{text-align:center;padding:20px;color:#9e9e9e;font-size:13px}
 </style>
 </head>
@@ -366,7 +379,38 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="secondHandPrice">¥ 30</div>
 <div class="secondHandMeta">
 <span class="secondHandTag">全新</span>
-<span class="secondHandTag">郢中街道</span>
+	&lt;button class="bigBtn" onclick="showPublishForm()"&gt;+ 发布二手物品&lt;/button&gt;
+	&lt;div class="publishForm" id="publishForm" style="display:none;margin-top:14px"&gt;
+	&lt;h4&gt;📝 发布二手物品&lt;/h4&gt;
+	&lt;div class="publishRow"&gt;
+	&lt;input type="text" id="itemTitle" class="publishInput" placeholder="物品名称（如：小米手机）" maxlength="30"&gt;
+	&lt;/div&gt;
+	&lt;div class="publishRow"&gt;
+	&lt;input type="number" id="itemPrice" class="publishInput" placeholder="价格（元）" min="0"&gt;
+	&lt;select id="itemCondition" class="publishSelect"&gt;
+	&lt;option value="全新"&gt;全新&lt;/option&gt;
+	&lt;option value="9成新" selected&gt;9成新&lt;/option&gt;
+	&lt;option value="8成新"&gt;8成新&lt;/option&gt;
+	&lt;option value="7成新"&gt;7成新&lt;/option&gt;
+	&lt;option value="6成新及以下"&gt;6成新及以下&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;/div&gt;
+	&lt;div class="publishRow"&gt;
+	&lt;select id="itemCategory" class="publishSelect"&gt;
+	&lt;option value="📱"&gt;📱 数码&lt;/option&gt;
+	&lt;option value="🏠"&gt;🏠 家居&lt;/option&gt;
+	&lt;option value="👕"&gt;👕 服饰&lt;/option&gt;
+	&lt;option value="📚"&gt;📚 书籍&lt;/option&gt;
+	&lt;option value="👶"&gt;👶 母婴&lt;/option&gt;
+	&lt;option value="⚽"&gt;⚽ 运动&lt;/option&gt;
+	&lt;option value="🎮"&gt;🎮 游戏&lt;/option&gt;
+	&lt;option value="🎁"&gt;🎁 其他&lt;/option&gt;
+	&lt;/select&gt;
+	&lt;input type="text" id="itemLocation" class="publishInput" placeholder="位置（如：郢中街道）" maxlength="15"&gt;
+	&lt;/div&gt;
+	&lt;textarea id="itemDesc" class="publishTextarea" placeholder="物品描述（成色、使用情况、交易方式等）" maxlength="200"&gt;&lt;/textarea&gt;
+	&lt;button class="publishBtn" onclick="submitItem()"&gt;✅ 发布物品&lt;/button&gt;
+	&lt;/div&gt;
 </div>
 </div>
 <div class="secondHandItem" onclick="showSecondHandDetail(4)">
@@ -716,6 +760,14 @@ function formatTime(ts){
 }
 function pad(n){return n<10?'0'+n:n;}
 function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+	// ===== 二手商品发布功能 =====
+	const USER_ITEMS_KEY="mochoubang_user_items";
+	let userItems=[];
+	function loadUserItems(){const raw=localStorage.getItem(USER_ITEMS_KEY);userItems=raw?JSON.parse(raw):[];}
+	function saveUserItems(){localStorage.setItem(USER_ITEMS_KEY,JSON.stringify(userItems));}
+	function showPublishForm(){const f=document.getElementById("publishForm");f.style.display=f.style.display==="none"?"block":"none";}
+	function submitItem(){const title=document.getElementById("itemTitle").value.trim();const price=parseInt(document.getElementById("itemPrice").value)||0;const condition=document.getElementById("itemCondition").value;const category=document.getElementById("itemCategory").value;const location=document.getElementById("itemLocation").value.trim()||"钟祥本地";const desc=document.getElementById("itemDesc").value.trim();if(!title){alert("请输入物品名称！");return;}if(price<=0){alert("请输入有效价格！");return;}if(!desc){alert("请输入物品描述！");return;}userItems.unshift({icon:category,title:title,price:price,condition:condition,location:location,desc:desc,time:Date.now()});saveUserItems();document.getElementById("itemTitle").value="";document.getElementById("itemPrice").value="";document.getElementById("itemCondition").value="9成新";document.getElementById("itemCategory").value="📱";document.getElementById("itemLocation").value="";document.getElementById("itemDesc").value="";document.getElementById("publishForm").style.display="none";alert("✅ 发布成功！刷新页面查看");}
+
 
 // ===== 初始化 =====
 document.addEventListener('DOMContentLoaded',function(){
