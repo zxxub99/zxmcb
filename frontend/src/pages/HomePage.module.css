@@ -1491,3 +1491,78 @@
   padding: 4px;
   border-top: 1px solid #f0f0f0;
 }
+
+/* 视频号展示区域 */
+.videoChannel {
+  margin: 16px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(250, 247, 240, 0.95) 100%);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow:
+    0 4px 20px rgba(230, 81, 0, 0.08),
+    0 2px 8px rgba(0, 0, 0, 0.04);
+  border: 1px solid rgba(230, 126, 34, 0.15);
+}
+
+.videoChannelHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 18px;
+  background: linear-gradient(135deg, #e65100 0%, #f57c00 50%, #ffb74d 100%);
+  color: white;
+  font-size: 17px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  position: relative;
+  overflow: hidden;
+}
+
+.videoChannelHeader::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -30%;
+  width: 120%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(255,255,255,0.15) 0%, transparent 70%);
+  animation: videoChannelShine 3s ease-in-out infinite;
+}
+
+@keyframes videoChannelShine {
+  0%, 100% { opacity: 0; transform: translateX(-20%) rotate(15deg); }
+  50% { opacity: 1; transform: translateX(20%) rotate(-5deg); }
+}
+
+.videoChannelIcon {
+  font-size: 24px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  animation: videoChannelPulse 2s ease-in-out infinite;
+}
+
+@keyframes videoChannelPulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.videoChannelTitle {
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+.videoChannelContent {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+  background: linear-gradient(180deg, rgba(245, 243, 238, 0.8) 0%, rgba(255, 255, 255, 0.9) 100%);
+}
+
+.videoChannelIframe {
+  width: 100%;
+  height: 220px;
+  border-radius: 12px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}

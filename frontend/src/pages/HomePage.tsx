@@ -264,6 +264,23 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* 视频号 - 许可3108 */}
+      <div className={styles.videoChannel}>
+        <div className={styles.videoChannelHeader}>
+          <span className={styles.videoChannelIcon}>📺</span>
+          <span className={styles.videoChannelTitle}>许可3108 视频号</span>
+        </div>
+        <div className={styles.videoChannelContent}>
+          <iframe
+            src="https://finder.video.qq.com/251/20302/stodownload.html?cover_url=https%3A%2F%2Ffinder.video.qq.com%252F251%252F20302%252Fstodownload%3Fbase64%3DVyQbNZzIAAAVQA5AAImAQAAAAwAyUVubAAAAA%3D%3D&vid=b3340c4qo3s"
+            frameBorder="0"
+            allowFullScreen
+            className={styles.videoChannelIframe}
+            title="许可3108 视频号"
+          />
+        </div>
+      </div>
+
       {/* 钟祥特色介绍 - 可折叠面板 */}
       <div className={styles.introPanel}>
         <div className={styles.introHeader} onClick={() => setIntroExpanded(!introExpanded)}>
