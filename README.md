@@ -85,3 +85,4 @@ uv run uvicorn app.main:app --reload
 
 1. 在 Cloudflare Pages 项目设置中添加自定义域名
 2. 在域名服务商添加 DNS CNAME 记录指向 `zxmcb.pages.dev`
+# 20260603095741
