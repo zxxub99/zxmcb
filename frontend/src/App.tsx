@@ -1,6 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { ConfigProvider } from 'antd'
 import zhCN from 'antd/locale/zh_CN'
+import React from 'react'
 import HomePage from './pages/HomePage'
 import LoginPage from './pages/LoginPage'
 import ProfilePage from './pages/ProfilePage'
@@ -41,8 +42,57 @@ import NeighborRecommendations from './pages/NeighborRecommendations'
 import TwelveScenicSpots from './pages/TwelveScenicSpots'
 import AgentChatPage from './pages/AgentChatPage'
 
+// 错误边界组件，防止白屏
+class ErrorBoundary extends React.Component<
+  { children: React.ReactNode },
+  { hasError: boolean; error: string }
+> {
+  constructor(props: { children: React.ReactNode }) {
+    super(props)
+    this.state = { hasError: false, error: '' }
+  }
+
+  static getDerivedStateFromError(error: Error) {
+    return { hasError: true, error: String(error.message || error) }
+  }
+
+  render() {
+    if (this.state.hasError) {
+      return (
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          justifyContent: 'center',
+          minHeight: '100vh',
+          background: '#e8f5e9',
+          padding: 20,
+          fontFamily: '-apple-system, sans-serif'
+        }}>
+          <h2 style={{ color: '#2e7d32', marginBottom: 10 }}>🌿 钟祥莫愁帮</h2>
+          <p style={{ color: '#555', textAlign: 'center' }}>页面加载遇到问题，请刷新重试</p>
+          <button
+            onClick={() => window.location.reload()}
+            style={{
+              marginTop: 16,
+              padding: '8px 24px',
+              background: '#4caf50',
+              color: '#fff',
+              border: 'none',
+              borderRadius: 20,
+              cursor: 'pointer'
+            }}
+          >🔄 刷新页面</button>
+        </div>
+      )
+    }
+    return this.props.children
+  }
+}
+
 function App() {
   return (
+    <ErrorBoundary>
     <ConfigProvider locale={zhCN}>
       <BrowserRouter>
         <Routes>
@@ -89,6 +139,7 @@ function App() {
         </Routes>
       </BrowserRouter>
     </ConfigProvider>
+    </ErrorBoundary>
   )
 }
 
