@@ -148,6 +148,25 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
 /* ===== Notice Bar ===== */
 .noticeBar{background:linear-gradient(90deg,#fff8e1,#ffecb3);border-left:4px solid #ffa000;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:14px;font-size:13px;color:#e65100;line-height:1.6}
+
+/* ===== Message Board (留言咨询) ===== */
+.messageSection{background:linear-gradient(135deg,#f3e5f5,#e8f5e9);border-radius:14px;padding:18px 16px;margin-bottom:14px;box-shadow:0 2px 12px rgba(123,31,162,.1)}
+.messageInputWrap{display:flex;flex-direction:column;gap:10px;margin-bottom:14px}
+.messageInput{width:100%;padding:12px 14px;border:2px solid #ce93d8;border-radius:12px;font-size:14px;outline:none;resize:vertical;min-height:80px;font-family:inherit}
+.messageInput:focus{border-color:#9c27b0;box-shadow:0 0 0 3px rgba(156,39,176,.15)}
+.messageRow{display:flex;gap:8px}
+.messageInputSmall{flex:1;padding:10px 12px;border:2px solid #ce93d8;border-radius:10px;font-size:14px;outline:none}
+.messageInputSmall:focus{border-color:#9c27b0}
+.messageSubmitBtn{padding:10px 20px;background:linear-gradient(135deg,#7b1fa2,#9c27b0);color:#fff;border:none;border-radius:10px;font-weight:600;cursor:pointer;transition:all .2s}
+.messageSubmitBtn:active{transform:scale(.97)}
+.messageSubmitBtn:disabled{opacity:.5;cursor:not-allowed}
+.messageList{margin-top:14px}
+.messageItem{background:#fff;border-radius:10px;padding:12px;margin-bottom:10px;border:1px solid rgba(123,31,162,.15)}
+.messageHeader{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
+.messageAuthor{font-weight:700;color:#7b1fa2;font-size:14px}
+.messageTime{font-size:11px;color:#9e9e9e}
+.messageContent{font-size:13px;color:#555;line-height:1.6}
+.messageEmpty{text-align:center;padding:20px;color:#9e9e9e;font-size:13px}
 </style>
 </head>
 <body>
@@ -194,7 +213,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="bannerSlide active" style="background:linear-gradient(135deg,#1b5e20,#4caf50)">🏛️ 明显陵 — 世界文化遗产</div>
 <div class="bannerSlide" style="background:linear-gradient(135deg,#00695c,#4db6ac)">🌸 莫愁湖 · 莫愁村 — 国家4A级景区</div>
 <div class="bannerSlide" style="background:linear-gradient(135deg,#e65100,#ff9800)">🎁 长寿特产 — 盘龙菜·米茶·葛根粉</div>
-<div class="bannerSlide" style="background:linear-gradient(135deg,#4a148c,#ab47bc)">🌿 二手交易 · 交友互助 — 本地生活服务</div>
+<div class="bannerSlide" style="background:linear-gradient(135deg,#4a148c,#ab47bc)">💬 留言咨询 — 有问题随时问我们</div>
 </div>
 <div class="bannerDots" id="bannerDots"></div>
 </div>
@@ -205,6 +224,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="navTab" data-tab="specialty" onclick="switchTab('specialty')">🎁 特产</div>
 <div class="navTab" data-tab="secondhand" onclick="switchTab('secondhand')">🔄 二手</div>
 <div class="navTab" data-tab="social" onclick="switchTab('social')">👥 交友</div>
+<div class="navTab" data-tab="message" onclick="switchTab('message')">💬 留言</div>
 </div>
 
 <!-- ===== 钟祥十二景 (V1.0) ===== -->
@@ -275,7 +295,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 
 <!-- ===== 长寿特产 (V1.0) ===== -->
-<div class="sectionCard" id="specialty">
+<div class="sectionCard" id="specialty" style="display:none">
 <div class="sectionHeader"><span class="sectionIcon">🎁</span><span class="sectionTitle">长寿特产</span></div>
 <div class="specialtyGrid">
 <div class="specialtyItem" onclick="showSpecialtyDetail(1)">
@@ -312,7 +332,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 
 <!-- ===== 二手交易 (V2.0) ===== -->
-<div class="sectionCard" id="secondhand">
+<div class="sectionCard" id="secondhand" style="display:none">
 <div class="sectionHeader"><span class="sectionIcon">🔄</span><span class="sectionTitle">二手交易</span></div>
 <p style="font-size:12px;color:#666;margin-bottom:10px">📍 本地二手闲置物品，支持见面交易</p>
 <div class="tagRow">
@@ -363,7 +383,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 
 <!-- ===== 交友 + 邻里互助 (V3.0) ===== -->
-<div class="sectionCard" id="social">
+<div class="sectionCard" id="social" style="display:none">
 <div class="sectionHeader"><span class="sectionIcon">👥</span><span class="sectionTitle">交友 · 邻里互助</span></div>
 <p style="font-size:12px;color:#666;margin-bottom:10px">💬 本地兴趣交友 + 邻里互助</p>
 <div class="socialGrid">
@@ -391,6 +411,28 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <button class="bigBtn" style="margin-top:10px" onclick="alert('建群/发布功能开发中，敬请期待！')">+ 创建群聊 / 发布互助</button>
 </div>
 
+<!-- ===== 留言咨询 (新功能) ===== -->
+<div class="sectionCard" id="message" style="display:none">
+<div class="sectionHeader"><span class="sectionIcon">💬</span><span class="sectionTitle">留言咨询</span></div>
+<div class="noticeBar">
+📢 <strong>说明</strong>：留言数据保存在您的本地浏览器中，刷新页面后仍会显示。如需永久保存，请联系我们开通Supabase服务。
+</div>
+
+<div class="messageSection">
+<div class="messageInputWrap">
+<div class="messageRow">
+<input type="text" id="msgName" class="messageInputSmall" placeholder="您的昵称（可选）" maxlength="20">
+<input type="text" id="msgContact" class="messageInputSmall" placeholder="联系方式（可选）" maxlength="30">
+</div>
+<textarea id="msgContent" class="messageInput" placeholder="请输入您的留言内容...（关于旅游、特产、二手、交友都可以）" maxlength="500"></textarea>
+<button class="messageSubmitBtn" id="msgSubmitBtn" onclick="submitMessage()">✉️ 提交留言</button>
+</div>
+
+<div class="messageList" id="messageList">
+</div>
+</div>
+</div>
+
 <!-- ===== 视频号 · 智能体 ===== -->
 <div class="videoSection">
 <div class="sectionHeader"><span class="sectionIcon">📺</span><span class="sectionTitle">视频号 · 智能体</span></div>
@@ -410,7 +452,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
 <!-- ===== 底部信息 ===== -->
 <div class="footer">
-<div class="versionBadge">🎉 完整版 - V1.0+V2.0+V3.0</div>
+<div class="versionBadge">🎉 完整版 - V1.0+V2.0+V3.0+留言</div>
 <p>🌿 钟祥莫愁帮 © 2026 · 世界长寿之乡</p>
 <p style="margin-top:8px">用 <span class="heart">❤️</span> 为家乡建设添砖加瓦</p>
 <p style="margin-top:6px;font-size:11px;color:#a5d6a7">湖北省荆门市钟祥市 | Powered by 扣子编程</p>
@@ -431,6 +473,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </a>
 <a href="#social" class="bottomNavItem" onclick="event.preventDefault();switchTab('social')">
 <span class="icon">👥</span><span class="text">交友</span>
+</a>
+<a href="#message" class="bottomNavItem" onclick="event.preventDefault();switchTab('message')">
+<span class="icon">💬</span><span class="text">留言</span>
 </a>
 </div>
 
@@ -496,160 +541,187 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 
 <!-- ===== 悬浮按钮 ===== -->
-<a href="#" class="floatBtn floatBtnLeft" title="返回顶部" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
-⬆️<span class="floatBtnLabel">返回顶部</span>
-</a>
-<a href="#specialty" class="floatBtn floatBtnRight" title="长寿特产">
-🎁<span class="floatBtnLabel">特产专区</span>
+<button class="floatBtn floatBtnLeft" onclick="scrollToTop()">
+<span class="floatBtnLabel">返回顶部</span>
+↑
+</button>
+<a href="#message" class="floatBtn floatBtnRight" onclick="event.preventDefault();switchTab('message')">
+<span class="floatBtnLabel">留言咨询</span>
+💬
 </a>
 
 <script>
-// ===== 景点数据 (V1.0) =====
-var spotsData = {
-  1: {name:'明显陵',img:'/images/scenic-spots/01-mingxiaoling.png',desc:'世界文化遗产，明代帝陵中最大的单体陵墓，国家4A级景区。',location:'湖北省钟祥市纯德山',ticket:'65元',hours:'08:30-17:30'},
-  2: {name:'莫愁湖·莫愁村',img:'/images/scenic-spots/02-mochouhu.png',desc:'莫愁女传说发源地，国家4A级景区，莫愁村是湖北民俗民艺第一村。',location:'钟祥市城区',ticket:'免费',hours:'全天开放'},
-  3: {name:'黄仙洞',img:'/images/scenic-spots/03-huangxiandong.png',desc:'国家4A级景区，洞内有世界罕见的喀斯特地貌"娘娘寨"。',location:'钟祥市客店镇',ticket:'78元',hours:'08:30-17:00'},
-  4: {name:'大口森林公园',img:'/images/scenic-spots/04-dakousenlin.png',desc:'国家森林公园，天然氧吧，森林覆盖率达90%以上。',location:'钟祥市大口林场',ticket:'40元',hours:'08:00-18:00'},
-  5: {name:'钟祥市博物馆',img:'/images/scenic-spots/05-zhongxiangbowuguan.png',desc:'国家三级博物馆，馆藏文物众多，了解钟祥历史文化的窗口。',location:'钟祥市城区',ticket:'免费',hours:'09:00-17:00'},
-  6: {name:'兴王府',img:'/images/scenic-spots/06-xingwangfu.png',desc:'明嘉靖皇帝出生地，明代藩王府第，全国重点文物保护单位。',location:'钟祥市城区',ticket:'免费',hours:'08:30-17:30'},
-  7: {name:'元佑宫',img:'/images/scenic-spots/07-yuanyougong.png',desc:'明代道教建筑，全国重点文物保护单位，建筑宏伟壮观。',location:'钟祥市城区',ticket:'免费',hours:'08:30-17:30'},
-  8: {name:'彭墩乡村',img:'/images/scenic-spots/08-pengdun.png',desc:'全国休闲农业与乡村旅游示范点，体验田园生活的好去处。',location:'钟祥市石牌镇',ticket:'免费',hours:'全天开放'},
-  9: {name:'汇源农谷',img:'/images/scenic-spots/09-huiyuannonggu.png',desc:'现代生态农业观光园，体验采摘、农耕文化。',location:'钟祥市东桥镇',ticket:'60元',hours:'08:30-17:30'},
-  10: {name:'万紫千红植物园',img:'/images/scenic-spots/10-wanziqianhong.png',desc:'花卉主题植物园，四季花开，美不胜收。',location:'钟祥市客店镇',ticket:'50元',hours:'08:30-17:30'},
-  11: {name:'石牌古镇',img:'/images/scenic-spots/11-shipaiguzhen.png',desc:'中国历史文化名镇，豆腐之乡，保存完好的明清古建筑群。',location:'钟祥市石牌镇',ticket:'免费',hours:'全天开放'},
-  12: {name:'莫愁渡白雪楼',img:'/images/scenic-spots/12-mochoudubaixuelou.png',desc:'莫愁湖边的历史名楼，古代文人墨客吟咏之地。',location:'钟祥市莫愁湖畔',ticket:'免费',hours:'全天开放'}
-};
+// ===== 数据 =====
+const spots=[
+{id:1,name:"明显陵",img:"/images/scenic-spots/01-mingxiaoling.png",location:"钟祥市城东纯德山",ticket:"65元",open:"08:00-17:30",desc:"明显陵是明世宗嘉靖皇帝的父亲恭睿献皇帝朱祐杬、母亲章圣皇太后的合葬墓，是中国中南六省唯一的明代帝陵，2000年被列入《世界遗产名录》。"},
+{id:2,name:"莫愁湖·莫愁村",img:"/images/scenic-spots/02-mochouhu.png",location:"钟祥市城区",ticket:"免费（莫愁村部分项目收费）",open:"全天开放",desc:"莫愁湖因莫愁女而得名，湖面宽阔，风景秀丽。莫愁村是湖北民俗民艺第一村，集民俗体验、特色美食、休闲旅游于一体。"},
+{id:3,name:"黄仙洞",img:"/images/scenic-spots/03-huangxiandong.png",location:"钟祥市客店镇",ticket:"78元",open:"08:30-17:00",desc:"黄仙洞是国家4A级景区，洞内钟乳石形态万千，被誉为\"华中第一洞\"。洞内有著名的\"海子地形\"和\"天下第一柱\"。"},
+{id:4,name:"大口森林公园",img:"/images/scenic-spots/04-dakousenlin.png",location:"钟祥市大口镇",ticket:"40元",open:"08:00-18:00",desc:"大口国家森林公园是国家森林公园，森林覆盖率达98%，是天然氧吧。园内有柳门口瀑布、九级天溪等景观。"},
+{id:5,name:"博物馆",img:"/images/scenic-spots/05-zhongxiangbowuguan.png",location:"钟祥市城区",ticket:"免费",open:"09:00-17:00（周一闭馆）",desc:"钟祥市博物馆馆藏文物万余件，其中一级文物8件，是了解钟祥历史文化的重要窗口。"},
+{id:6,name:"兴王府",img:"/images/scenic-spots/06-xingwangfu.png",location:"钟祥市城区",ticket:"免费",open:"08:30-17:30",desc:"兴王府是明世宗嘉靖皇帝的出生地，现存凤翔宫、后宰门等建筑，是研究明代藩王府制度的重要实物。"},
+{id:7,name:"元佑宫",img:"/images/scenic-spots/07-yuanyougong.png",location:"钟祥市城区",ticket:"免费",open:"08:30-17:30",desc:"元佑宫是明代道教建筑，为嘉靖皇帝御敕所建，是皇室宗祠与道教合一的建筑，现存三洞阁、衍庆殿等建筑。"},
+{id:8,name:"彭墩乡村",img:"/images/scenic-spots/08-pengdun.png",location:"钟祥市石牌镇",ticket:"免费",open:"全天开放",desc:"彭墩村是全国休闲农业与乡村旅游示范点，有现代农业观光园、葡萄采摘园等，是体验乡村生活的好去处。"},
+{id:9,name:"汇源农谷",img:"/images/scenic-spots/09-huiyuannonggu.png",location:"钟祥市客店镇",ticket:"60元",open:"08:30-17:30",desc:"汇源农谷体验园是集农业观光、科普教育、休闲娱乐于一体的现代农业综合体，有各种热带植物和亲子体验项目。"},
+{id:10,name:"万紫千红植物园",img:"/images/scenic-spots/10-wanziqianhong.png",location:"钟祥市客店镇",ticket:"50元",open:"08:00-18:00",desc:"万紫千红植物园种植各类花卉植物，四季皆有花可赏，是摄影爱好者的天堂。"},
+{id:11,name:"石牌古镇",img:"/images/scenic-spots/11-shipaiguzhen.png",location:"钟祥市石牌镇",ticket:"免费",open:"全天开放",desc:"石牌镇是中国历史文化名镇，有保存完好的明清古建筑群，是著名的豆腐之乡。"},
+{id:12,name:"莫愁渡白雪楼",img:"/images/scenic-spots/12-mochoudubaixuelou.png",location:"钟祥市城区",ticket:"免费",open:"全天开放",desc:"白雪楼是钟祥历史名楼，为纪念莫愁女而建，登楼可俯瞰莫愁湖全景，是钟祥标志性建筑之一。"}
+];
+const specialties=[
+{id:1,name:"钟祥米茶",icon:"🍚",price:"25-50元/斤",method:"100℃开水，5g米茶/200ml水，焖3分钟即可饮用",desc:"钟祥米茶是长寿之乡特色饮品，由大米炒制而成，色泽金黄，香气独特，具有清热解暑、健脾开胃的功效，是钟祥人夏季必备饮品。"},
+{id:2,name:"盘龙菜",icon:"🥩",price:"80-150元/盒",method:"切片蒸食或煎食，配蘸料食用更佳",desc:"盘龙菜又名\"蟠龙菜\"，是钟祥传统名菜，源于明朝宫廷御膳。由猪肉、鱼肉、鸡蛋等精制而成，造型美观，鲜香可口，是钟祥逢年过节必备佳肴。"},
+{id:3,name:"香菇木耳",icon:"🍄",price:"40-80元/袋",method:"温水泡发后炒食、炖食或做汤",desc:"大洪山天然香菇木耳，生长于钟祥山区森林，肉厚味美，营养丰富，含有多种氨基酸和微量元素，是健康养生的佳品。"},
+{id:4,name:"葛根粉",icon:"🌾",price:"60-120元/罐",method:"先用凉开水调匀，再用沸水冲调，搅拌成透明糊状即可",desc:"野生葛根制作，葛根富含黄酮类物质，具有清热解毒、生津止渴、补肾健脾的功效，是天然的养生佳品。"},
+{id:5,name:"花生酥",icon:"🥜",price:"20-40元/盒",method:"开袋即食",desc:"传统手工糕点，选用优质花生，香酥可口，甜而不腻，是休闲零食和馈赠亲友的好选择。"},
+{id:6,name:"土蜂蜜",icon:"🍯",price:"80-160元/瓶",method:"直接食用或温水冲服，水温不宜超过60℃",desc:"天然百花蜜，采自钟祥山区野花，纯正香甜，营养丰富，具有润肺止咳、润肠通便的功效。"}
+];
+const secondHandItems=[
+{id:1,icon:"📱",title:"小米手机",price:80,condition:"9成新",location:"郢中街道",desc:"小米手环4，使用一年，功能正常，配件齐全，同城见面交易。"},
+{id:2,icon:"🏃",title:"跑步机",price:800,condition:"8成新",location:"皇庄街道",desc:"家用跑步机，购买两年，使用不多，性能良好，需自提。"},
+{id:3,icon:"📚",title:"儿童绘本",price:30,condition:"全新",location:"郢中街道",desc:"全新儿童绘本一套，共20本，适合3-6岁儿童，未拆封。"},
+{id:4,icon:"👶",title:"婴儿车",price:150,condition:"7成新",location:"胡集镇",desc:"品牌婴儿车，可坐可躺，折叠方便，宝宝长大了用不上了。"}
+];
+const socialGroups=[
+{id:1,icon:"📷",title:"摄影爱好者群",desc:"莫愁湖拍景，明显陵拍古建筑",members:128,content:"本群汇聚钟祥本地摄影爱好者，定期组织摄影采风活动，分享摄影技巧，欢迎加入！"},
+{id:2,icon:"🍜",title:"美食探店群",desc:"发现钟祥本地美食，分享好店",members:256,content:"分享钟祥本地美食，推荐好吃的餐馆、小吃店，一起发现钟祥美味！"}
+];
+const aidRequests=[
+{id:1,icon:"🪜",title:"借梯子",desc:"修阳台，用2小时",location:"郢中街道",urgent:false,content:"家住郢中街道，需要借个梯子修一下阳台，只用2小时就还，多谢！"},
+{id:2,icon:"🔧",title:"家电维修",desc:"我会修小家电，免费帮忙",location:"皇庄街道",urgent:false,content:"我是皇庄街道的，会修一些小家电（电风扇、电饭煲等），邻居们有需要可以找我，免费帮忙！"}
+];
 
-// ===== 特产数据 (V1.0) =====
-var specialtyData = {
-  1: {name:'钟祥米茶',icon:'🍚',desc:'钟祥市特有的地方传统饮品，具有生津止渴、清热解暑、健脾开胃之功效。传说由明朝嘉靖皇帝赐名。',price:'10-30元/斤',usage:'100℃开水冲泡，5g米茶/200ml水，焖3分钟即可饮用'},
-  2: {name:'盘龙菜',icon:'🥩',desc:'又称"卷切"，钟祥传统名菜，始于明朝正德年间，为嘉靖皇帝爱吃的宫廷御菜。色泽鲜艳，肥而不腻。',price:'50-100元/份',usage:'切片蒸热即可食用，或配以佐料凉拌'},
-  3: {name:'香菇木耳',icon:'🍄',desc:'大洪山天然林区出产，绿色无污染，营养丰富，口感鲜美，是钟祥著名的土特产。',price:'香菇60-120元/斤，木耳80-150元/斤',usage:'温水泡发后，可炒、炖、煲汤等'},
-  4: {name:'葛根粉',icon:'🌾',desc:'采用钟祥山区野生葛根经传统工艺精制而成，具有清热解毒、生津止渴、补肾健脾等功效。',price:'50-120元/斤',usage:'温水调匀后，用沸水冲调，可加蜂蜜调味'},
-  5: {name:'花生酥',icon:'🥜',desc:'钟祥传统手工糕点，选用优质花生、芝麻、麦芽糖等原料，香酥可口，甜而不腻。',price:'15-30元/盒',usage:'开袋即食，老少皆宜'},
-  6: {name:'土蜂蜜',icon:'🍯',desc:'钟祥山区天然百花蜜，纯正香甜，营养丰富，具有滋阴润燥、补虚润肺等功效。',price:'80-180元/斤',usage:'直接食用或温水冲服，不宜用开水'}
-};
-
-// ===== 二手交易数据 (V2.0) =====
-var secondHandData = {
-  1: {name:'小米手环',icon:'📱',desc:'9成新小米手环4，功能正常，无拆无修，送原装充电器。',price:'80元',condition:'9成新',location:'郢中街道',contact:'微信联系',note:'见面交易，自提'},
-  2: {name:'家用跑步机',icon:'🏃',desc:'8成新跑步机，买回来没怎么用，占地太大想转让，功能完好。',price:'800元',condition:'8成新',location:'皇庄街道',contact:'电话联系',note:'需要自提，不送货'},
-  3: {name:'儿童绘本',icon:'📚',desc:'全新儿童绘本套装，共12本，钟祥民间故事系列，适合3-8岁儿童。',price:'30元',condition:'全新',location:'郢中街道',contact:'微信联系',note:'可送到小区门口'},
-  4: {name:'婴儿车',icon:'👶',desc:'7成新婴儿车，可坐可躺，折叠方便，送蚊帐和雨罩。',price:'150元',condition:'7成新',location:'胡集镇',contact:'电话联系',note:'需要的请联系'}
-};
-
-// ===== 社交数据 (V3.0) =====
-var socialData = {
-  1: {name:'摄影爱好者群',icon:'📷',desc:'莫愁湖拍景，明显陵拍古建筑，周末约拍，分享摄影技巧。',members:'45人',location:'钟祥全市',active:'昨日活跃20人'},
-  2: {name:'美食探店群',icon:'🍜',desc:'发现钟祥本地美食，分享好店，周末约饭，AA制。',members:'68人',location:'郢中街道',active:'今日活跃15人'}
-};
-
-// ===== 互助数据 (V3.0) =====
-var aidData = {
-  1: {name:'借梯子',icon:'🪜',desc:'修阳台，用2小时，用完立即归还，可给押金。',location:'郢中街道某小区',urgency:'普通',contact:'联系发布人'},
-  2: {name:'家电维修',icon:'🔧',desc:'我会修小家电，免费帮忙，住在附近的邻居可以联系我。',location:'莫愁湖社区',skill:'家电维修',reputation:'已帮5人，好评100%'}
-};
+// ===== Banner 轮播 =====
+let currentSlide=0,bannerTimer;
+function initBanner(){
+	const slider=document.getElementById('bannerSlider'),
+	dots=document.getElementById('bannerDots'),
+	slides=slider.querySelectorAll('.bannerSlide');
+	slides.forEach((_,i)=>{
+		const dot=document.createElement('div');
+		dot.className='dot'+(i===0?' active':'');
+		dot.onclick=()=>goToSlide(i);
+		dots.appendChild(dot);
+	});
+	startBanner();
+}
+function startBanner(){
+	bannerTimer=setInterval(()=>goToSlide((currentSlide+1)%4),4000);
+}
+function goToSlide(i){
+	const slider=document.getElementById('bannerSlider'),
+	dots=document.getElementById('bannerDots').children,
+	slides=slider.querySelectorAll('.bannerSlide');
+	slides[currentSlide].classList.remove('active');
+	dots[currentSlide].classList.remove('active');
+	currentSlide=i;
+	slides[currentSlide].classList.add('active');
+	dots[currentSlide].classList.add('active');
+}
 
 // ===== Tab 切换 =====
-function switchTab(tabId){
-  document.querySelectorAll('.navTab').forEach(function(t){
-    t.classList.toggle('active', t.dataset.tab === tabId);
-  });
-  document.querySelectorAll('.bottomNavItem').forEach(function(i){
-    i.classList.toggle('active', i.getAttribute('href') === '#'+tabId);
-  });
-  var el = document.getElementById(tabId);
-  if(el){
-    el.scrollIntoView({behavior:'smooth',block:'start'});
-  }
+function switchTab(tab){
+	document.querySelectorAll('.navTab').forEach(t=>t.classList.toggle('active',t.dataset.tab===tab));
+	document.querySelectorAll('.bottomNavItem').forEach(t=>t.classList.toggle('active',t.getAttribute('href')==='#'+tab));
+	const sections=['tourism','specialty','secondhand','social','message'];
+	sections.forEach(s=>{
+		const el=document.getElementById(s);
+		if(el) el.style.display=(s===tab)?'block':'none';
+	});
+	if(tab==='message') loadMessages();
 }
 
-// ===== 显示景点详情 =====
-function showSpotDetail(id){
-  var spot=spotsData[id];
-  if(!spot)return;
-  document.getElementById('spotModalTitle').textContent=spot.name;
-  document.getElementById('spotModalImg').src=spot.img;
-  document.getElementById('spotModalInfo').innerHTML='<p><span class="label">📍 地址：</span>'+spot.location+'</p><p><span class="label">🎫 门票：</span>'+spot.ticket+'</p><p><span class="label">⏰ 开放时间：</span>'+spot.hours+'</p><p><span class="label">📝 简介：</span>'+spot.desc+'</p>';
-  document.getElementById('spotModal').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-// ===== 显示特产详情 =====
-function showSpecialtyDetail(id){
-  var s=specialtyData[id];
-  if(!s)return;
-  document.getElementById('specialtyModalTitle').textContent=s.name;
-  document.getElementById('specialtyModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+s.icon+'</p><p><span class="label">💰 参考价格：</span>'+s.price+'</p><p><span class="label">🍽️ 食用方法：</span>'+s.usage+'</p><p><span class="label">📝 简介：</span>'+s.desc+'</p>';
-  document.getElementById('specialtyModal').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-// ===== 显示二手详情 =====
-function showSecondHandDetail(id){
-  var item=secondHandData[id];
-  if(!item)return;
-  document.getElementById('secondhandModalTitle').textContent=item.name;
-  document.getElementById('secondhandModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+item.icon+'</p><p class="price">'+item.price+'</p><p><span class="label">✨ 新旧程度：</span>'+item.condition+'</p><p><span class="label">📍 位置：</span>'+item.location+'</p><p><span class="label">📱 联系方式：</span>'+item.contact+'</p><p><span class="label">📝 备注：</span>'+item.note+'</p><p><span class="label">💡 说明：</span>'+item.desc+'</p>';
-  document.getElementById('secondhandModal').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-// ===== 显示社交详情 =====
-function showSocialDetail(id){
-  var item=socialData[id];
-  if(!item)return;
-  document.getElementById('socialModalTitle').textContent=item.name;
-  document.getElementById('socialModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+item.icon+'</p><p><span class="label">👥 群成员：</span>'+item.members+'</p><p><span class="label">📍 范围：</span>'+item.location+'</p><p><span class="label">🔥 活跃度：</span>'+item.active+'</p><p><span class="label">📝 简介：</span>'+item.desc+'</p><p style="margin-top:16px"><button class="bigBtn" onclick="alert(\'申请加群功能开发中，敬请期待！\')">申请加入群聊</button></p>';
-  document.getElementById('socialModal').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-// ===== 显示互助详情 =====
-function showAidDetail(id){
-  var item=aidData[id];
-  if(!item)return;
-  document.getElementById('aidModalTitle').textContent=item.name;
-  document.getElementById('aidModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+item.icon+'</p><p><span class="label">📍 位置：</span>'+item.location+'</p><p><span class="label">📝 详情：</span>'+item.desc+'</p>'+(item.urgency?'<p><span class="label">⚠️ 紧急程度：</span>'+item.urgency+'</p>':'')+(item.skill?'<p><span class="label">🛠️ 技能：</span>'+item.skill+'</p>':'')+(item.reputation?'<p><span class="label">⭐ 信誉：</span>'+item.reputation+'</p>':'')+'<p style="margin-top:16px"><button class="bigBtn" onclick="alert(\'联系功能开发中，敬请期待！\')">联系对方</button></p>';
-  document.getElementById('aidModal').classList.add('show');
-  document.body.style.overflow='hidden';
-}
-
-// ===== 关闭弹窗 =====
+// ===== 弹窗 =====
 function closeModal(e){
-  if(e && e.target !== e.currentTarget)return;
-  document.querySelectorAll('.modalOverlay').forEach(function(m){m.classList.remove('show')});
-  document.body.style.overflow='auto';
+	if(e && e.target!==e.currentTarget) return;
+	document.querySelectorAll('.modalOverlay').forEach(m=>m.classList.remove('show'));
+}
+function showSpotDetail(id){
+	const spot=spots.find(s=>s.id===id);
+	if(!spot) return;
+	document.getElementById('spotModalTitle').textContent=spot.name;
+	document.getElementById('spotModalImg').src=spot.img;
+	document.getElementById('spotModalImg').alt=spot.name;
+	document.getElementById('spotModalImg').onerror=function(){this.style.display='none'};
+	document.getElementById('spotModalImg').style.display='block';
+	document.getElementById('spotModalInfo').innerHTML='<p><span class=\"label\">📍 地址：</span>'+spot.location+'</p><p><span class=\"label\">🎫 门票：</span>'+spot.ticket+'</p><p><span class=\"label\">⏰ 开放时间：</span>'+spot.open+'</p><p style=\"margin-top:12px\">'+spot.desc+'</p>';
+	document.getElementById('spotModal').classList.add('show');
+}
+function showSpecialtyDetail(id){
+	const s=specialties.find(x=>x.id===id);
+	if(!s) return;
+	document.getElementById('specialtyModalTitle').textContent=s.name;
+	document.getElementById('specialtyModalInfo').innerHTML='<div style=\"text-align:center;margin-bottom:16px\"><span style=\"font-size:64px\">'+s.icon+'</span></div><p class=\"price\">'+s.price+'</p><p><span class=\"label\">🍽️ 食用方法：</span>'+s.method+'</p><p style=\"margin-top:12px\">'+s.desc+'</p>';
+	document.getElementById('specialtyModal').classList.add('show');
+}
+function showSecondHandDetail(id){
+	const item=secondHandItems.find(x=>x.id===id);
+	if(!item) return;
+	document.getElementById('secondhandModalTitle').textContent=item.title;
+	document.getElementById('secondhandModalInfo').innerHTML='<div style=\"text-align:center;margin-bottom:16px\"><span style=\"font-size:64px\">'+item.icon+'</span></div><p class=\"price\">¥ '+item.price+'</p><p><span class=\"label\">成色：</span>'+item.condition+'</p><p><span class=\"label\">📍 位置：</span>'+item.location+'</p><p style=\"margin-top:12px\">'+item.desc+'</p><button class=\"bigBtn\" style=\"margin-top:16px\" onclick=\"alert\\(\\'联系功能开发中\\')\">📞 联系卖家</button>';
+	document.getElementById('secondhandModal').classList.add('show');
+}
+function showSocialDetail(id){
+	const g=socialGroups.find(x=>x.id===id);
+	if(!g) return;
+	document.getElementById('socialModalTitle').textContent=g.title;
+	document.getElementById('socialModalInfo').innerHTML='<div style=\"text-align:center;margin-bottom:16px\"><span style=\"font-size:64px\">'+g.icon+'</span></div><p><span class=\"label\">👥 群成员：</span>'+g.members+' 人</p><p style=\"margin-top:12px\">'+g.content+'</p><button class=\"bigBtn\" style=\"margin-top:16px\" onclick=\"alert\\(\\'加群功能开发中\\')\">➕ 申请加群</button>';
+	document.getElementById('socialModal').classList.add('show');
+}
+function showAidDetail(id){
+	const a=aidRequests.find(x=>x.id===id);
+	if(!a) return;
+	document.getElementById('aidModalTitle').textContent=a.title;
+	document.getElementById('aidModalInfo').innerHTML='<div style=\"text-align:center;margin-bottom:16px\"><span style=\"font-size:64px\">'+a.icon+'</span></div><p><span class=\"label\">📍 位置：</span>'+a.location+'</p><p style=\"margin-top:12px\">'+a.content+'</p><button class=\"bigBtn\" style=\"margin-top:16px\" onclick=\"alert\\(\\'响应功能开发中\\')\">💪 我来帮忙</button>';
+	document.getElementById('aidModal').classList.add('show');
 }
 
-// ===== Banner 自动轮播 =====
-(function(){
-  var slides=document.querySelectorAll('.bannerSlide');
-  if(!slides.length)return;
-  var dotsBox=document.getElementById('bannerDots');
-  slides.forEach(function(_,i){
-    var d=document.createElement('div');
-    d.className='dot'+(i===0?' active':'');
-    d.onclick=function(){go(i)};
-    dotsBox.appendChild(d);
-  });
-  var cur=0;
-  function go(n){cur=n;
-    slides.forEach(function(s,i){s.classList.toggle('active',i===n)});
-    dotsBox.querySelectorAll('.dot').forEach(function(d,i){d.classList.toggle('active',i===n)});
-  }
-  function next(){go((cur+1)%slides.length)}
-  setInterval(next,3500);
+// ===== 返回顶部 =====
+function scrollToTop(){
+	window.scrollTo({top:0,behavior:'smooth'});
+}
 
-  // 触摸滑动支持
-  var sx=0,mv=false,slider=document.getElementById('bannerSlider');
-  slider.addEventListener('touchstart',function(e){sx=e.touches[0].clientX;mv=false});
-  slider.addEventListener('touchmove',function(e){mv=true});
-  slider.addEventListener('touchend',function(e){if(!mv)return;var ex=e.changedTouches[0].clientX;if(ex<sx-40)next();else if(ex>sx+40)go((cur-1+slides.length)%slides.length)});
-})();
+// ===== 留言功能 =====
+const STORAGE_KEY='mochoubang_messages';
+function loadMessages(){
+	const list=document.getElementById('messageList');
+	const raw=localStorage.getItem(STORAGE_KEY);
+	let msgs=raw?JSON.parse(raw):[];
+	if(msgs.length===0){
+		list.innerHTML='<div class=\"messageEmpty\">📭 暂无留言，成为第一个留言的人吧！</div>';
+		return;
+	}
+	msgs=msgs.slice().reverse();
+	list.innerHTML=msgs.map((m,i)=>'<div class=\"messageItem\"><div class=\"messageHeader\"><span class=\"messageAuthor\">'+(m.name||'匿名用户')+'</span><span class=\"messageTime\">'+formatTime(m.time)+'</span></div><div class=\"messageContent\">'+escapeHtml(m.content)+(m.contact?'<p style=\"margin-top:8px;font-size:12px;color:#9c27b0\">📞 联系方式：'+escapeHtml(m.contact)+'</p>':'')+'</div></div>').join('');
+}
+function submitMessage(){
+	const name=document.getElementById('msgName').value.trim();
+	const contact=document.getElementById('msgContact').value.trim();
+	const content=document.getElementById('msgContent').value.trim();
+	if(!content){
+		alert('请输入留言内容！');
+		return;
+	}
+	const raw=localStorage.getItem(STORAGE_KEY);
+	let msgs=raw?JSON.parse(raw):[];
+	msgs.push({name:name,contact:contact,content:content,time:Date.now()});
+	localStorage.setItem(STORAGE_KEY,JSON.stringify(msgs));
+	document.getElementById('msgName').value='';
+	document.getElementById('msgContact').value='';
+	document.getElementById('msgContent').value='';
+	loadMessages();
+	alert('✅ 留言提交成功！');
+}
+function formatTime(ts){
+	const d=new Date(ts);
+	return d.getFullYear()+'-'+pad(d.getMonth()+1)+'-'+pad(d.getDate())+' '+pad(d.getHours())+':'+pad(d.getMinutes());
+}
+function pad(n){return n<10?'0'+n:n;}
+function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
-// ===== 加载完成标记 =====
-document.addEventListener('DOMContentLoaded',function(){console.log('✅ 钟祥莫愁帮 - 完整版 - 页面加载完成');});
+// ===== 初始化 =====
+document.addEventListener('DOMContentLoaded',function(){
+	initBanner();
+	loadMessages();
+});
 </script>
 </body>
 </html>
