@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
-<title>钟祥莫愁帮 - V1.0 - 长寿之乡·旅游指南</title>
-<meta name="description" content="钟祥莫愁帮 - 世界长寿之乡钟祥旅游指南、长寿特产展示平台">
-<meta name="keywords" content="钟祥,莫愁村,明显陵,长寿特产,盘龙菜,米茶,旅游">
+<title>钟祥莫愁帮 - 完整版 - 长寿之乡·生活服务平台</title>
+<meta name="description" content="钟祥莫愁帮 - 世界长寿之乡钟祥旅游指南、长寿特产、二手交易、交友互助平台">
+<meta name="keywords" content="钟祥,莫愁村,明显陵,长寿特产,二手交易,交友互助">
 <style>
 /* ===== Reset & Base ===== */
 *{margin:0;padding:0;box-sizing:border-box}
@@ -19,7 +19,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .topNav .version{font-size:10px;background:rgba(255,255,255,.2);padding:2px 8px;border-radius:10px}
 
 /* ===== Container ===== */
-.wrap{max-width:500px;margin:0 auto;padding:10px 14px 80px}
+.wrap{max-width:500px;margin:0 auto;padding:10px 14px 100px}
 
 /* ===== Header / Poem Section ===== */
 .headerSection{text-align:center;padding:24px 16px 20px;background:linear-gradient(180deg,rgba(76,175,80,.08) 0%,transparent 100%);border-radius:16px;margin-bottom:14px}
@@ -85,6 +85,34 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .specialtyName{font-size:14px;font-weight:700;color:#e65100;text-align:center}
 .specialtyDesc{font-size:11px;color:#f57c00;text-align:center;margin-top:4px;line-height:1.4}
 
+/* ===== Second Hand Items (V2.0) ===== */
+.secondHandGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+.secondHandItem{background:linear-gradient(145deg,#e3f2fd,#bbdefb);border-radius:12px;padding:12px;border:1px solid rgba(33,150,243,.2);transition:all .2s;cursor:pointer}
+.secondHandItem:active{transform:scale(.98);background:linear-gradient(145deg,#bbdefb,#90caf9)}
+.secondHandIcon{font-size:32px;text-align:center;margin-bottom:8px}
+.secondHandTitle{font-size:13px;font-weight:700;color:#0d47a1;text-align:center}
+.secondHandPrice{font-size:16px;font-weight:800;color:#c62828;text-align:center;margin-top:6px}
+.secondHandMeta{font-size:11px;color:#1565c0;text-align:center;margin-top:4px;display:flex;justify-content:center;gap:8px}
+.secondHandTag{display:inline-block;background:#e3f2fd;color:#1565c0;padding:2px 8px;border-radius:10px;font-size:10px}
+
+/* ===== Social & Mutual Aid (V3.0) ===== */
+.socialGrid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:8px}
+.socialItem{background:linear-gradient(145deg,#f3e5f5,#e1bee7);border-radius:12px;padding:12px;border:1px solid rgba(156,39,176,.2);transition:all .2s;cursor:pointer}
+.socialItem:active{transform:scale(.98);background:linear-gradient(145deg,#e1bee7,#ce93d8)}
+.socialItem.aid{background:linear-gradient(145deg,#fff3e0,#ffe0b2);border-color:rgba(255,111,0,.2)}
+.socialItem.aid:active{background:linear-gradient(145deg,#ffe0b2,#ffcc80)}
+.socialIcon{font-size:32px;text-align:center;margin-bottom:8px}
+.socialTitle{font-size:13px;font-weight:700;color:#4a148c;text-align:center}
+.socialTitle.aid{color:#e65100}
+.socialDesc{font-size:11px;color:#7b1fa2;text-align:center;margin-top:4px;line-height:1.4}
+.socialDesc.aid{color:#f57c00}
+
+/* ===== Tabs (导航标签) ===== */
+.navTabs{display:flex;gap:6px;margin-bottom:14px;overflow-x:auto;padding-bottom:2px}
+.navTab{flex:1;min-width:70px;text-align:center;padding:10px 8px;background:#fff;border-radius:10px;font-size:12px;font-weight:600;color:#2e7d32;cursor:pointer;transition:all .2s;border:2px solid transparent;white-space:nowrap}
+.navTab:active{transform:scale(.98)}
+.navTab.active{background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border-color:#1b5e20;box-shadow:0 2px 8px rgba(46,125,50,.25)}
+
 /* ===== Modal ===== */
 .modalOverlay{position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);display:flex;align-items:flex-end;justify-content:center;z-index:200;opacity:0;visibility:hidden;transition:all .3s}
 .modalOverlay.show{opacity:1;visibility:visible}
@@ -96,12 +124,21 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .modalImg{width:100%;height:200px;object-fit:cover;border-radius:12px;margin-bottom:16px}
 .modalInfo p{font-size:14px;line-height:1.8;color:#555;margin-bottom:10px}
 .modalInfo .label{font-weight:700;color:#2e7d32}
+.modalInfo .price{font-size:22px;font-weight:800;color:#c62828;text-align:center;margin:10px 0}
 
 /* ===== Floating Buttons ===== */
-.floatBtn{position:fixed;bottom:70px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.2);z-index:90;text-decoration:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.floatBtn{position:fixed;bottom:80px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;box-shadow:0 3px 12px rgba(0,0,0,.2);z-index:90;text-decoration:none;border:none;cursor:pointer;-webkit-tap-highlight-color:transparent}
 .floatBtnLeft{left:14px;background:linear-gradient(135deg,#2e7d32,#43a047)}
 .floatBtnRight{right:14px;background:linear-gradient(135deg,#00796b,#26a69a)}
 .floatBtnLabel{position:absolute;bottom:52px;left:50%;transform:translateX(-50%);white-space:nowrap;font-size:10px;background:rgba(0,0,0,.65);color:#fff;padding:2px 8px;border-radius:8px;font-weight:500;pointer-events:none}
+
+/* ===== Bottom Nav ===== */
+.bottomNav{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:2px solid #e8f5e9;display:flex;z-index:95;box-shadow:0 -2px 10px rgba(0,0,0,.08)}
+.bottomNavItem{flex:1;text-align:center;padding:8px 4px;cursor:pointer;transition:all .2s;color:#558b2f;text-decoration:none}
+.bottomNavItem:active{background:#f1f8e9}
+.bottomNavItem .icon{font-size:20px;display:block;margin-bottom:2px}
+.bottomNavItem .text{font-size:10px;font-weight:600}
+.bottomNavItem.active{color:#2e7d32;background:#e8f5e9}
 
 /* ===== Footer ===== */
 .footer{text-align:center;padding:30px 16px 20px;color:#81c784;font-size:12px;line-height:1.8}
@@ -119,8 +156,8 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="topNav">
 <span class="leaf">🌿</span>
 <span class="logo">钟祥莫愁帮</span>
-<span class="version">V1.0</span>
-<span class="sub">旅游指南</span>
+<span class="version">完整版</span>
+<span class="sub">生活服务平台</span>
 </div>
 
 <div class="wrap">
@@ -128,7 +165,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <!-- ===== 标题 + 诗词 + 二维码 ===== -->
 <div class="headerSection">
 <div class="mainTitle"><span class="leaf">🍃</span> 钟祥莫愁帮 <span class="leaf">🌾</span></div>
-<div class="subTitle">世界长寿之乡 · 旅游指南</div>
+<div class="subTitle">世界长寿之乡 · 生活服务平台</div>
 
 <div class="poemPanel">
 <div class="poemTitleRow">📖 湖北钟祥旅游天堂</div>
@@ -157,17 +194,20 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="bannerSlide active" style="background:linear-gradient(135deg,#1b5e20,#4caf50)">🏛️ 明显陵 — 世界文化遗产</div>
 <div class="bannerSlide" style="background:linear-gradient(135deg,#00695c,#4db6ac)">🌸 莫愁湖 · 莫愁村 — 国家4A级景区</div>
 <div class="bannerSlide" style="background:linear-gradient(135deg,#e65100,#ff9800)">🎁 长寿特产 — 盘龙菜·米茶·葛根粉</div>
-<div class="bannerSlide" style="background:linear-gradient(135deg,#4a148c,#ab47bc)">🌿 大口森林公园 — 天然氧吧</div>
+<div class="bannerSlide" style="background:linear-gradient(135deg,#4a148c,#ab47bc)">🌿 二手交易 · 交友互助 — 本地生活服务</div>
 </div>
 <div class="bannerDots" id="bannerDots"></div>
 </div>
 
-<!-- ===== 特别声明 ===== -->
-<div class="noticeBar">
-ℹ️ <b>V1.0 说明：</b>当前为旅游展示版本，后续将逐步开放更多功能。
+<!-- ===== 功能导航标签 ===== -->
+<div class="navTabs">
+<div class="navTab active" data-tab="tourism" onclick="switchTab('tourism')">🏛️ 旅游</div>
+<div class="navTab" data-tab="specialty" onclick="switchTab('specialty')">🎁 特产</div>
+<div class="navTab" data-tab="secondhand" onclick="switchTab('secondhand')">🔄 二手</div>
+<div class="navTab" data-tab="social" onclick="switchTab('social')">👥 交友</div>
 </div>
 
-<!-- ===== 钟祥十二景 ===== -->
+<!-- ===== 钟祥十二景 (V1.0) ===== -->
 <div class="sectionCard" id="tourism">
 <div class="sectionHeader"><span class="sectionIcon">🏛️</span><span class="sectionTitle">钟祥十二景</span></div>
 <div class="spotGrid">
@@ -234,7 +274,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 </div>
 
-<!-- ===== 长寿特产 ===== -->
+<!-- ===== 长寿特产 (V1.0) ===== -->
 <div class="sectionCard" id="specialty">
 <div class="sectionHeader"><span class="sectionIcon">🎁</span><span class="sectionTitle">长寿特产</span></div>
 <div class="specialtyGrid">
@@ -271,6 +311,86 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 </div>
 
+<!-- ===== 二手交易 (V2.0) ===== -->
+<div class="sectionCard" id="secondhand">
+<div class="sectionHeader"><span class="sectionIcon">🔄</span><span class="sectionTitle">二手交易</span></div>
+<p style="font-size:12px;color:#666;margin-bottom:10px">📍 本地二手闲置物品，支持见面交易</p>
+<div class="tagRow">
+<span class="tagItem">🏠 家居</span>
+<span class="tagItem">📱 数码</span>
+<span class="tagItem">👕 服饰</span>
+<span class="tagItem">📚 书籍</span>
+</div>
+<div class="secondHandGrid">
+<div class="secondHandItem" onclick="showSecondHandDetail(1)">
+<div class="secondHandIcon">📱</div>
+<div class="secondHandTitle">小米手机</div>
+<div class="secondHandPrice">¥ 80</div>
+<div class="secondHandMeta">
+<span class="secondHandTag">9成新</span>
+<span class="secondHandTag">郢中街道</span>
+</div>
+</div>
+<div class="secondHandItem" onclick="showSecondHandDetail(2)">
+<div class="secondHandIcon">🏃</div>
+<div class="secondHandTitle">跑步机</div>
+<div class="secondHandPrice">¥ 800</div>
+<div class="secondHandMeta">
+<span class="secondHandTag">8成新</span>
+<span class="secondHandTag">皇庄街道</span>
+</div>
+</div>
+<div class="secondHandItem" onclick="showSecondHandDetail(3)">
+<div class="secondHandIcon">📚</div>
+<div class="secondHandTitle">儿童绘本</div>
+<div class="secondHandPrice">¥ 30</div>
+<div class="secondHandMeta">
+<span class="secondHandTag">全新</span>
+<span class="secondHandTag">郢中街道</span>
+</div>
+</div>
+<div class="secondHandItem" onclick="showSecondHandDetail(4)">
+<div class="secondHandIcon">👶</div>
+<div class="secondHandTitle">婴儿车</div>
+<div class="secondHandPrice">¥ 150</div>
+<div class="secondHandMeta">
+<span class="secondHandTag">7成新</span>
+<span class="secondHandTag">胡集镇</span>
+</div>
+</div>
+</div>
+<button class="bigBtn" onclick="alert('发布功能开发中，敬请期待！')">+ 发布二手物品</button>
+</div>
+
+<!-- ===== 交友 + 邻里互助 (V3.0) ===== -->
+<div class="sectionCard" id="social">
+<div class="sectionHeader"><span class="sectionIcon">👥</span><span class="sectionTitle">交友 · 邻里互助</span></div>
+<p style="font-size:12px;color:#666;margin-bottom:10px">💬 本地兴趣交友 + 邻里互助</p>
+<div class="socialGrid">
+<div class="socialItem" onclick="showSocialDetail(1)">
+<div class="socialIcon">📷</div>
+<div class="socialTitle">摄影爱好者群</div>
+<div class="socialDesc">莫愁湖拍景，明显陵拍古建筑</div>
+</div>
+<div class="socialItem" onclick="showSocialDetail(2)">
+<div class="socialIcon">🍜</div>
+<div class="socialTitle">美食探店群</div>
+<div class="socialDesc">发现钟祥本地美食，分享好店</div>
+</div>
+<div class="socialItem aid" onclick="showAidDetail(1)">
+<div class="socialIcon">🪜</div>
+<div class="socialTitle aid">借梯子</div>
+<div class="socialDesc aid">修阳台，用2小时</div>
+</div>
+<div class="socialItem aid" onclick="showAidDetail(2)">
+<div class="socialIcon">🔧</div>
+<div class="socialTitle aid">家电维修</div>
+<div class="socialDesc aid">我会修小家电，免费帮忙</div>
+</div>
+</div>
+<button class="bigBtn" style="margin-top:10px" onclick="alert('建群/发布功能开发中，敬请期待！')">+ 创建群聊 / 发布互助</button>
+</div>
+
 <!-- ===== 视频号 · 智能体 ===== -->
 <div class="videoSection">
 <div class="sectionHeader"><span class="sectionIcon">📺</span><span class="sectionTitle">视频号 · 智能体</span></div>
@@ -290,13 +410,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
 <!-- ===== 底部信息 ===== -->
 <div class="footer">
-<div class="versionBadge">🎉 V1.0 - 旅游指南</div>
+<div class="versionBadge">🎉 完整版 - V1.0+V2.0+V3.0</div>
 <p>🌿 钟祥莫愁帮 © 2026 · 世界长寿之乡</p>
 <p style="margin-top:8px">用 <span class="heart">❤️</span> 为家乡建设添砖加瓦</p>
 <p style="margin-top:6px;font-size:11px;color:#a5d6a7">湖北省荆门市钟祥市 | Powered by 扣子编程</p>
 </div>
 
 </div><!-- /.wrap -->
+
+<!-- ===== 底部导航 ===== -->
+<div class="bottomNav">
+<a href="#tourism" class="bottomNavItem active" onclick="event.preventDefault();switchTab('tourism')">
+<span class="icon">🏛️</span><span class="text">旅游</span>
+</a>
+<a href="#specialty" class="bottomNavItem" onclick="event.preventDefault();switchTab('specialty')">
+<span class="icon">🎁</span><span class="text">特产</span>
+</a>
+<a href="#secondhand" class="bottomNavItem" onclick="event.preventDefault();switchTab('secondhand')">
+<span class="icon">🔄</span><span class="text">二手</span>
+</a>
+<a href="#social" class="bottomNavItem" onclick="event.preventDefault();switchTab('social')">
+<span class="icon">👥</span><span class="text">交友</span>
+</a>
+</div>
 
 <!-- ===== 景点详情弹窗 ===== -->
 <div class="modalOverlay" id="spotModal" onclick="closeModal(event)">
@@ -323,6 +459,42 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 </div>
 
+<!-- ===== 二手详情弹窗 ===== -->
+<div class="modalOverlay" id="secondhandModal" onclick="closeModal(event)">
+<div class="modalContent" onclick="event.stopPropagation()">
+<div class="modalHeader">
+<span class="modalTitle" id="secondhandModalTitle">二手物品详情</span>
+<span class="modalClose" onclick="closeModal()">&times;</span>
+</div>
+<div class="modalInfo" id="secondhandModalInfo">
+</div>
+</div>
+</div>
+
+<!-- ===== 社交详情弹窗 ===== -->
+<div class="modalOverlay" id="socialModal" onclick="closeModal(event)">
+<div class="modalContent" onclick="event.stopPropagation()">
+<div class="modalHeader">
+<span class="modalTitle" id="socialModalTitle">群聊详情</span>
+<span class="modalClose" onclick="closeModal()">&times;</span>
+</div>
+<div class="modalInfo" id="socialModalInfo">
+</div>
+</div>
+</div>
+
+<!-- ===== 互助详情弹窗 ===== -->
+<div class="modalOverlay" id="aidModal" onclick="closeModal(event)">
+<div class="modalContent" onclick="event.stopPropagation()">
+<div class="modalHeader">
+<span class="modalTitle" id="aidModalTitle">互助详情</span>
+<span class="modalClose" onclick="closeModal()">&times;</span>
+</div>
+<div class="modalInfo" id="aidModalInfo">
+</div>
+</div>
+</div>
+
 <!-- ===== 悬浮按钮 ===== -->
 <a href="#" class="floatBtn floatBtnLeft" title="返回顶部" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
 ⬆️<span class="floatBtnLabel">返回顶部</span>
@@ -332,7 +504,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </a>
 
 <script>
-// ===== 景点数据 =====
+// ===== 景点数据 (V1.0) =====
 var spotsData = {
   1: {name:'明显陵',img:'/images/scenic-spots/01-mingxiaoling.png',desc:'世界文化遗产，明代帝陵中最大的单体陵墓，国家4A级景区。',location:'湖北省钟祥市纯德山',ticket:'65元',hours:'08:30-17:30'},
   2: {name:'莫愁湖·莫愁村',img:'/images/scenic-spots/02-mochouhu.png',desc:'莫愁女传说发源地，国家4A级景区，莫愁村是湖北民俗民艺第一村。',location:'钟祥市城区',ticket:'免费',hours:'全天开放'},
@@ -348,7 +520,7 @@ var spotsData = {
   12: {name:'莫愁渡白雪楼',img:'/images/scenic-spots/12-mochoudubaixuelou.png',desc:'莫愁湖边的历史名楼，古代文人墨客吟咏之地。',location:'钟祥市莫愁湖畔',ticket:'免费',hours:'全天开放'}
 };
 
-// ===== 特产数据 =====
+// ===== 特产数据 (V1.0) =====
 var specialtyData = {
   1: {name:'钟祥米茶',icon:'🍚',desc:'钟祥市特有的地方传统饮品，具有生津止渴、清热解暑、健脾开胃之功效。传说由明朝嘉靖皇帝赐名。',price:'10-30元/斤',usage:'100℃开水冲泡，5g米茶/200ml水，焖3分钟即可饮用'},
   2: {name:'盘龙菜',icon:'🥩',desc:'又称"卷切"，钟祥传统名菜，始于明朝正德年间，为嘉靖皇帝爱吃的宫廷御菜。色泽鲜艳，肥而不腻。',price:'50-100元/份',usage:'切片蒸热即可食用，或配以佐料凉拌'},
@@ -357,6 +529,40 @@ var specialtyData = {
   5: {name:'花生酥',icon:'🥜',desc:'钟祥传统手工糕点，选用优质花生、芝麻、麦芽糖等原料，香酥可口，甜而不腻。',price:'15-30元/盒',usage:'开袋即食，老少皆宜'},
   6: {name:'土蜂蜜',icon:'🍯',desc:'钟祥山区天然百花蜜，纯正香甜，营养丰富，具有滋阴润燥、补虚润肺等功效。',price:'80-180元/斤',usage:'直接食用或温水冲服，不宜用开水'}
 };
+
+// ===== 二手交易数据 (V2.0) =====
+var secondHandData = {
+  1: {name:'小米手环',icon:'📱',desc:'9成新小米手环4，功能正常，无拆无修，送原装充电器。',price:'80元',condition:'9成新',location:'郢中街道',contact:'微信联系',note:'见面交易，自提'},
+  2: {name:'家用跑步机',icon:'🏃',desc:'8成新跑步机，买回来没怎么用，占地太大想转让，功能完好。',price:'800元',condition:'8成新',location:'皇庄街道',contact:'电话联系',note:'需要自提，不送货'},
+  3: {name:'儿童绘本',icon:'📚',desc:'全新儿童绘本套装，共12本，钟祥民间故事系列，适合3-8岁儿童。',price:'30元',condition:'全新',location:'郢中街道',contact:'微信联系',note:'可送到小区门口'},
+  4: {name:'婴儿车',icon:'👶',desc:'7成新婴儿车，可坐可躺，折叠方便，送蚊帐和雨罩。',price:'150元',condition:'7成新',location:'胡集镇',contact:'电话联系',note:'需要的请联系'}
+};
+
+// ===== 社交数据 (V3.0) =====
+var socialData = {
+  1: {name:'摄影爱好者群',icon:'📷',desc:'莫愁湖拍景，明显陵拍古建筑，周末约拍，分享摄影技巧。',members:'45人',location:'钟祥全市',active:'昨日活跃20人'},
+  2: {name:'美食探店群',icon:'🍜',desc:'发现钟祥本地美食，分享好店，周末约饭，AA制。',members:'68人',location:'郢中街道',active:'今日活跃15人'}
+};
+
+// ===== 互助数据 (V3.0) =====
+var aidData = {
+  1: {name:'借梯子',icon:'🪜',desc:'修阳台，用2小时，用完立即归还，可给押金。',location:'郢中街道某小区',urgency:'普通',contact:'联系发布人'},
+  2: {name:'家电维修',icon:'🔧',desc:'我会修小家电，免费帮忙，住在附近的邻居可以联系我。',location:'莫愁湖社区',skill:'家电维修',reputation:'已帮5人，好评100%'}
+};
+
+// ===== Tab 切换 =====
+function switchTab(tabId){
+  document.querySelectorAll('.navTab').forEach(function(t){
+    t.classList.toggle('active', t.dataset.tab === tabId);
+  });
+  document.querySelectorAll('.bottomNavItem').forEach(function(i){
+    i.classList.toggle('active', i.getAttribute('href') === '#'+tabId);
+  });
+  var el = document.getElementById(tabId);
+  if(el){
+    el.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+}
 
 // ===== 显示景点详情 =====
 function showSpotDetail(id){
@@ -379,11 +585,40 @@ function showSpecialtyDetail(id){
   document.body.style.overflow='hidden';
 }
 
+// ===== 显示二手详情 =====
+function showSecondHandDetail(id){
+  var item=secondHandData[id];
+  if(!item)return;
+  document.getElementById('secondhandModalTitle').textContent=item.name;
+  document.getElementById('secondhandModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+item.icon+'</p><p class="price">'+item.price+'</p><p><span class="label">✨ 新旧程度：</span>'+item.condition+'</p><p><span class="label">📍 位置：</span>'+item.location+'</p><p><span class="label">📱 联系方式：</span>'+item.contact+'</p><p><span class="label">📝 备注：</span>'+item.note+'</p><p><span class="label">💡 说明：</span>'+item.desc+'</p>';
+  document.getElementById('secondhandModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+// ===== 显示社交详情 =====
+function showSocialDetail(id){
+  var item=socialData[id];
+  if(!item)return;
+  document.getElementById('socialModalTitle').textContent=item.name;
+  document.getElementById('socialModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+item.icon+'</p><p><span class="label">👥 群成员：</span>'+item.members+'</p><p><span class="label">📍 范围：</span>'+item.location+'</p><p><span class="label">🔥 活跃度：</span>'+item.active+'</p><p><span class="label">📝 简介：</span>'+item.desc+'</p><p style="margin-top:16px"><button class="bigBtn" onclick="alert(\'申请加群功能开发中，敬请期待！\')">申请加入群聊</button></p>';
+  document.getElementById('socialModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
+// ===== 显示互助详情 =====
+function showAidDetail(id){
+  var item=aidData[id];
+  if(!item)return;
+  document.getElementById('aidModalTitle').textContent=item.name;
+  document.getElementById('aidModalInfo').innerHTML='<p style="text-align:center;font-size:48px;margin-bottom:16px">'+item.icon+'</p><p><span class="label">📍 位置：</span>'+item.location+'</p><p><span class="label">📝 详情：</span>'+item.desc+'</p>'+(item.urgency?'<p><span class="label">⚠️ 紧急程度：</span>'+item.urgency+'</p>':'')+(item.skill?'<p><span class="label">🛠️ 技能：</span>'+item.skill+'</p>':'')+(item.reputation?'<p><span class="label">⭐ 信誉：</span>'+item.reputation+'</p>':'')+'<p style="margin-top:16px"><button class="bigBtn" onclick="alert(\'联系功能开发中，敬请期待！\')">联系对方</button></p>';
+  document.getElementById('aidModal').classList.add('show');
+  document.body.style.overflow='hidden';
+}
+
 // ===== 关闭弹窗 =====
 function closeModal(e){
   if(e && e.target !== e.currentTarget)return;
-  document.getElementById('spotModal').classList.remove('show');
-  document.getElementById('specialtyModal').classList.remove('show');
+  document.querySelectorAll('.modalOverlay').forEach(function(m){m.classList.remove('show')});
   document.body.style.overflow='auto';
 }
 
@@ -414,7 +649,7 @@ function closeModal(e){
 })();
 
 // ===== 加载完成标记 =====
-document.addEventListener('DOMContentLoaded',function(){console.log('✅ 钟祥莫愁帮 V1.0 - 页面加载完成');});
+document.addEventListener('DOMContentLoaded',function(){console.log('✅ 钟祥莫愁帮 - 完整版 - 页面加载完成');});
 </script>
 </body>
 </html>
