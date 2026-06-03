@@ -271,13 +271,14 @@ export default function HomePage() {
           <span className={styles.videoChannelTitle}>许可3108 视频号</span>
         </div>
         <div className={styles.videoChannelContent}>
-          <iframe
-            src="https://finder.video.qq.com/251/20302/stodownload.html?cover_url=https%3A%2F%2Ffinder.video.qq.com%252F251%252F20302%252Fstodownload%3Fbase64%3DVyQbNZzIAAAVQA5AAImAQAAAAwAyUVubAAAAA%3D%3D&vid=b3340c4qo3s"
-            frameBorder="0"
-            allowFullScreen
-            className={styles.videoChannelIframe}
-            title="许可3108 视频号"
-          />
+          <div className={styles.qrcodeContainer}>
+            <img
+              src="/images/video-qrcode.png"
+              alt="许可3108 视频号二维码"
+              className={styles.qrcodeImage}
+            />
+            <p className={styles.qrcodeTip}>扫一扫二维码，关注"许可3108"视频号</p>
+          </div>
         </div>
       </div>
 
