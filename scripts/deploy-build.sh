@@ -10,3 +10,6 @@ cd frontend && pnpm install --prefer-offline
 
 echo "Building frontend with Vite..."
 pnpm run build
+
+echo "Copying static index.html to dist..."
+cp -f public/index.html dist/index.html
