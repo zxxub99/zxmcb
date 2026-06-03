@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>钟祥莫愁帮-纯静态测试</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;background:linear-gradient(135deg,#e8f5e9,#c8e6c9);min-height:100vh;padding:20px}
+.wrap{max-width:480px;margin:0 auto}
+.header{text-align:center;padding:30px 20px}
+.header h1{color:#1b5e20;font-size:28px;margin-bottom:8px}
+.header p{color:#388e3c;font-size:16px}
+.card{background:#fff;border-radius:14px;padding:24px;margin-bottom:16px;box-shadow:0 2px 12px rgba(46,125,50,.12)}
+.card h2{color:#2e7d32;font-size:18px;margin-bottom:14px;border-left:4px solid #4caf50;padding-left:10px}
+.tag{display:inline-block;padding:5px 12px;background:#e8f5e9;color:#2e7d32;border-radius:16px;font-size:13px;margin:3px}
+.row{display:flex;flex-wrap:wrap;gap:6px}
+.btn{display:block;width:100%;padding:14px;text-align:center;background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px;margin-top:8px;box-shadow:0 3px 10px rgba(46,125,50,.3)}
+.footer{text-align:center;padding:20px;color:#555;font-size:13px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="header">
+<h1>🌿 钟祥莫愁帮</h1><p>长寿之乡 · 本地互助平台</p>
+</div>
+
+<div class="card">
+<h2>🎯 精选服务</h2>
+<div class="row"><span class="tag">🎁 长寿特产专区</span><span class="tag">🏨 旅游服务专区</span></div>
+<a href="/" class="btn">进入长寿特产 →</a></div>
+
+<div class="card"><h2>📱 热门服务</h2>
+<div class="row"><span class="tag">🤝 同城交友</span><span class="tag">🔄 二手闲置</span><span class="tag">🤝 邻居互助</span></div>
+<div class="row"><span class="tag">🌿 长寿故事</span><span class="tag">🏛️ 钟祥十二景</span></div>
+<a href="/" class="btn">进入热门服务 →</a></div>
+
+<div class="card"><h2>📺 视频号 · 智能体</h2>
+<div class="row"><span class="tag">许可3108 视频号</span><span class="tag">🏡 农家小院智能体</span></div></div>
+
+<div class="card"><h2>🏛️ 钟祥十二景</h2>
+<div class="row"><span class="tag">① 明显陵</span><span class="tag">② 莫愁湖·莫愁村</span><span class="tag">③ 黄仙洞</span></div>
+<div class="row"><span class="tag">④ 大口森林公园</span><span class="tag">⑤ 博物馆</span><span class="tag">⑥ 兴王府</span></div>
+<div class="row"><span class="tag">⑦ 元佑宫</span><span class="tag">⑧ 彭墩乡村</span><span class="tag">⑨ 汇源农谷</span></div>
+<div class="row"><span class="tag">⑩ 万紫千红植物园</span><span class="tag">⑪ 石牌古镇</span><span class="tag">⑫ 莫愁渡白雪楼</span></div></div>
+
+<div class="footer">⚡ 纯静态HTML页面 | 无JS依赖 | 钟祥莫愁帮 © 2026</div>
+</div>
+<script>document.querySelector('.footer').innerHTML+=' ✅ 页面加载完成 '+new Date().toLocaleTimeString();</script>
+</body>
+</html>

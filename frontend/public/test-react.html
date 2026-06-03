@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>钟祥莫愁帮-React测试</title>
+<style>
+body{margin:0;font-family:-apple-system,sans-serif;background:linear-gradient(135deg,#e8f5e9,#a5d6a7);min-height:100vh;display:flex;align-items:center;justify-content:center}
+.card{background:#fff;padding:40px;border-radius:16px;box-shadow:0 4px 24px rgba(46,125,50,.2);max-width:420px;text-align:center}
+h1{color:#2e7d32;margin-bottom:12px;font-size:28px}
+p{color:#666;margin:8px 0 20px}
+.badge{display:inline-block;padding:6px 16px;background:#e8f5e9;color:#2e7d32;border-radius:20px;font-size:14px;margin:4px}
+.btn{display:inline-block;margin-top:20px;padding:14px 36px;background:linear-gradient(135deg,#2e7d32,#43a047);color:#fff;border-radius:10px;text-decoration:none;font-weight:600;font-size:16px}
+</style>
+</head>
+<body>
+<div id="root"></div>
+
+<script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+<script type="text/babel">
+function App() {
+  const [time, setTime] = React.useState(new Date().toLocaleTimeString());
+  React.useEffect(() => {
+    const t = setInterval(() => setTime(new Date().toLocaleTimeString()), 1000);
+    return () => clearInterval(t);
+  }, []);
+  
+  return (
+    <div className="card">
+      <h1>🌿 钟祥莫愁帮</h1>
+      <p style={{fontSize:'18px',color:'#2e7d32',fontWeight:'bold'}}>长寿之乡 · 本地互助平台</p>
+      
+      <div style={{margin:'20px 0'}}>
+        <span className="badge">✅ React 正常运行</span><br/>
+        <span className="badge">⏱️ {time}</span>
+      </div>
+      
+      <div style={{textAlign:'left',background:'#f5f5f5',padding:'16px',borderRadius:'10px',margin:'16px 0',fontSize:'13px',lineHeight:'1.8'}}>
+        <b>📱 四大板块：</b><br/>
+        🤝 同城交友 &nbsp;&nbsp;🔄 二手闲置<br/>
+        🎁 长寿特产 &nbsp;&nbsp;🏨 旅游服务<br/><br/>
+        <b>🏛️ 精选推荐：</b><br/>
+        🌿 邻居互助 &nbsp;&nbsp;📖 长寿故事<br/>
+        🏛️ 钟祥十二景 &nbsp;&nbsp;🏡 农家小院智能体<br/><br/>
+        <b>📺 视频号：许可3108</b>
+      </div>
+      
+      <a href="/" className="btn">进入完整版首页 →</a>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(<App />);
+</script>
+</body>
+</html>
