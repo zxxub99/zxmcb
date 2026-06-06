@@ -26,6 +26,7 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 .mainTitle{display:flex;align-items:center;justify-content:center;gap:6px;font-size:26px;font-weight:800;color:#1b5e20;letter-spacing:3px;text-shadow:0 1px 2px rgba(46,125,50,.15)}
 .mainTitle .leaf{font-size:28px;line-height:1}
 .subTitle{font-size:13px;color:#558b2f;margin-top:4px;letter-spacing:2px;font-weight:500}
+.sloganRow{font-size:11px;color:#689f38;margin-top:8px;font-weight:600;background:linear-gradient(90deg,#e8f5e9,#c8e6c9,#e8f5e9);padding:6px 16px;border-radius:20px;display:inline-block}
 
 .poemPanel{margin-top:16px;background:linear-gradient(135deg,#558b2f,#689f38);border-radius:12px;overflow:hidden;box-shadow:0 3px 12px rgba(85,139,47,.25)}
 .poemTitleRow{display:flex;align-items:center;justify-content:center;gap:6px;padding:10px 14px;background:rgba(255,255,255,.12);font-size:13px;color:#f1f8e9;font-weight:600;letter-spacing:1px}
@@ -195,21 +196,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 
 <!-- ===== 标题 + 诗词 + 二维码 ===== -->
 <div class="headerSection">
-<div class="mainTitle"><span class="leaf">🍃</span> 钟祥莫愁帮 <span class="leaf">🌾</span></div>
-<div class="subTitle">世界长寿之乡 · 生活服务平台</div>
+<div class="mainTitle"><span class="leaf">🌿</span> 钟祥莫愁帮 <span class="leaf">🌾</span></div>
+<div class="subTitle">身在钟祥，邻里相伴，生活万事莫愁</div>
+<div class="sloganRow">邻里互帮 · 资源共享 · 便民利民 · 助农兴乡</div>
 
 <div class="poemPanel">
-<div class="poemTitleRow">📖 湖北钟祥旅游天堂</div>
+<div class="poemTitleRow">📖 莫愁故里 · 长寿之乡</div>
 <div class="poemBody">
 <div class="poemScroll"><div class="poemScrollInner">
 <div class="poemLine">莫愁故里喜相逢</div>
 <div class="poemLine">莫愁村中笑语浓</div>
 <div class="poemLine">莫愁湖畔风光好</div>
 <div class="poemLine">莫愁小院话从容</div>
+<div class="poemLine">长寿之乡民风朴</div>
+<div class="poemLine">邻里互助暖融融</div>
 <div class="poemLine">莫愁故里喜相逢</div>
 <div class="poemLine">莫愁村中笑语浓</div>
 <div class="poemLine">莫愁湖畔风光好</div>
 <div class="poemLine">莫愁小院话从容</div>
+<div class="poemLine">长寿之乡民风朴</div>
+<div class="poemLine">邻里互助暖融融</div>
 </div></div>
 </div>
 </div>
@@ -309,6 +315,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="spotNum">⑫</div>
 <div class="spotName">莫愁渡白雪楼</div>
 </div>
+</div>
+</div>
+
+<!-- ===== 文旅攻略 ===== -->
+<div class="sectionCard" id="tourism" style="margin-top:14px">
+<div class="sectionHeader"><span class="sectionIcon">📋</span><span class="sectionTitle">钟祥文旅攻略</span></div>
+<div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:12px;padding:14px;margin-bottom:12px">
+<p style="font-size:13px;font-weight:700;color:#e65100;margin-bottom:8px">🚗 推荐路线</p>
+<p style="font-size:12px;color:#f57c00;line-height:1.6">一日游：明显陵 → 莫愁湖·莫愁村 → 市博物馆<br>
+二日游：D1 明显陵 → 莫愁湖 → 莫愁村住宿；D2 黄仙洞 → 大口森林公园</p>
+</div>
+<div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:12px;padding:14px;margin-bottom:12px">
+<p style="font-size:13px;font-weight:700;color:#0d47a1;margin-bottom:8px">🍜 美食推荐</p>
+<p style="font-size:12px;color:#1565c0;line-height:1.6">钟祥米茶、蟠龙菜、蒸菜、腊肉、葛粉、酥饼</p>
+</div>
+<div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:12px;padding:14px">
+<p style="font-size:13px;font-weight:700;color:#2e7d32;margin-bottom:8px">💡 温馨提示</p>
+<p style="font-size:12px;color:#388e3c;line-height:1.6">明显陵周一闭馆（节假日除外）<br>
+黄仙洞洞内温度较低，建议带外套<br>
+夏季游玩建议多喝水，品尝钟祥米茶解暑</p>
 </div>
 </div>
 
@@ -436,6 +462,29 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 <div class="sectionHeader"><span class="sectionIcon">💬</span><span class="sectionTitle">留言咨询</span></div>
 <div class="noticeBar">
 📢 <strong>说明</strong>：留言数据保存在您的本地浏览器中，刷新页面后仍会显示。如需永久保存，请联系我们开通Supabase服务。
+</div>
+
+<!-- ===== 本地办事指南 ===== -->
+<div style="background:linear-gradient(135deg,#f3e5f5,#e8f5e9);border-radius:12px;padding:14px;margin-bottom:14px">
+<p style="font-size:13px;font-weight:700;color:#7b1fa2;margin-bottom:10px">📋 本地办事指南</p>
+<div style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px">
+<div style="background:#fff;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:20px;margin-bottom:4px">🏠</div>
+<div style="font-size:11px;color:#666;font-weight:600">社区服务</div>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:20px;margin-bottom:4px">🏥</div>
+<div style="font-size:11px;color:#666;font-weight:600">就医指南</div>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:20px;margin-bottom:4px">🎓</div>
+<div style="font-size:11px;color:#666;font-weight:600">上学咨询</div>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px;text-align:center">
+<div style="font-size:20px;margin-bottom:4px">💰</div>
+<div style="font-size:11px;color:#666;font-weight:600">缴费办证</div>
+</div>
+</div>
 </div>
 
 <div class="messageSection">
