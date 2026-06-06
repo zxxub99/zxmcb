@@ -735,11 +735,9 @@ function escapeHtml(s){return (s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;')
 	const USER_ITEMS_KEY="mochoubang_user_items";
 	let userItems=[];
 	function loadUserItems(){const raw=localStorage.getItem(USER_ITEMS_KEY);userItems=raw?JSON.parse(raw):[];}
-	function loadUserItems(){const raw=localStorage.getItem(USER_ITEMS_KEY);userItems=raw?JSON.parse(raw):[];}
 	function saveUserItems(){localStorage.setItem(USER_ITEMS_KEY,JSON.stringify(userItems));}
 	function showPublishForm(){const f=document.getElementById("publishForm");f.style.display=f.style.display==="none"?"block":"none";}
 	function showPublishForm(){const f=document.getElementById("publishForm");f.style.display=f.style.display==="none"?"block":"none";}
-	function submitItem(){
 	const title=document.getElementById("itemTitle").value.trim();
 	const price=parseInt(document.getElementById("itemPrice").value)||0;
 	const condition=document.getElementById("itemCondition").value;
@@ -767,6 +765,5 @@ document.addEventListener('DOMContentLoaded',function(){
 	initBanner();
 	loadMessages();
 	document.addEventListener("DOMContentLoaded",function(){initBanner();loadMessages();loadUserItems();});
-</script>
-</body>
+		loadMessages();loadUserItems();
 </html>
