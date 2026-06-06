@@ -375,6 +375,60 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hira
 </div>
 </div>
 
+<!-- ===== 特产攻略 ===== -->
+<div class="sectionCard" id="specialty" style="margin-top:14px;display:none">
+<div class="sectionHeader"><span class="sectionIcon">📋</span><span class="sectionTitle">特产攻略</span></div>
+
+<!-- 送礼推荐 -->
+<div style="background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:12px;padding:14px;margin-bottom:12px">
+<p style="font-size:13px;font-weight:700;color:#e65100;margin-bottom:10px">🎁 送礼推荐搭配</p>
+<div style="display:grid;gap:8px">
+<div style="background:#fff;border-radius:8px;padding:10px">
+<p style="font-size:12px;font-weight:700;color:#e65100;margin-bottom:6px">🏠 家庭馈赠</p>
+<p style="font-size:11px;color:#f57c00">米茶 + 盘龙菜 + 葛粉</p>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px">
+<p style="font-size:12px;font-weight:700;color:#e65100;margin-bottom:6px">👔 商务送礼</p>
+<p style="font-size:11px;color:#f57c00">盘龙菜礼盒 + 葛粉 + 土蜂蜜</p>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px">
+<p style="font-size:12px;font-weight:700;color:#e65100;margin-bottom:6px">🧳 游客伴手礼</p>
+<p style="font-size:11px;color:#f57c00">花生酥 + 香菇木耳 + 米茶</p>
+</div>
+</div>
+</div>
+
+<!-- 食用指南 -->
+<div style="background:linear-gradient(135deg,#e8f5e9,#c8e6c9);border-radius:12px;padding:14px;margin-bottom:12px">
+<p style="font-size:13px;font-weight:700;color:#2e7d32;margin-bottom:10px">🍽️ 食用指南</p>
+<div style="display:grid;gap:8px">
+<div style="background:#fff;border-radius:8px;padding:10px">
+<p style="font-size:12px;font-weight:700;color:#2e7d32;margin-bottom:6px">🍚 米茶饮用技巧</p>
+<p style="font-size:11px;color:#388e3c">用刚烧开的沸水冲泡，焖3-5分钟，放凉后饮用更佳，夏季可冷藏后饮用</p>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px">
+<p style="font-size:12px;font-weight:700;color:#2e7d32;margin-bottom:6px">🥩 盘龙菜吃法</p>
+<p style="font-size:11px;color:#388e3c">切片后蒸10分钟即可食用，也可以油煎，配蒜泥、醋蘸食味道更佳</p>
+</div>
+<div style="background:#fff;border-radius:8px;padding:10px">
+<p style="font-size:12px;font-weight:700;color:#2e7d32;margin-bottom:6px">🌾 葛粉冲调方法</p>
+<p style="font-size:11px;color:#388e3c">先用少量凉开水调匀，再用刚烧开的沸水边冲边搅拌，至透明糊状即可</p>
+</div>
+</div>
+</div>
+
+<!-- 保存提示 -->
+<div style="background:linear-gradient(135deg,#e3f2fd,#bbdefb);border-radius:12px;padding:14px">
+<p style="font-size:13px;font-weight:700;color:#0d47a1;margin-bottom:10px">💡 保存小贴士</p>
+<ul style="font-size:11px;color:#1565c0;line-height:1.8;margin:0;padding-left:16px">
+<li>米茶、香菇木耳、葛粉：密封干燥保存，防潮防霉</li>
+<li>盘龙菜：冷藏保存，食用前加热</li>
+<li>土蜂蜜：常温保存，避免高温和阳光直射</li>
+<li>花生酥：密封保存，防止受潮变软</li>
+</ul>
+</div>
+</div>
+
 <!-- ===== 二手交易 (V2.0) ===== -->
 <div class="sectionCard" id="secondhand" style="display:none">
 <div class="sectionHeader"><span class="sectionIcon">🔄</span><span class="sectionTitle">二手交易</span></div>
@@ -620,12 +674,12 @@ const spots=[
 {id:12,name:"莫愁渡白雪楼",img:"/images/scenic-spots/12-mochoudubaixuelou.png",location:"钟祥市城区",ticket:"免费",open:"全天开放",desc:"白雪楼是钟祥历史名楼，为纪念莫愁女而建，登楼可俯瞰莫愁湖全景，是钟祥标志性建筑之一。"}
 ];
 const specialties=[
-{id:1,name:"钟祥米茶",icon:"🍚",price:"25-50元/斤",method:"100℃开水，5g米茶/200ml水，焖3分钟即可饮用",desc:"钟祥米茶是长寿之乡特色饮品，由大米炒制而成，色泽金黄，香气独特，具有清热解暑、健脾开胃的功效，是钟祥人夏季必备饮品。"},
-{id:2,name:"盘龙菜",icon:"🥩",price:"80-150元/盒",method:"切片蒸食或煎食，配蘸料食用更佳",desc:"盘龙菜又名\"蟠龙菜\"，是钟祥传统名菜，源于明朝宫廷御膳。由猪肉、鱼肉、鸡蛋等精制而成，造型美观，鲜香可口，是钟祥逢年过节必备佳肴。"},
-{id:3,name:"香菇木耳",icon:"🍄",price:"40-80元/袋",method:"温水泡发后炒食、炖食或做汤",desc:"大洪山天然香菇木耳，生长于钟祥山区森林，肉厚味美，营养丰富，含有多种氨基酸和微量元素，是健康养生的佳品。"},
-{id:4,name:"葛根粉",icon:"🌾",price:"60-120元/罐",method:"先用凉开水调匀，再用沸水冲调，搅拌成透明糊状即可",desc:"野生葛根制作，葛根富含黄酮类物质，具有清热解毒、生津止渴、补肾健脾的功效，是天然的养生佳品。"},
-{id:5,name:"花生酥",icon:"🥜",price:"20-40元/盒",method:"开袋即食",desc:"传统手工糕点，选用优质花生，香酥可口，甜而不腻，是休闲零食和馈赠亲友的好选择。"},
-{id:6,name:"土蜂蜜",icon:"🍯",price:"80-160元/瓶",method:"直接食用或温水冲服，水温不宜超过60℃",desc:"天然百花蜜，采自钟祥山区野花，纯正香甜，营养丰富，具有润肺止咳、润肠通便的功效。"}
+{id:1,name:"钟祥米茶",icon:"🍚",price:"25-50元/斤",method:"100℃开水，5g米茶/200ml水，焖3分钟即可饮用",desc:"钟祥米茶是长寿之乡特色饮品，由大米炒制而成，色泽金黄，香气独特，具有清热解暑、健脾开胃的功效，是钟祥人夏季必备饮品。",origin:"钟祥市各乡镇（尤以洋梓、长寿镇为佳）",craft:"精选优质大米→清洗沥干→铁锅小火慢炒→炒至金黄起香→冷却装袋",merchant:"莫愁农家小院",location:"郢中街道莫愁湖村",phone:"139-7289-XXXX"},
+{id:2,name:"盘龙菜",icon:"🥩",price:"80-150元/盒",method:"切片蒸食或煎食，配蘸料食用更佳",desc:"盘龙菜又名\"蟠龙菜\"，是钟祥传统名菜，源于明朝宫廷御膳。由猪肉、鱼肉、鸡蛋等精制而成，造型美观，鲜香可口，是钟祥逢年过节必备佳肴。",origin:"钟祥市城区及周边乡镇",craft:"精选鲜猪肉、草鱼→剁成肉泥→加鸡蛋、淀粉搅匀→摊成薄饼→卷成卷→上笼蒸熟→冷却包装",merchant:"明显陵农家菜馆",location:"明显陵景区旁",phone:"138-7296-XXXX"},
+{id:3,name:"香菇木耳",icon:"🍄",price:"40-80元/袋",method:"温水泡发后炒食、炖食或做汤",desc:"大洪山天然香菇木耳，生长于钟祥山区森林，肉厚味美，营养丰富，含有多种氨基酸和微量元素，是健康养生的佳品。",origin:"钟祥市客店镇、张集镇（大洪山山区）",craft:"山区椴木种植→自然生长→手工采摘→阳光晾晒→精选分级→包装",merchant:"客店山货合作社",location:"客店镇街道",phone:"137-9793-XXXX"},
+{id:4,name:"葛根粉",icon:"🌾",price:"60-120元/罐",method:"先用凉开水调匀，再用沸水冲调，搅拌成透明糊状即可",desc:"野生葛根制作，葛根富含黄酮类物质，具有清热解毒、生津止渴、补肾健脾的功效，是天然的养生佳品。",origin:"钟祥市客店镇、大口山区",craft:"采挖野生葛根→清洗去皮→粉碎磨浆→过滤沉淀→干燥成粉→精细包装",merchant:"大口葛根专业合作社",location:"大口森林公园旁",phone:"136-7725-XXXX"},
+{id:5,name:"花生酥",icon:"🥜",price:"20-40元/盒",method:"开袋即食",desc:"传统手工糕点，选用优质花生，香酥可口，甜而不腻，是休闲零食和馈赠亲友的好选择。",origin:"钟祥市石牌镇、旧口镇",craft:"精选本地花生→烘焙去皮→碾碎成粉→加麦芽糖、面粉→揉制成型→切块包装",merchant:"石牌传统糕点坊",location:"石牌镇古街",phone:"135-9790-XXXX"},
+{id:6,name:"土蜂蜜",icon:"🍯",price:"80-160元/瓶",method:"直接食用或温水冲服，水温不宜超过60℃",desc:"天然百花蜜，采自钟祥山区野花，纯正香甜，营养丰富，具有润肺止咳、润肠通便的功效。",origin:"钟祥市山区乡镇（客店、张集、大口）",craft:"中华蜜蜂养殖→采集百花蜜→自然封盖→手工摇蜜→过滤装瓶",merchant:"莫愁山中蜂养殖场",location:"客店镇赵泉河村",phone:"134-7738-XXXX"}
 ];
 const secondHandItems=[
 {id:1,icon:"📱",title:"小米手机",price:80,condition:"9成新",location:"郢中街道",desc:"小米手环4，使用一年，功能正常，配件齐全，同城见面交易。"},
@@ -702,7 +756,7 @@ function showSpecialtyDetail(id){
 	const s=specialties.find(x=>x.id===id);
 	if(!s) return;
 	document.getElementById('specialtyModalTitle').textContent=s.name;
-	document.getElementById('specialtyModalInfo').innerHTML='<div style=\"text-align:center;margin-bottom:16px\"><span style=\"font-size:64px\">'+s.icon+'</span></div><p class=\"price\">'+s.price+'</p><p><span class=\"label\">🍽️ 食用方法：</span>'+s.method+'</p><p style=\"margin-top:12px\">'+s.desc+'</p>';
+	document.getElementById('specialtyModalInfo').innerHTML='<div style=\"text-align:center;margin-bottom:16px\"><span style=\"font-size:64px\">'+s.icon+'</span></div><p class=\"price\">'+s.price+'</p><p><span class=\"label\">📍 产地：</span>'+s.origin+'</p><p><span class=\"label\">🏠 商家：</span>'+s.merchant+'</p><p><span class=\"label\">📍 位置：</span>'+s.location+'</p><p><span class=\"label\">📞 电话：</span>'+s.phone+'</p><p><span class=\"label\">👨‍🍳 制作工艺：</span>'+s.craft+'</p><p><span class=\"label\">🍽️ 食用方法：</span>'+s.method+'</p><p style=\"margin-top:12px\">'+s.desc+'</p><div style=\"margin-top:16px;padding:12px;background:linear-gradient(135deg,#fff3e0,#ffe0b2);border-radius:10px;text-align:center\"><p style=\"color:#e65100;font-weight:700;margin-bottom:8px\">📱 点击预订 → 联系商家</p><p style=\"font-size:12px;color:#f57c00\">可自提、可配送、可邮寄</p></div><button class=\"bigBtn\" style=\"margin-top:12px\" onclick=\"alert(\\'请联系商家：'+s.phone+'\\')\">📞 联系商家预订</button>';
 	document.getElementById('specialtyModal').classList.add('show');
 }
 function showSecondHandDetail(id){
